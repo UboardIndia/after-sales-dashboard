@@ -1,7 +1,8 @@
 "use client";
 
 import { useState, useEffect, useMemo } from "react";
-import { RefreshCw, AlertCircle } from "lucide-react";
+import { useRouter } from "next/navigation";
+import { RefreshCw, AlertCircle, LogOut } from "lucide-react";
 import type { ComplaintRow, ApiResponse } from "@/lib/types";
 import KPICard from "./KPICard";
 import MonthlyTrendChart from "./MonthlyTrendChart";
@@ -18,11 +19,20 @@ const MONTH_ORDER = [
 ];
 
 export default function Dashboard() {
+  const router = useRouter();
   const [data, setData] = useState<ComplaintRow[]>([]);
   const [lastUpdated, setLastUpdated] = useState<string>("");
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [refreshing, setRefreshing] = useState(false);
+  const [loggingOut, setLoggingOut] = useState(false);
+
+  async function handleLogout() {
+    setLoggingOut(true);
+    await fetch("/api/auth/logout", { method: "POST" });
+    router.push("/login");
+    router.refresh();
+  }
 
   // Filters
   const [filterBrand, setFilterBrand] = useState("All");
@@ -212,6 +222,14 @@ export default function Dashboard() {
             >
               <RefreshCw size={13} className={refreshing ? "animate-spin" : ""} />
               Refresh
+            </button>
+            <button
+              onClick={handleLogout}
+              disabled={loggingOut}
+              className="flex items-center gap-1.5 text-xs px-3 py-1.5 rounded-lg bg-slate-100 text-slate-600 hover:bg-red-50 hover:text-red-600 transition disabled:opacity-50"
+            >
+              <LogOut size={13} />
+              {loggingOut ? "Signing out…" : "Sign Out"}
             </button>
           </div>
         </div>
