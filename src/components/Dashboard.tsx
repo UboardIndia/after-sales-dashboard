@@ -231,6 +231,18 @@ export default function Dashboard() {
     [filtered]
   );
 
+  // Date range label for the open complaints chart top-right corner
+  const dateRangeLabel = useMemo(() => {
+    const months = filtered
+      .map((r) => r.monthYear)
+      .filter(Boolean)
+      .sort((a, b) => MONTH_ORDER.indexOf(a) - MONTH_ORDER.indexOf(b));
+    if (months.length === 0) return undefined;
+    const first = months[0];
+    const last = months[months.length - 1];
+    return first === last ? first : `${first} → ${last}`;
+  }, [filtered]);
+
   if (loading) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-slate-50">
@@ -386,11 +398,11 @@ export default function Dashboard() {
         {/* Accountability Board — who owns each open unit */}
         <AccountabilityBoard openRows={openTickets} />
 
-        {/* Why are complaints open + Monthly trend */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
-          <OpenIssueBreakdown openRows={openTickets} />
-          <MonthlyTrendChart data={monthlyData} />
-        </div>
+        {/* Open complaints status breakdown — full width */}
+        <OpenIssueBreakdown openRows={openTickets} dateRangeLabel={dateRangeLabel} />
+
+        {/* Monthly trend */}
+        <MonthlyTrendChart data={monthlyData} />
 
         {/* Complaint source + Issue types */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
