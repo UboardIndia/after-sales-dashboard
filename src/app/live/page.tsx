@@ -147,7 +147,7 @@ export default function LivePage() {
           </span>
         </div>
 
-        <LiveFeedTable rows={filtered} />
+        <LiveFeedTable rows={filtered} onUpdated={fetchData} />
       </main>
     </div>
   );

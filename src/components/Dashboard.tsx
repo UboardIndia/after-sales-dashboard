@@ -42,6 +42,7 @@ export default function Dashboard() {
   const [filterBrand, setFilterBrand] = useState("All");
   const [filterComplaintType, setFilterComplaintType] = useState("All");
   const [filterMonth, setFilterMonth] = useState("All");
+  const [filterRange, setFilterRange] = useState<"All" | "3m" | "6m" | "12m">("All");
 
   async function fetchData() {
     try {
@@ -86,6 +87,23 @@ export default function Dashboard() {
     return ["All", ...sorted];
   }, [data]);
 
+  // Compute cutoff for range filter
+  const rangeCutoff = useMemo(() => {
+    if (filterRange === "All") return 0;
+    const months = filterRange === "3m" ? 3 : filterRange === "6m" ? 6 : 12;
+    const d = new Date();
+    d.setMonth(d.getMonth() - months);
+    return d.getFullYear() * 10000 + (d.getMonth() + 1) * 100 + d.getDate();
+  }, [filterRange]);
+
+  function parseDMYNum(s: string): number {
+    if (!s) return 0;
+    const parts = s.split("/");
+    if (parts.length !== 3) return 0;
+    const [d, m, y] = parts.map(Number);
+    return y * 10000 + m * 100 + d;
+  }
+
   // Filtered data
   const filtered = useMemo(() => {
     return data.filter((r) => {
@@ -93,9 +111,13 @@ export default function Dashboard() {
       if (filterBrand !== "All" && r.brand !== filterBrand) return false;
       if (filterComplaintType !== "All" && r.complaintType !== filterComplaintType) return false;
       if (filterMonth !== "All" && r.monthYear !== filterMonth) return false;
+      if (rangeCutoff > 0) {
+        const cd = parseDMYNum(r.complaintDate);
+        if (cd === 0 || cd < rangeCutoff) return false;
+      }
       return true;
     });
-  }, [data, filterYear, filterBrand, filterComplaintType, filterMonth]);
+  }, [data, filterYear, filterBrand, filterComplaintType, filterMonth, rangeCutoff]);
 
   // KPIs
   const kpis = useMemo(() => {
@@ -266,43 +288,30 @@ export default function Dashboard() {
           </div>
         )}
 
-        {/* Filters */}
-        <div className="flex flex-wrap gap-3 bg-white rounded-xl border border-slate-200 px-4 py-3">
-          <span className="text-xs font-medium text-slate-500 self-center">Filters:</span>
+        {/* Filters — one row, standardised */}
+        <div className="flex flex-wrap items-center gap-3 bg-white rounded-xl border border-slate-200 px-4 py-3">
+          <span className="text-xs font-medium text-slate-500">Filters:</span>
           <FilterSelect
-            label="Year"
-            value={filterYear}
-            options={years}
-            onChange={setFilterYear}
+            label="Period"
+            value={filterRange}
+            options={["All", "3m", "6m", "12m"]}
+            display={(v) => v === "All" ? "All time" : `Last ${v.replace("m", " months")}`}
+            onChange={(v) => setFilterRange(v as "All" | "3m" | "6m" | "12m")}
           />
-          <FilterSelect
-            label="Brand"
-            value={filterBrand}
-            options={brands}
-            onChange={setFilterBrand}
-          />
-          <FilterSelect
-            label="Type"
-            value={filterComplaintType}
-            options={["All", "Customer Complaint", "Store Complaint"]}
-            onChange={setFilterComplaintType}
-          />
-          <FilterSelect
-            label="Month"
-            value={filterMonth}
-            options={months}
-            onChange={setFilterMonth}
-          />
-          {(filterYear !== "All" || filterBrand !== "All" || filterComplaintType !== "All" || filterMonth !== "All") && (
+          <FilterSelect label="FY"    value={filterYear}  options={years}  onChange={setFilterYear} />
+          <FilterSelect label="Brand" value={filterBrand} options={brands} onChange={setFilterBrand} />
+          <FilterSelect label="Type"  value={filterComplaintType} options={["All", "Customer Complaint", "Store Complaint"]} onChange={setFilterComplaintType} />
+          <FilterSelect label="Month" value={filterMonth} options={months} onChange={setFilterMonth} />
+          {(filterYear !== "All" || filterBrand !== "All" || filterComplaintType !== "All" || filterMonth !== "All" || filterRange !== "All") && (
             <button
-              onClick={() => { setFilterYear("All"); setFilterBrand("All"); setFilterComplaintType("All"); setFilterMonth("All"); }}
-              className="text-xs text-indigo-600 hover:underline self-center ml-1"
+              onClick={() => { setFilterYear("All"); setFilterBrand("All"); setFilterComplaintType("All"); setFilterMonth("All"); setFilterRange("All"); }}
+              className="text-xs text-indigo-600 hover:underline self-center"
             >
               Clear all
             </button>
           )}
-          <span className="ml-auto text-xs text-slate-400 self-center">
-            Showing {filtered.length.toLocaleString()} of {data.length.toLocaleString()} complaints
+          <span className="ml-auto text-xs text-slate-400">
+            {filtered.length.toLocaleString()} of {data.length.toLocaleString()}
           </span>
         </div>
 
@@ -382,11 +391,13 @@ function FilterSelect({
   value,
   options,
   onChange,
+  display,
 }: {
   label: string;
   value: string;
   options: string[];
   onChange: (v: string) => void;
+  display?: (v: string) => string;
 }) {
   return (
     <div className="flex items-center gap-1.5">
@@ -398,7 +409,7 @@ function FilterSelect({
       >
         {options.map((o) => (
           <option key={o} value={o}>
-            {o}
+            {display ? display(o) : o}
           </option>
         ))}
       </select>

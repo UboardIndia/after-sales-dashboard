@@ -1,12 +1,9 @@
 # After Sales Dashboard — Ownership Handover
 
-**Prepared for:** Asis — GitHub `THEOASIS11`, email `cloud@uboardindia.com`
+**Prepared for:** Asis
 **Handover from:** UBOARD (current owner)
 **Date:** June 2026
 **Live dashboard:** https://after-sales-dashboard.vercel.app
-**Transfer mode:** Asis added as **admin** alongside current owner (shared ownership).
-
-**Status:** ✅ GitHub admin invite sent to `THEOASIS11` (awaiting accept) · ⬜ Vercel · ⬜ Google Sheets
 
 This document contains **everything** needed to fully own, run, change, and deploy the
 After Sales Dashboard. Read it top to bottom once, then keep it as reference.
@@ -87,15 +84,7 @@ It is **read-only** against the Google Sheets — the dashboard never writes to 
 3. After transfer, confirm the GitHub repo is still connected
    (**Settings → Git**). If not, click **Connect Git Repository** and pick the repo.
 
-> **Plan limitation (observed during handover):** adding a member with deploy rights to a
-> *single project* (the "Assign project role" screen) is **Enterprise-only** — on lower plans
-> it only offers read-only **Viewer**. On **Pro**, add Asis as a full **Team Member** via the
-> general *Team Settings → Members* page instead. On the free **Hobby** plan you can't add
-> members at all — in that case use the "brand-new Vercel project" path below (recommended:
-> Asis owns hosting fully, no upgrade needed). Since Asis has GitHub admin, code changes still
-> auto-deploy regardless.
-
-**If Asis ever needs a brand-new Vercel project instead (recommended on Hobby/Pro):**
+**If Asis ever needs a brand-new Vercel project instead:**
 1. Asis logs into Vercel → **Add New → Project** → import `after-sales-dashboard` from GitHub.
 2. Framework auto-detects **Next.js** — no build config needed.
 3. **Add the environment variables** from Section 5 (Production scope).
