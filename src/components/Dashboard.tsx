@@ -4,7 +4,9 @@ import { useState, useEffect, useMemo } from "react";
 import { useRouter } from "next/navigation";
 import { RefreshCw, AlertCircle, LogOut } from "lucide-react";
 import type { ComplaintRow, ApiResponse } from "@/lib/types";
-import KPICard from "./KPICard";
+import HeroStats from "./HeroStats";
+import OpenIssueBreakdown from "./OpenIssueBreakdown";
+import AccountabilityBoard from "./AccountabilityBoard";
 import MonthlyTrendChart from "./MonthlyTrendChart";
 import IssueTypeChart from "./IssueTypeChart";
 import ProductChart from "./ProductChart";
@@ -278,53 +280,38 @@ export default function Dashboard() {
           </span>
         </div>
 
-        {/* KPIs */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3">
-          <KPICard label="Total Complaints" value={kpis.total} color="slate" />
-          <KPICard
-            label="Open Complaints"
-            value={kpis.open}
-            color="orange"
-            sub={`${kpis.total > 0 ? Math.round((kpis.open / kpis.total) * 100) : 0}% of total`}
-          />
-          <KPICard
-            label="Closed Tickets"
-            value={kpis.closed}
-            color="green"
-            sub={`${kpis.closureRate}% closure rate`}
-          />
-          <KPICard
-            label="Avg Days Pending"
-            value={kpis.avgDaysPending}
-            color="purple"
-            sub="for open tickets"
-          />
-          <KPICard
-            label="Under Warranty"
-            value={kpis.withWarranty}
-            color="blue"
-            sub={`${kpis.total > 0 ? Math.round((kpis.withWarranty / kpis.total) * 100) : 0}% of total`}
-          />
+        {/* Hero: % Closed + headline numbers */}
+        <HeroStats
+          total={kpis.total}
+          open={kpis.open}
+          closed={kpis.closed}
+          closureRate={kpis.closureRate}
+        />
+
+        {/* Accountability Board — who owns each open unit */}
+        <AccountabilityBoard openRows={openTickets} />
+
+        {/* Why are complaints open + Monthly trend */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+          <OpenIssueBreakdown openRows={openTickets} />
+          <MonthlyTrendChart data={monthlyData} />
         </div>
 
-        {/* Monthly Trend + Complaint Type */}
+        {/* Complaint source + Issue types */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
-          <div className="lg:col-span-2">
-            <MonthlyTrendChart data={monthlyData} />
-          </div>
           <div>
             <ComplaintTypePie data={complaintTypeData} />
           </div>
+          <div className="lg:col-span-2">
+            <IssueTypeChart data={issueData} />
+          </div>
         </div>
 
-        {/* Issue Type + Products */}
+        {/* Products */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
-          <IssueTypeChart data={issueData} />
           <ProductChart data={productData} />
+          <IssueByProductTable rows={filtered} />
         </div>
-
-        {/* Issue by Product heatmap */}
-        <IssueByProductTable rows={filtered} />
 
         {/* Request By Table */}
         <RequestByTable data={requestByData} />
