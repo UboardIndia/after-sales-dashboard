@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { RefreshCw, AlertCircle, LogOut } from "lucide-react";
 import type { ComplaintRow, ApiResponse } from "@/lib/types";
 import HeroStats from "./HeroStats";
+import KPICard from "./KPICard";
 import OpenIssueBreakdown from "./OpenIssueBreakdown";
 import AccountabilityBoard from "./AccountabilityBoard";
 import MonthlyTrendChart from "./MonthlyTrendChart";
@@ -103,8 +104,13 @@ export default function Dashboard() {
               openWithDays.length
           )
         : 0;
+    const maxDaysPending =
+      openWithDays.length > 0
+        ? Math.max(...openWithDays.map((r) => r.daysPending ?? 0))
+        : 0;
+    const aged90 = filtered.filter((r) => r.isOpen && (r.daysPending ?? 0) > 90).length;
     const withWarranty = filtered.filter((r) => r.warrantyStatus === "Yes").length;
-    return { total, open, closed, closureRate, avgDaysPending, withWarranty };
+    return { total, open, closed, closureRate, avgDaysPending, maxDaysPending, aged90, withWarranty };
   }, [filtered]);
 
   // Monthly data
@@ -287,6 +293,34 @@ export default function Dashboard() {
           closed={kpis.closed}
           closureRate={kpis.closureRate}
         />
+
+        {/* Secondary KPIs */}
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
+          <KPICard
+            label="Avg Days Pending"
+            value={kpis.avgDaysPending}
+            color="purple"
+            sub="across open tickets"
+          />
+          <KPICard
+            label="Oldest Open Ticket"
+            value={`${kpis.maxDaysPending}d`}
+            color="orange"
+            sub="longest still unresolved"
+          />
+          <KPICard
+            label="Aged 90+ Days"
+            value={kpis.aged90}
+            color="slate"
+            sub="open tickets over 90 days"
+          />
+          <KPICard
+            label="Under Warranty"
+            value={kpis.withWarranty}
+            color="blue"
+            sub={`${kpis.total > 0 ? Math.round((kpis.withWarranty / kpis.total) * 100) : 0}% of total`}
+          />
+        </div>
 
         {/* Accountability Board — who owns each open unit */}
         <AccountabilityBoard openRows={openTickets} />
