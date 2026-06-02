@@ -26,7 +26,7 @@ const COLUMNS: { key: SortKey; label: string; width?: string }[] = [
   { key: "closeDate",            label: "Close Date",    width: "w-24" },
 ];
 
-const DATE_KEYS: Set<SortKey> = new Set(["complaintDate", "closeDate", "returnPickupDate", "productReceivedDate", "dispatchTrackingDate"]);
+const DATE_KEYS = new Set<SortKey>(["complaintDate", "closeDate", "returnPickupDate", "productReceivedDate", "dispatchTrackingDate"]);
 
 function parseDMY(s: string): number {
   // Handles DD/MM/YYYY
