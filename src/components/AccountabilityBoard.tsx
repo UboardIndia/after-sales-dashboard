@@ -48,7 +48,8 @@ const ORDER: Exclude<Bucket, "Other">[] = [
 ];
 
 export default function AccountabilityBoard({ openRows, tracking }: Props) {
-  const [active, setActive] = useState<Bucket | "All">("All");
+  // null = cards only (no list). Clicking a card shows that owner's queue.
+  const [active, setActive] = useState<Bucket | null>(null);
 
   const enriched: EnrichedRow[] = useMemo(
     () => openRows.map((r) => enrich(r, tracking?.get(r.sequenceNo))),
@@ -69,7 +70,8 @@ export default function AccountabilityBoard({ openRows, tracking }: Props) {
   );
 
   const visible = useMemo(() => {
-    const list = active === "All" ? enriched : enriched.filter((r) => r.bucket === active);
+    if (!active) return [];
+    const list = enriched.filter((r) => r.bucket === active);
     // Sort by the most-aged first: days in factory, else days pending
     return [...list].sort((a, b) => {
       const av = a.daysInFactory ?? a.daysPending ?? 0;
@@ -96,7 +98,7 @@ export default function AccountabilityBoard({ openRows, tracking }: Props) {
           return (
             <button
               key={b}
-              onClick={() => setActive(isActive ? "All" : b)}
+              onClick={() => setActive(isActive ? null : b)}
               className={`text-left bg-gradient-to-br ${meta.tile} rounded-xl p-4 text-white transition ${
                 isActive ? "ring-2 ring-offset-2 ring-slate-400 scale-[1.02]" : "opacity-90 hover:opacity-100"
               }`}
@@ -112,17 +114,24 @@ export default function AccountabilityBoard({ openRows, tracking }: Props) {
         })}
       </div>
 
-      {active !== "All" && (
-        <button
-          onClick={() => setActive("All")}
-          className="text-xs text-indigo-600 hover:underline mb-2"
-        >
-          ← Show all open units
-        </button>
+      {!active && (
+        <p className="text-xs text-slate-400 text-center py-1">
+          Click a card to see that owner&apos;s queue, most-aged first.
+        </p>
       )}
 
-      {/* Table */}
+      {/* Queue list — only for the clicked bucket */}
+      {active && (
       <div className="overflow-x-auto table-scroll">
+        <div className="flex items-center justify-between mb-2">
+          <p className="text-xs text-slate-500">
+            <b>{BUCKET_META[active as Exclude<Bucket, "Other">]?.label ?? active}</b> queue
+            · {visible.length} units · owner {BUCKET_OWNER[active]} · most-aged first
+          </p>
+          <button onClick={() => setActive(null)} className="text-xs text-indigo-600 hover:underline">
+            ✕ Close list
+          </button>
+        </div>
         <table className="w-full text-xs">
           <thead>
             <tr className="border-b border-slate-100">
@@ -170,6 +179,7 @@ export default function AccountabilityBoard({ openRows, tracking }: Props) {
           <p className="text-xs text-slate-400 mt-2">Showing top 50 of {visible.length} (most-aged first).</p>
         )}
       </div>
+      )}
     </div>
   );
 }

@@ -38,8 +38,8 @@ export default function Dashboard() {
     router.refresh();
   }
 
-  // Filters
-  const [filterYear, setFilterYear] = useState("All");
+  // Filters — filterYear starts empty and defaults to the LATEST fiscal year once data loads
+  const [filterYear, setFilterYear] = useState("");
   const [filterBrand, setFilterBrand] = useState("All");
   const [filterComplaintType, setFilterComplaintType] = useState("All");
   const [filterMonth, setFilterMonth] = useState("All");
@@ -54,6 +54,10 @@ export default function Dashboard() {
       setData(json.rows);
       setLastUpdated(json.lastUpdated);
       setError(null);
+      // Default the FY filter to the newest fiscal year (only if user hasn't picked one)
+      const fys = Array.from(new Set(json.rows.map((r) => r.fiscalYear).filter(Boolean))).sort();
+      const latest = fys[fys.length - 1];
+      if (latest) setFilterYear((prev) => prev || latest);
     } catch (e) {
       setError((e as Error).message);
     } finally {
@@ -307,28 +311,37 @@ export default function Dashboard() {
           </div>
         )}
 
-        {/* Filters — one row, standardised */}
+        {/* Filters — one row: Period buttons + dropdowns */}
         <div className="flex flex-wrap items-center gap-3 bg-white rounded-xl border border-slate-200 px-4 py-3">
-          <span className="text-xs font-medium text-slate-500">Filters:</span>
-          <FilterSelect
-            label="Period"
-            value={filterRange}
-            options={["All", "3m", "6m", "12m"]}
-            display={(v) => v === "All" ? "All time" : `Last ${v.replace("m", " months")}`}
-            onChange={(v) => setFilterRange(v as "All" | "3m" | "6m" | "12m")}
-          />
+          <span className="text-xs font-medium text-slate-500">Period:</span>
+          <div className="flex rounded-lg overflow-hidden border border-slate-200">
+            {(["3m", "6m", "12m", "All"] as const).map((r) => (
+              <button
+                key={r}
+                onClick={() => setFilterRange(r)}
+                className={`text-xs px-3 py-1.5 font-medium transition ${
+                  filterRange === r
+                    ? "bg-indigo-600 text-white"
+                    : "bg-white text-slate-600 hover:bg-slate-50"
+                }`}
+              >
+                {r === "All" ? "All time" : r.toUpperCase()}
+              </button>
+            ))}
+          </div>
           <FilterSelect label="FY"    value={filterYear}  options={years}  onChange={setFilterYear} />
           <FilterSelect label="Brand" value={filterBrand} options={brands} onChange={setFilterBrand} />
           <FilterSelect label="Type"  value={filterComplaintType} options={["All", "Customer Complaint", "Store Complaint"]} onChange={setFilterComplaintType} />
           <FilterSelect label="Month" value={filterMonth} options={months} onChange={setFilterMonth} />
-          {(filterYear !== "All" || filterBrand !== "All" || filterComplaintType !== "All" || filterMonth !== "All" || filterRange !== "All") && (
-            <button
-              onClick={() => { setFilterYear("All"); setFilterBrand("All"); setFilterComplaintType("All"); setFilterMonth("All"); setFilterRange("All"); }}
-              className="text-xs text-indigo-600 hover:underline self-center"
-            >
-              Clear all
-            </button>
-          )}
+          <button
+            onClick={() => {
+              const latest = years[years.length - 1] || "All";
+              setFilterYear(latest); setFilterBrand("All"); setFilterComplaintType("All"); setFilterMonth("All"); setFilterRange("All");
+            }}
+            className="text-xs text-indigo-600 hover:underline self-center"
+          >
+            Reset
+          </button>
           <span className="ml-auto text-xs text-slate-400">
             {filtered.length.toLocaleString()} of {data.length.toLocaleString()}
           </span>
