@@ -26,18 +26,29 @@ const COLUMNS: { key: SortKey; label: string; width?: string }[] = [
   { key: "closeDate",            label: "Close Date",    width: "w-24" },
 ];
 
+const DATE_KEYS: Set<SortKey> = new Set(["complaintDate", "closeDate", "returnPickupDate", "productReceivedDate", "dispatchTrackingDate"]);
+
+function parseDMY(s: string): number {
+  // Handles DD/MM/YYYY
+  const parts = s.split("/");
+  if (parts.length !== 3) return 0;
+  const [d, m, y] = parts.map(Number);
+  return y * 10000 + m * 100 + d;
+}
+
 function sortValue(row: ComplaintRow, key: SortKey): string | number {
   const v = row[key];
   if (v === null || v === undefined || v === "") return "";
   if (typeof v === "boolean") return v ? 1 : 0;
   if (typeof v === "number") return v;
+  if (DATE_KEYS.has(key)) return parseDMY(String(v));
   return String(v).toLowerCase();
 }
 
 export default function LiveFeedTable({ rows }: { rows: ComplaintRow[] }) {
   const [search, setSearch] = useState("");
   const [sortKey, setSortKey] = useState<SortKey>("complaintDate");
-  const [sortDir, setSortDir] = useState<SortDir>("desc");
+  const [sortDir, setSortDir] = useState<SortDir>("desc"); // newest first by default
   const [page, setPage] = useState(1);
   const PAGE_SIZE = 50;
 
