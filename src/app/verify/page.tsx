@@ -101,7 +101,7 @@ export default function VerifyPage() {
   const [expandedId, setExpandedId] = useState<string | null>(null);
   const [drafts, setDrafts] = useState<Record<string, Draft>>({});
   const [linkPicker, setLinkPicker] = useState<string | null>(null);
-  const [sortBy, setSortBy] = useState<"newest" | "oldest" | "duplicates" | "no-mobile">("newest");
+  const [sortBy, setSortBy] = useState<"newest" | "oldest" | "duplicates" | "no-mobile" | "completion-low">("newest");
 
   useEffect(() => {
     async function load() {
@@ -163,6 +163,7 @@ export default function VerifyPage() {
         return findMatches(b, helpdeskRows).length - findMatches(a, helpdeskRows).length;
       }
       if (sortBy === "no-mobile") return (a.hasMobile ? 1 : 0) - (b.hasMobile ? 1 : 0);
+      if (sortBy === "completion-low") return completion(a) - completion(b);
       return 0;
     });
 
@@ -230,7 +231,7 @@ export default function VerifyPage() {
         {/* Sort controls */}
         <div className="flex items-center gap-2 flex-wrap">
           <span className="text-xs text-slate-400 font-medium">Sort by:</span>
-          {(["newest", "oldest", "duplicates", "no-mobile"] as const).map((s) => (
+          {(["newest", "oldest", "duplicates", "no-mobile", "completion-low"] as const).map((s) => (
             <button
               key={s}
               onClick={() => setSortBy(s)}
@@ -242,6 +243,7 @@ export default function VerifyPage() {
               {s === "oldest" && "Oldest first"}
               {s === "duplicates" && "⚠ Duplicates first"}
               {s === "no-mobile" && "📵 No mobile first"}
+              {s === "completion-low" && "⚠ Incomplete first"}
             </button>
           ))}
         </div>
