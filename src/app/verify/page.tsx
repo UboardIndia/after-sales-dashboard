@@ -81,6 +81,7 @@ export default function VerifyPage() {
   const [error, setError] = useState<string | null>(null);
   const [decisions, setDecisions] = useState<Record<string, Decision>>({});
   const [linkPicker, setLinkPicker] = useState<string | null>(null);
+  const [sortBy, setSortBy] = useState<"newest" | "oldest" | "duplicates" | "no-mobile">("newest");
 
   useEffect(() => {
     async function load() {
@@ -103,7 +104,19 @@ export default function VerifyPage() {
   }, []);
 
   // Only show entries not yet decided in Supabase (for now: all unverified)
-  const pending = botEntries.filter((e) => !decisions[e.botId]);
+  const pending = botEntries
+    .filter((e) => !decisions[e.botId])
+    .sort((a, b) => {
+      if (sortBy === "newest") return b.timestamp.localeCompare(a.timestamp);
+      if (sortBy === "oldest") return a.timestamp.localeCompare(b.timestamp);
+      if (sortBy === "duplicates") {
+        const aM = findMatches(a, helpdeskRows).length;
+        const bM = findMatches(b, helpdeskRows).length;
+        return bM - aM;
+      }
+      if (sortBy === "no-mobile") return (a.hasMobile ? 1 : 0) - (b.hasMobile ? 1 : 0);
+      return 0;
+    });
   const done    = botEntries.filter((e) =>  decisions[e.botId]);
   const noMobileCount = botEntries.filter((e) => !e.hasMobile).length;
 
@@ -165,6 +178,27 @@ export default function VerifyPage() {
             </div>
           </div>
         )}
+
+        {/* Sort controls */}
+        <div className="flex items-center gap-2 flex-wrap">
+          <span className="text-xs text-slate-400 font-medium">Sort by:</span>
+          {(["newest", "oldest", "duplicates", "no-mobile"] as const).map((s) => (
+            <button
+              key={s}
+              onClick={() => setSortBy(s)}
+              className={`text-xs px-3 py-1.5 rounded-lg font-medium transition ${
+                sortBy === s
+                  ? "bg-indigo-600 text-white"
+                  : "bg-white border border-slate-200 text-slate-600 hover:bg-slate-50"
+              }`}
+            >
+              {s === "newest" && "Newest first"}
+              {s === "oldest" && "Oldest first"}
+              {s === "duplicates" && "⚠ Duplicates first"}
+              {s === "no-mobile" && "📵 No mobile first"}
+            </button>
+          ))}
+        </div>
 
         {/* Pending queue */}
         {pending.map((e) => {
