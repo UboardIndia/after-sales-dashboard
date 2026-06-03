@@ -112,8 +112,16 @@ export default function VerifyPage() {
   const pending = botEntries
     .filter((e) => !decisions[e.botId])
     .sort((a, b) => {
-      if (sortBy === "newest") return parseTs(b.timestamp) - parseTs(a.timestamp);
-      if (sortBy === "oldest") return parseTs(a.timestamp) - parseTs(b.timestamp);
+      if (sortBy === "newest") {
+        const dateDiff = parseTs(b.timestamp) - parseTs(a.timestamp);
+        if (dateDiff !== 0) return dateDiff;
+        return parseInt(b.botId.replace(/\D/g, "")) - parseInt(a.botId.replace(/\D/g, ""));
+      }
+      if (sortBy === "oldest") {
+        const dateDiff = parseTs(a.timestamp) - parseTs(b.timestamp);
+        if (dateDiff !== 0) return dateDiff;
+        return parseInt(a.botId.replace(/\D/g, "")) - parseInt(b.botId.replace(/\D/g, ""));
+      }
       if (sortBy === "duplicates") {
         const aM = findMatches(a, helpdeskRows).length;
         const bM = findMatches(b, helpdeskRows).length;
