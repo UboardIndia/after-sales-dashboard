@@ -4,7 +4,6 @@ import { useState, useEffect, useMemo } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { RefreshCw, AlertCircle, LogOut, Table2, Bot } from "lucide-react";
-import { PENDING_BOT_COUNT } from "@/lib/botMock";
 import type { ComplaintRow, ApiResponse } from "@/lib/types";
 import HeroStats from "./HeroStats";
 import KPICard from "./KPICard";
@@ -30,6 +29,11 @@ export default function Dashboard() {
   const [error, setError] = useState<string | null>(null);
   const [refreshing, setRefreshing] = useState(false);
   const [loggingOut, setLoggingOut] = useState(false);
+  const [botCount, setBotCount] = useState(0);
+
+  useEffect(() => {
+    fetch("/api/bot").then(r => r.json()).then(j => setBotCount(j.entries?.length ?? 0)).catch(() => {});
+  }, []);
 
   async function handleLogout() {
     setLoggingOut(true);
@@ -282,16 +286,13 @@ export default function Dashboard() {
             >
               <Bot size={13} />
               Verification
-              {PENDING_BOT_COUNT > 0 && (
-                <>
-                  {/* pulsing ring drawing attention to new entries */}
-                  <span className="absolute -top-1.5 -right-1.5 flex h-4 min-w-4">
-                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75" />
-                    <span className="relative inline-flex items-center justify-center rounded-full h-4 min-w-4 px-1 bg-red-500 text-white text-[9px] font-bold leading-none">
-                      {PENDING_BOT_COUNT}
-                    </span>
+              {botCount > 0 && (
+                <span className="absolute -top-1.5 -right-1.5 flex h-4 min-w-4">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75" />
+                  <span className="relative inline-flex items-center justify-center rounded-full h-4 min-w-4 px-1 bg-red-500 text-white text-[9px] font-bold leading-none">
+                    {botCount}
                   </span>
-                </>
+                </span>
               )}
             </Link>
             <button
@@ -321,6 +322,17 @@ export default function Dashboard() {
             <AlertCircle size={16} />
             {error} — showing cached data if available.
           </div>
+        )}
+
+        {/* Prachi bot verification alert */}
+        {botCount > 0 && (
+          <Link href="/verify" className="flex items-center justify-between gap-3 bg-red-50 border border-red-200 text-red-700 rounded-xl px-4 py-3 hover:bg-red-100 transition">
+            <div className="flex items-center gap-2 text-sm font-medium">
+              <Bot size={16} className="shrink-0" />
+              <span><b>Prachi — {botCount} bot complaints pending verification.</b> Review and approve before they are counted.</span>
+            </div>
+            <span className="text-xs font-semibold px-3 py-1.5 bg-red-500 text-white rounded-lg shrink-0">Review now →</span>
+          </Link>
         )}
 
         {/* Filters — one row: Period buttons + dropdowns */}
