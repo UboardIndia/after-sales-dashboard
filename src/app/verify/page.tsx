@@ -104,11 +104,16 @@ export default function VerifyPage() {
   }, []);
 
   // Only show entries not yet decided in Supabase (for now: all unverified)
+  function parseTs(ts: string): number {
+    const [day, month, year] = ts.split(/[/\s]/);
+    return new Date(`${year}-${month}-${day}`).getTime() || 0;
+  }
+
   const pending = botEntries
     .filter((e) => !decisions[e.botId])
     .sort((a, b) => {
-      if (sortBy === "newest") return b.timestamp.localeCompare(a.timestamp);
-      if (sortBy === "oldest") return a.timestamp.localeCompare(b.timestamp);
+      if (sortBy === "newest") return parseTs(b.timestamp) - parseTs(a.timestamp);
+      if (sortBy === "oldest") return parseTs(a.timestamp) - parseTs(b.timestamp);
       if (sortBy === "duplicates") {
         const aM = findMatches(a, helpdeskRows).length;
         const bM = findMatches(b, helpdeskRows).length;
