@@ -413,20 +413,19 @@ export default function Dashboard() {
           />
         </div>
 
-        {/* Combined filter section: big cards + status pills in one box */}
-        <div className="bg-white rounded-xl border border-slate-200 p-4 space-y-4">
-          <div className="flex items-center gap-2">
+        {/* Combined filter panel — one card, cards on top, pills below, no divider */}
+        <div className="bg-white rounded-xl border border-slate-200 p-4">
+          <div className="flex items-center gap-2 mb-3">
             <Factory size={15} className="text-slate-400" />
-            <span className="text-sm font-semibold text-slate-700">Accountability Board</span>
-            <span className="text-xs text-slate-400">· {openTickets.length} open · click to filter</span>
+            <span className="text-sm font-semibold text-slate-700">Open Complaints</span>
+            <span className="text-xs text-slate-400">· {openTickets.length} open · click any card or status to filter</span>
           </div>
           <AccountabilityBoard
             openRows={openTickets}
             onSelect={handleDrillSelect}
             selectedLabel={drill?.label ?? null}
           />
-          <div className="border-t border-slate-100 pt-3">
-            <p className="text-xs text-slate-400 mb-2">Status breakdown</p>
+          <div className="mt-4">
             <OpenIssueBreakdown
               openRows={openTickets}
               dateRangeLabel={dateRangeLabel}
