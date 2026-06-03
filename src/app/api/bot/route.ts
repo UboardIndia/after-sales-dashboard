@@ -1,10 +1,10 @@
 import { NextResponse } from "next/server";
 import Papa from "papaparse";
+import { fetchSheetRows, rowsToCSV } from "@/lib/googleAuth";
 
 export const dynamic = "force-dynamic";
 
-const BOT_SHEET_URL =
-  "https://docs.google.com/spreadsheets/d/1UXYV_aiQnwm7llAbNSu4x0noS2vztj3My3aNrJmi9lU/export?format=csv&gid=0";
+const BOT_SHEET_ID = "1UXYV_aiQnwm7llAbNSu4x0noS2vztj3My3aNrJmi9lU";
 
 function cleanMobile(raw: string): string {
   if (!raw) return "";
@@ -18,9 +18,8 @@ function cleanMobile(raw: string): string {
 
 export async function GET() {
   try {
-    const res = await fetch(BOT_SHEET_URL, { next: { revalidate: 300 } });
-    if (!res.ok) throw new Error(`Bot sheet fetch failed: ${res.status}`);
-    const csv = await res.text();
+    const rows = await fetchSheetRows(BOT_SHEET_ID);
+    const csv = rowsToCSV(rows);
 
     const { data } = Papa.parse<Record<string, string>>(csv, {
       header: true,
