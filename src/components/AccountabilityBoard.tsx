@@ -8,49 +8,25 @@ import { enrich, isInFactory, type EnrichedRow } from "@/lib/buckets";
 interface Props {
   openRows: ComplaintRow[];
   tracking?: Map<string, TrackingRecord>;
+  onSelect: (label: string, rows: ComplaintRow[], color: string) => void;
+  selectedLabel: string | null;
 }
 
 const BUCKET_META: Record<
   Exclude<Bucket, "Other">,
-  { label: string; icon: React.ReactNode; tile: string; badge: string }
+  { label: string; icon: React.ReactNode; tile: string; color: string }
 > = {
-  "Pending Pickup": {
-    label: "Pending Pickup",
-    icon: <Truck size={18} />,
-    tile: "from-purple-500 to-purple-600",
-    badge: "bg-purple-100 text-purple-700",
-  },
-  "Pending Repair": {
-    label: "In Factory · Repair",
-    icon: <Wrench size={18} />,
-    tile: "from-blue-500 to-blue-600",
-    badge: "bg-blue-100 text-blue-700",
-  },
-  "Pending Dispatch": {
-    label: "Repaired · Dispatch",
-    icon: <Truck size={18} />,
-    tile: "from-green-500 to-green-600",
-    badge: "bg-green-100 text-green-700",
-  },
-  "Pending Customer": {
-    label: "Pending Customer",
-    icon: <UserCog size={18} />,
-    tile: "from-orange-500 to-orange-600",
-    badge: "bg-orange-100 text-orange-700",
-  },
+  "Pending Pickup":   { label: "Pending Pickup",    icon: <Truck size={18} />,   tile: "from-purple-500 to-purple-600", color: "#9333EA" },
+  "Pending Repair":   { label: "In Factory · Repair",icon: <Wrench size={18} />, tile: "from-blue-500 to-blue-600",    color: "#2563EB" },
+  "Pending Dispatch": { label: "Repaired · Dispatch",icon: <Truck size={18} />,   tile: "from-green-500 to-green-600",  color: "#16A34A" },
+  "Pending Customer": { label: "Pending Customer",   icon: <UserCog size={18} />, tile: "from-orange-500 to-orange-600",color: "#EA580C" },
 };
 
 const ORDER: Exclude<Bucket, "Other">[] = [
-  "Pending Pickup",
-  "Pending Repair",
-  "Pending Dispatch",
-  "Pending Customer",
+  "Pending Pickup", "Pending Repair", "Pending Dispatch", "Pending Customer",
 ];
 
-export default function AccountabilityBoard({ openRows, tracking }: Props) {
-  // null = cards only (no list). Clicking a card shows that owner's queue.
-  const [active, setActive] = useState<Bucket | null>(null);
-
+export default function AccountabilityBoard({ openRows, tracking, onSelect, selectedLabel }: Props) {
   const enriched: EnrichedRow[] = useMemo(
     () => openRows.map((r) => enrich(r, tracking?.get(r.sequenceNo))),
     [openRows, tracking]
@@ -58,9 +34,7 @@ export default function AccountabilityBoard({ openRows, tracking }: Props) {
 
   const counts = useMemo(() => {
     const c: Record<string, number> = {};
-    enriched.forEach((r) => {
-      c[r.bucket] = (c[r.bucket] ?? 0) + 1;
-    });
+    enriched.forEach((r) => { c[r.bucket] = (c[r.bucket] ?? 0) + 1; });
     return c;
   }, [enriched]);
 
@@ -69,16 +43,22 @@ export default function AccountabilityBoard({ openRows, tracking }: Props) {
     [enriched]
   );
 
-  const visible = useMemo(() => {
-    if (!active) return [];
-    const list = enriched.filter((r) => r.bucket === active);
-    // Sort by the most-aged first: days in factory, else days pending
-    return [...list].sort((a, b) => {
-      const av = a.daysInFactory ?? a.daysPending ?? 0;
-      const bv = b.daysInFactory ?? b.daysPending ?? 0;
-      return bv - av;
-    });
-  }, [enriched, active]);
+  function handleClick(b: Exclude<Bucket, "Other">) {
+    const meta = BUCKET_META[b];
+    const list = enriched
+      .filter((r) => r.bucket === b)
+      .sort((a, b2) => {
+        const av = a.daysInFactory ?? a.daysPending ?? 0;
+        const bv = b2.daysInFactory ?? b2.daysPending ?? 0;
+        return bv - av;
+      });
+    const label = meta.label;
+    if (selectedLabel === label) {
+      onSelect("", [], "");
+    } else {
+      onSelect(label, list as ComplaintRow[], meta.color);
+    }
+  }
 
   return (
     <div className="bg-white rounded-xl border border-slate-200 p-4">
@@ -90,15 +70,14 @@ export default function AccountabilityBoard({ openRows, tracking }: Props) {
         Every open unit, by who owns the next move · {inFactoryCount} currently in factory
       </p>
 
-      {/* Owner tiles */}
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 mb-5">
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
         {ORDER.map((b) => {
           const meta = BUCKET_META[b];
-          const isActive = active === b;
+          const isActive = selectedLabel === meta.label;
           return (
             <button
               key={b}
-              onClick={() => setActive(isActive ? null : b)}
+              onClick={() => handleClick(b)}
               className={`text-left bg-gradient-to-br ${meta.tile} rounded-xl p-4 text-white transition ${
                 isActive ? "ring-2 ring-offset-2 ring-slate-400 scale-[1.02]" : "opacity-90 hover:opacity-100"
               }`}
@@ -114,89 +93,10 @@ export default function AccountabilityBoard({ openRows, tracking }: Props) {
         })}
       </div>
 
-      {!active && (
-        <p className="text-xs text-slate-400 text-center py-1">
+      {!selectedLabel && (
+        <p className="text-xs text-slate-400 text-center pt-4">
           Click a card to see that owner&apos;s queue, most-aged first.
         </p>
-      )}
-
-      {/* Queue list — only for the clicked bucket */}
-      {active && (
-      <div className="overflow-x-auto table-scroll">
-        <div className="flex items-center justify-between mb-2">
-          <p className="text-xs text-slate-500 flex items-center gap-2 flex-wrap">
-            <b>{BUCKET_META[active as Exclude<Bucket, "Other">]?.label ?? active}</b> queue
-            · {visible.length} units · owner {BUCKET_OWNER[active]} · most-aged first
-            {(() => {
-              const blanks = visible.filter((r) => !r.actionTaken?.trim()).length;
-              return blanks > 0 ? (
-                <span className="inline-flex items-center gap-1 text-red-600 font-semibold bg-red-50 px-2 py-0.5 rounded-full text-[11px]">
-                  ⚠ {blanks} missing status in sheet
-                </span>
-              ) : null;
-            })()}
-          </p>
-          <button onClick={() => setActive(null)} className="text-xs text-indigo-600 hover:underline">
-            ✕ Close list
-          </button>
-        </div>
-        <table className="w-full text-xs">
-          <thead>
-            <tr className="border-b border-slate-100">
-              {["#", "Product", "Brand", "Bucket", "Owner", "In Factory", "Days Pending", "Status"].map((h) => (
-                <th key={h} className="text-left font-medium text-slate-400 pb-2 pr-3 whitespace-nowrap">{h}</th>
-              ))}
-            </tr>
-          </thead>
-          <tbody>
-            {visible.slice(0, 50).map((r) => {
-              const meta = r.bucket !== "Other" ? BUCKET_META[r.bucket] : null;
-              const blankStatus = !r.actionTaken || r.actionTaken.trim() === "";
-              return (
-                <tr key={r.id} className={`border-b border-slate-50 hover:bg-slate-50 transition ${blankStatus ? "bg-red-50" : ""}`}>
-                  <td className="py-2 pr-3 text-slate-400 font-mono">{r.sequenceNo}</td>
-                  <td className="py-2 pr-3 text-slate-700 whitespace-nowrap">{r.productName || "—"}</td>
-                  <td className="py-2 pr-3">
-                    <span className="px-1.5 py-0.5 rounded text-xs bg-slate-100 text-slate-600">{r.brand}</span>
-                  </td>
-                  <td className="py-2 pr-3 whitespace-nowrap">
-                    <span className={`px-2 py-0.5 rounded-full text-xs font-medium ${meta?.badge ?? "bg-slate-100 text-slate-600"}`}>
-                      {meta?.label ?? "Other"}
-                    </span>
-                  </td>
-                  <td className="py-2 pr-3 font-medium text-slate-700">{BUCKET_OWNER[r.bucket]}</td>
-                  <td className="py-2 pr-3 text-right">
-                    {isInFactory(r.bucket) && r.daysInFactory != null ? (
-                      <span className={`font-semibold ${r.daysInFactory > 30 ? "text-red-600" : r.daysInFactory > 14 ? "text-orange-500" : "text-slate-600"}`}>
-                        {r.daysInFactory}d
-                      </span>
-                    ) : "—"}
-                  </td>
-                  <td className="py-2 pr-3 text-right text-slate-600">
-                    {r.daysPending != null ? `${r.daysPending}d` : "—"}
-                  </td>
-                  <td className="py-2 pr-3 whitespace-nowrap">
-                    {blankStatus ? (
-                      <span className="flex items-center gap-1 text-red-600 font-semibold">
-                        <span className="w-1.5 h-1.5 rounded-full bg-red-500 inline-block" />
-                        No status — fix in sheet
-                      </span>
-                    ) : (
-                      <span className="text-slate-500">{r.actionTaken}</span>
-                    )}
-                  </td>
-                </tr>
-              );
-            })}
-            {visible.length === 0 && (
-              <tr><td colSpan={8} className="py-8 text-center text-slate-400">No open units in this bucket</td></tr>
-            )}
-          </tbody>
-        </table>
-        {visible.length > 50 && (
-          <p className="text-xs text-slate-400 mt-2">Showing top 50 of {visible.length} (most-aged first).</p>
-        )}
-      </div>
       )}
     </div>
   );

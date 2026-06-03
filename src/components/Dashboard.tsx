@@ -30,6 +30,12 @@ export default function Dashboard() {
   const [refreshing, setRefreshing] = useState(false);
   const [loggingOut, setLoggingOut] = useState(false);
   const [botCount, setBotCount] = useState(0);
+  const [drill, setDrill] = useState<{ label: string; rows: ComplaintRow[]; color: string } | null>(null);
+
+  function handleDrillSelect(label: string, rows: ComplaintRow[], color: string) {
+    if (!label) { setDrill(null); return; }
+    setDrill({ label, rows, color });
+  }
 
   useEffect(() => {
     fetch("/api/bot").then(r => r.json()).then(j => setBotCount(j.entries?.length ?? 0)).catch(() => {});
@@ -407,11 +413,78 @@ export default function Dashboard() {
           />
         </div>
 
-        {/* Accountability Board — who owns each open unit */}
-        <AccountabilityBoard openRows={openTickets} />
+        {/* Accountability Board */}
+        <AccountabilityBoard
+          openRows={openTickets}
+          onSelect={handleDrillSelect}
+          selectedLabel={drill?.label ?? null}
+        />
 
-        {/* Open complaints status breakdown — full width */}
-        <OpenIssueBreakdown openRows={openTickets} dateRangeLabel={dateRangeLabel} />
+        {/* Open complaints status breakdown */}
+        <OpenIssueBreakdown
+          openRows={openTickets}
+          dateRangeLabel={dateRangeLabel}
+          onSelect={handleDrillSelect}
+          selectedLabel={drill?.label ?? null}
+        />
+
+        {/* Shared drill-down table */}
+        {drill && drill.rows.length >= 0 && (
+          <div className="bg-white rounded-xl border-2 overflow-hidden" style={{ borderColor: `${drill.color}50` }}>
+            <div className="flex items-center justify-between px-4 py-2.5" style={{ background: `${drill.color}10` }}>
+              <div className="flex items-center gap-2">
+                <span className="inline-block w-2.5 h-2.5 rounded-full" style={{ background: drill.color }} />
+                <span className="text-sm font-semibold" style={{ color: drill.color }}>{drill.label}</span>
+                <span className="text-xs text-slate-500">— {drill.rows.length} complaints, most-aged first</span>
+              </div>
+              <button onClick={() => setDrill(null)} className="text-slate-400 hover:text-slate-600 text-xs px-2 py-1 rounded hover:bg-slate-100">✕ Close</button>
+            </div>
+            <div className="overflow-x-auto">
+              <table className="w-full text-xs">
+                <thead>
+                  <tr className="border-b border-slate-100 bg-slate-50">
+                    {["Seq", "Date", "Customer", "Product", "Brand", "Platform", "Status", "Days Pending"].map((h) => (
+                      <th key={h} className="text-left px-4 py-2 text-slate-400 font-semibold whitespace-nowrap">{h}</th>
+                    ))}
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-slate-50">
+                  {drill.rows.slice(0, 100).map((r) => {
+                    const blank = !r.actionTaken?.trim();
+                    return (
+                      <tr key={r.id} className={`hover:bg-slate-50 transition ${blank ? "bg-red-50" : ""}`}>
+                        <td className="px-4 py-2 font-mono font-semibold text-indigo-600">#{r.sequenceNo}</td>
+                        <td className="px-4 py-2 text-slate-500 whitespace-nowrap">{r.complaintDate}</td>
+                        <td className="px-4 py-2 text-slate-700 font-medium">{r.customerName || "—"}</td>
+                        <td className="px-4 py-2 text-slate-600 whitespace-nowrap">{r.productName || "—"}</td>
+                        <td className="px-4 py-2"><span className="px-1.5 py-0.5 rounded text-[10px] bg-slate-100 text-slate-600">{r.brand || "—"}</span></td>
+                        <td className="px-4 py-2 text-slate-500">{r.platform || "—"}</td>
+                        <td className="px-4 py-2 whitespace-nowrap">
+                          {blank
+                            ? <span className="text-red-500 font-semibold">⚠ No status</span>
+                            : <span className="text-slate-500">{r.actionTaken}</span>}
+                        </td>
+                        <td className="px-4 py-2 text-right">
+                          {r.daysPending != null ? (
+                            <span className={`font-bold ${r.daysPending > 30 ? "text-red-500" : r.daysPending > 14 ? "text-amber-500" : "text-slate-600"}`}>
+                              {r.daysPending}d
+                            </span>
+                          ) : "—"}
+                        </td>
+                      </tr>
+                    );
+                  })}
+                  {drill.rows.length === 0 && (
+                    <tr><td colSpan={8} className="px-4 py-8 text-center text-slate-400">No complaints in this group</td></tr>
+                  )}
+                </tbody>
+              </table>
+              {drill.rows.length > 100 && (
+                <p className="text-xs text-slate-400 px-4 py-2">Showing top 100 of {drill.rows.length}</p>
+              )}
+            </div>
+          </div>
+        )}
 
         {/* Monthly trend */}
         <MonthlyTrendChart data={monthlyData} />
