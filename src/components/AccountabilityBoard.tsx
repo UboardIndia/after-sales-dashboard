@@ -61,43 +61,27 @@ export default function AccountabilityBoard({ openRows, tracking, onSelect, sele
   }
 
   return (
-    <div className="bg-white rounded-xl border border-slate-200 p-4">
-      <div className="flex items-center gap-2 mb-1">
-        <Factory size={16} className="text-slate-500" />
-        <h2 className="text-sm font-semibold text-slate-700">Accountability Board</h2>
-      </div>
-      <p className="text-xs text-slate-400 mb-4">
-        Every open unit, by who owns the next move · {inFactoryCount} currently in factory
-      </p>
-
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
-        {ORDER.map((b) => {
-          const meta = BUCKET_META[b];
-          const isActive = selectedLabel === meta.label;
-          return (
-            <button
-              key={b}
-              onClick={() => handleClick(b)}
-              className={`text-left bg-gradient-to-br ${meta.tile} rounded-xl p-4 text-white transition ${
-                isActive ? "ring-2 ring-offset-2 ring-slate-400 scale-[1.02]" : "opacity-90 hover:opacity-100"
-              }`}
-            >
-              <div className="flex items-center justify-between">
-                <span className="opacity-90">{meta.icon}</span>
-                <span className="text-3xl font-bold">{counts[b] ?? 0}</span>
-              </div>
-              <p className="text-xs font-medium mt-2">{meta.label}</p>
-              <p className="text-xs opacity-80">Owner: {BUCKET_OWNER[b]}</p>
-            </button>
-          );
-        })}
-      </div>
-
-      {!selectedLabel && (
-        <p className="text-xs text-slate-400 text-center pt-4">
-          Click a card to see that owner&apos;s queue, most-aged first.
-        </p>
-      )}
+    <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
+      {ORDER.map((b) => {
+        const meta = BUCKET_META[b];
+        const isActive = selectedLabel === meta.label;
+        return (
+          <button
+            key={b}
+            onClick={() => handleClick(b)}
+            className={`text-left bg-gradient-to-br ${meta.tile} rounded-xl p-4 text-white transition ${
+              isActive ? "ring-2 ring-offset-2 ring-slate-400 scale-[1.02]" : "opacity-90 hover:opacity-100"
+            }`}
+          >
+            <div className="flex items-center justify-between">
+              <span className="opacity-90">{meta.icon}</span>
+              <span className="text-3xl font-bold">{counts[b] ?? 0}</span>
+            </div>
+            <p className="text-xs font-medium mt-2">{meta.label}</p>
+            <p className="text-xs opacity-80">Owner: {BUCKET_OWNER[b]}</p>
+          </button>
+        );
+      })}
     </div>
   );
 }

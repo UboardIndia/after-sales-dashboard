@@ -3,7 +3,7 @@
 import { useState, useEffect, useMemo } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
-import { RefreshCw, AlertCircle, LogOut, Table2, Bot } from "lucide-react";
+import { RefreshCw, AlertCircle, LogOut, Table2, Bot, Factory } from "lucide-react";
 import type { ComplaintRow, ApiResponse } from "@/lib/types";
 import HeroStats from "./HeroStats";
 import KPICard from "./KPICard";
@@ -413,23 +413,31 @@ export default function Dashboard() {
           />
         </div>
 
-        {/* Accountability Board */}
-        <AccountabilityBoard
-          openRows={openTickets}
-          onSelect={handleDrillSelect}
-          selectedLabel={drill?.label ?? null}
-        />
+        {/* Combined filter section: big cards + status pills in one box */}
+        <div className="bg-white rounded-xl border border-slate-200 p-4 space-y-4">
+          <div className="flex items-center gap-2">
+            <Factory size={15} className="text-slate-400" />
+            <span className="text-sm font-semibold text-slate-700">Accountability Board</span>
+            <span className="text-xs text-slate-400">· {openTickets.length} open · click to filter</span>
+          </div>
+          <AccountabilityBoard
+            openRows={openTickets}
+            onSelect={handleDrillSelect}
+            selectedLabel={drill?.label ?? null}
+          />
+          <div className="border-t border-slate-100 pt-3">
+            <p className="text-xs text-slate-400 mb-2">Status breakdown</p>
+            <OpenIssueBreakdown
+              openRows={openTickets}
+              dateRangeLabel={dateRangeLabel}
+              onSelect={handleDrillSelect}
+              selectedLabel={drill?.label ?? null}
+            />
+          </div>
+        </div>
 
-        {/* Open complaints status breakdown */}
-        <OpenIssueBreakdown
-          openRows={openTickets}
-          dateRangeLabel={dateRangeLabel}
-          onSelect={handleDrillSelect}
-          selectedLabel={drill?.label ?? null}
-        />
-
-        {/* Shared drill-down table */}
-        {drill && drill.rows.length >= 0 && (
+        {/* Drill-down list — immediately below the filter box */}
+        {drill && (
           <div className="bg-white rounded-xl border-2 overflow-hidden" style={{ borderColor: `${drill.color}50` }}>
             <div className="flex items-center justify-between px-4 py-2.5" style={{ background: `${drill.color}10` }}>
               <div className="flex items-center gap-2">
@@ -460,9 +468,7 @@ export default function Dashboard() {
                         <td className="px-4 py-2"><span className="px-1.5 py-0.5 rounded text-[10px] bg-slate-100 text-slate-600">{r.brand || "—"}</span></td>
                         <td className="px-4 py-2 text-slate-500">{r.platform || "—"}</td>
                         <td className="px-4 py-2 whitespace-nowrap">
-                          {blank
-                            ? <span className="text-red-500 font-semibold">⚠ No status</span>
-                            : <span className="text-slate-500">{r.actionTaken}</span>}
+                          {blank ? <span className="text-red-500 font-semibold">⚠ No status</span> : <span className="text-slate-500">{r.actionTaken}</span>}
                         </td>
                         <td className="px-4 py-2 text-right">
                           {r.daysPending != null ? (
@@ -479,9 +485,7 @@ export default function Dashboard() {
                   )}
                 </tbody>
               </table>
-              {drill.rows.length > 100 && (
-                <p className="text-xs text-slate-400 px-4 py-2">Showing top 100 of {drill.rows.length}</p>
-              )}
+              {drill.rows.length > 100 && <p className="text-xs text-slate-400 px-4 py-2">Showing top 100 of {drill.rows.length}</p>}
             </div>
           </div>
         )}

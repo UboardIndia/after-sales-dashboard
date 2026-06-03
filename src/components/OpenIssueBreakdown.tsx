@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo } from "react";
+import { useMemo, useState } from "react";
 import {
   BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip,
   ResponsiveContainer, Cell, LabelList,
@@ -26,7 +26,7 @@ const STATUS_COLORS: Record<string, string> = {
   "Not specified":                 "#94A3B8",
 };
 
-function statusColor(s: string) { return STATUS_COLORS[s] ?? "#6366F1"; }
+export function statusColor(s: string) { return STATUS_COLORS[s] ?? "#6366F1"; }
 
 interface Props {
   openRows: ComplaintRow[];
@@ -49,6 +49,8 @@ const CustomTooltip = ({ active, payload }: any) => {
 };
 
 export default function OpenIssueBreakdown({ openRows, dateRangeLabel, onSelect, selectedLabel }: Props) {
+  const [chartOpen, setChartOpen] = useState(false);
+
   const data = useMemo(() => {
     const map = new Map<string, number>();
     openRows.forEach((r) => {
@@ -68,34 +70,12 @@ export default function OpenIssueBreakdown({ openRows, dateRangeLabel, onSelect,
     onSelect(selectedLabel === name ? "" : name, rows, statusColor(name));
   }
 
-  const topStatus = data[0];
   const chartHeight = Math.max(300, data.length * 44);
 
   return (
-    <div className="bg-white rounded-xl border border-slate-200 p-5">
-      <div className="flex items-start justify-between mb-1 gap-2">
-        <div>
-          <h2 className="text-sm font-semibold text-slate-700">Open Complaints — Status Breakdown</h2>
-          {topStatus && (
-            <p className="text-xs text-slate-500 mt-0.5">
-              Largest group:{" "}
-              <span className="font-semibold" style={{ color: statusColor(topStatus.name) }}>
-                {topStatus.name || "Not specified"}
-              </span>
-              {" "}·{" "}
-              <span className="font-semibold text-slate-700">{topStatus.count} units</span>
-              {" "}({topStatus.pct}%)
-            </p>
-          )}
-        </div>
-        <div className="text-right shrink-0">
-          <p className="text-xs font-semibold text-slate-700">{openRows.length} open</p>
-          {dateRangeLabel && <p className="text-[11px] text-slate-400 mt-0.5">{dateRangeLabel}</p>}
-        </div>
-      </div>
-
-      {/* Clickable pills */}
-      <div className="flex flex-wrap gap-1.5 mt-3 mb-4">
+    <div>
+      {/* Pills row */}
+      <div className="flex flex-wrap gap-1.5">
         {data.map((d) => {
           const isSelected = selectedLabel === d.name;
           return (
@@ -120,21 +100,36 @@ export default function OpenIssueBreakdown({ openRows, dateRangeLabel, onSelect,
         })}
       </div>
 
-      {/* Bar chart */}
-      <ResponsiveContainer width="100%" height={chartHeight}>
-        <BarChart data={data} layout="vertical" margin={{ top: 0, right: 60, left: 10, bottom: 0 }} barCategoryGap="25%">
-          <CartesianGrid strokeDasharray="3 3" stroke="#F1F5F9" horizontal={false} />
-          <XAxis type="number" tick={{ fontSize: 11, fill: "#94A3B8" }} tickLine={false} axisLine={false} />
-          <YAxis dataKey="name" type="category" tick={{ fontSize: 11, fill: "#475569" }} tickLine={false} axisLine={false} width={175} tickFormatter={(v) => v || "Not specified"} />
-          <Tooltip content={<CustomTooltip />} cursor={{ fill: "#F8FAFC" }} />
-          <Bar dataKey="count" radius={[0, 4, 4, 0]} style={{ cursor: "pointer" }} onClick={(d) => handleSelect(d.name)}>
-            <LabelList dataKey="count" position="right" style={{ fontSize: 11, fill: "#64748B", fontWeight: 600 }} formatter={(v: number) => `${v}`} />
-            {data.map((entry, i) => (
-              <Cell key={i} fill={statusColor(entry.name)} opacity={!selectedLabel || selectedLabel === entry.name ? 1 : 0.35} />
-            ))}
-          </Bar>
-        </BarChart>
-      </ResponsiveContainer>
+      {/* Collapsible chart */}
+      <div className="mt-3">
+        <button
+          onClick={() => setChartOpen(o => !o)}
+          className="flex items-center gap-1.5 text-xs text-slate-400 hover:text-slate-600 transition"
+        >
+          {chartOpen ? <ChevronUp size={13} /> : <ChevronDown size={13} />}
+          {chartOpen ? "Hide chart" : "Show chart"}
+          {dateRangeLabel && <span className="ml-1 text-slate-300">· {dateRangeLabel}</span>}
+        </button>
+
+        {chartOpen && (
+          <div className="mt-3">
+            <ResponsiveContainer width="100%" height={chartHeight}>
+              <BarChart data={data} layout="vertical" margin={{ top: 0, right: 60, left: 10, bottom: 0 }} barCategoryGap="25%">
+                <CartesianGrid strokeDasharray="3 3" stroke="#F1F5F9" horizontal={false} />
+                <XAxis type="number" tick={{ fontSize: 11, fill: "#94A3B8" }} tickLine={false} axisLine={false} />
+                <YAxis dataKey="name" type="category" tick={{ fontSize: 11, fill: "#475569" }} tickLine={false} axisLine={false} width={175} tickFormatter={(v) => v || "Not specified"} />
+                <Tooltip content={<CustomTooltip />} cursor={{ fill: "#F8FAFC" }} />
+                <Bar dataKey="count" radius={[0, 4, 4, 0]} style={{ cursor: "pointer" }} onClick={(d) => handleSelect(d.name)}>
+                  <LabelList dataKey="count" position="right" style={{ fontSize: 11, fill: "#64748B", fontWeight: 600 }} formatter={(v: number) => `${v}`} />
+                  {data.map((entry, i) => (
+                    <Cell key={i} fill={statusColor(entry.name)} opacity={!selectedLabel || selectedLabel === entry.name ? 1 : 0.35} />
+                  ))}
+                </Bar>
+              </BarChart>
+            </ResponsiveContainer>
+          </div>
+        )}
+      </div>
     </div>
   );
 }
