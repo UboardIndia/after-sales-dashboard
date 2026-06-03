@@ -163,7 +163,7 @@ export default function VerifyPage() {
         return findMatches(b, helpdeskRows).length - findMatches(a, helpdeskRows).length;
       }
       if (sortBy === "no-mobile") return (a.hasMobile ? 1 : 0) - (b.hasMobile ? 1 : 0);
-      if (sortBy === "completion-low") return completion(a) - completion(b);
+      if (sortBy === "completion-low") return completion(b) - completion(a);
       return 0;
     });
 
@@ -243,7 +243,7 @@ export default function VerifyPage() {
               {s === "oldest" && "Oldest first"}
               {s === "duplicates" && "⚠ Duplicates first"}
               {s === "no-mobile" && "📵 No mobile first"}
-              {s === "completion-low" && "⚠ Incomplete first"}
+              {s === "completion-low" && "✓ Complete first"}
             </button>
           ))}
         </div>
