@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useMemo } from "react";
 import { useRouter } from "next/navigation";
-import { Search, LogOut, LayoutDashboard, Package, ChevronDown, ChevronRight, AlertTriangle, CheckCircle2, IndianRupee } from "lucide-react";
+import { Search, LogOut, LayoutDashboard, Package } from "lucide-react";
 import type { SparePartsData, PriceListRow } from "@/lib/spareparts-types";
 
 /* ─────────────────────────── helpers ─────────────────────────── */
@@ -33,7 +33,6 @@ export default function SparePartsPage() {
   const [search, setSearch] = useState("");
   const [brand, setBrand] = useState("All");
   const [selectedProduct, setSelectedProduct] = useState<string | null>(null);
-  const [expandMissing, setExpandMissing] = useState(false);
 
   useEffect(() => {
     fetch("/api/spareparts")
@@ -300,86 +299,7 @@ export default function SparePartsPage() {
             </div>
           )}
 
-          {/* ── Missing pricing section ── */}
-          <div className="bg-white rounded-xl border border-amber-200">
-            <button
-              onClick={() => setExpandMissing((v) => !v)}
-              className="w-full px-5 py-4 flex items-center justify-between text-left"
-            >
-              <div className="flex items-center gap-3">
-                <AlertTriangle size={16} className="text-amber-500 shrink-0" />
-                <div>
-                  <p className="text-sm font-semibold text-amber-800">
-                    {unpricedProducts.length} products have no pricing yet
-                  </p>
-                  <p className="text-xs text-amber-600">
-                    These have repair history but no Min/Max prices — add them to the Price List
-                  </p>
-                </div>
-              </div>
-              <ChevronDown size={16} className={`text-amber-400 transition-transform ${expandMissing ? "rotate-180" : ""}`} />
-            </button>
-
-            {expandMissing && (
-              <div className="border-t border-amber-100 px-5 pb-4">
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2 mt-3">
-                  {unpricedProducts.map((p) => (
-                    <div key={p.Product} className="flex items-center gap-2 px-3 py-2 bg-amber-50 rounded-lg border border-amber-100">
-                      <div className="min-w-0">
-                        <p className="text-xs font-medium text-slate-700 truncate">{p.Product}</p>
-                        <p className="text-[10px] text-slate-400">{p.Brand}</p>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-                <p className="text-xs text-amber-600 mt-3 border-t border-amber-100 pt-3">
-                  Priority order: most repairs first. Add Min (B2B) + Max (B2C) prices to the spreadsheet,
-                  then share the updated file to get them added here.
-                </p>
-              </div>
-            )}
-          </div>
-
-          {/* Summary cards */}
-          <div className="grid grid-cols-3 gap-3">
-            <SumCard
-              icon={<CheckCircle2 size={18} className="text-green-600" />}
-              label="Products with full pricing"
-              value={pricedProducts.length.toString()}
-              bg="bg-green-50 border-green-200"
-              text="text-green-700"
-            />
-            <SumCard
-              icon={<AlertTriangle size={18} className="text-amber-500" />}
-              label="Products missing pricing"
-              value={unpricedProducts.length.toString()}
-              bg="bg-amber-50 border-amber-200"
-              text="text-amber-700"
-            />
-            <SumCard
-              icon={<IndianRupee size={18} className="text-indigo-600" />}
-              label="Total spare parts listed"
-              value={pricedProducts.reduce((s, p) => s + p.pricedRows.length, 0).toString()}
-              bg="bg-indigo-50 border-indigo-200"
-              text="text-indigo-700"
-            />
-          </div>
-
         </main>
-      </div>
-    </div>
-  );
-}
-
-function SumCard({ icon, label, value, bg, text }: {
-  icon: React.ReactNode; label: string; value: string; bg: string; text: string;
-}) {
-  return (
-    <div className={`rounded-xl border px-4 py-3 flex items-center gap-3 ${bg}`}>
-      {icon}
-      <div>
-        <p className={`text-xl font-bold ${text}`}>{value}</p>
-        <p className="text-xs text-slate-500">{label}</p>
       </div>
     </div>
   );
