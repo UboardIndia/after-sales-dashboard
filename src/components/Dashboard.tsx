@@ -3,7 +3,8 @@
 import { useState, useEffect, useMemo } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
-import { RefreshCw, AlertCircle, LogOut, Table2, Bot, Factory, Package } from "lucide-react";
+import { RefreshCw, AlertCircle, LogOut, Table2, Bot, Factory, Package, Calculator } from "lucide-react";
+import PriceCalculator from "./PriceCalculator";
 import type { ComplaintRow, ApiResponse } from "@/lib/types";
 import HeroStats from "./HeroStats";
 import KPICard from "./KPICard";
@@ -29,6 +30,7 @@ export default function Dashboard() {
   const [error, setError] = useState<string | null>(null);
   const [refreshing, setRefreshing] = useState(false);
   const [loggingOut, setLoggingOut] = useState(false);
+  const [calcOpen, setCalcOpen] = useState(false);
   const [botCount, setBotCount] = useState(0);
   const [drill, setDrill] = useState<{ label: string; rows: ComplaintRow[]; color: string } | null>(null);
 
@@ -302,11 +304,18 @@ export default function Dashboard() {
               )}
             </Link>
             <button
+              onClick={() => setCalcOpen(true)}
+              className="flex items-center gap-1.5 text-xs px-3 py-1.5 rounded-lg bg-indigo-600 text-white hover:bg-indigo-700 transition font-medium"
+            >
+              <Calculator size={13} /> Price Calculator
+            </button>
+            <button
               onClick={() => router.push("/spareparts")}
               className="flex items-center gap-1.5 text-xs px-3 py-1.5 rounded-lg bg-slate-100 text-slate-600 hover:bg-indigo-50 hover:text-indigo-600 transition"
             >
               <Package size={13} /> Spare Parts
             </button>
+            <PriceCalculator open={calcOpen} onClose={() => setCalcOpen(false)} />
             <button
               onClick={handleRefresh}
               disabled={refreshing}

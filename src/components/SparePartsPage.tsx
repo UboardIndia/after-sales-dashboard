@@ -2,7 +2,8 @@
 
 import { useState, useEffect, useMemo } from "react";
 import { useRouter } from "next/navigation";
-import { Search, LogOut, LayoutDashboard, Package } from "lucide-react";
+import { Search, LogOut, LayoutDashboard, Package, Calculator } from "lucide-react";
+import PriceCalculator from "./PriceCalculator";
 import type { SparePartsData, PriceListRow } from "@/lib/spareparts-types";
 
 /* ─────────────────────────── helpers ─────────────────────────── */
@@ -30,6 +31,7 @@ export default function SparePartsPage() {
   const router = useRouter();
   const [data, setData] = useState<SparePartsData | null>(null);
   const [loading, setLoading] = useState(true);
+  const [calcOpen, setCalcOpen] = useState(false);
   const [search, setSearch] = useState("");
   const [brand, setBrand] = useState("All");
   const [selectedProduct, setSelectedProduct] = useState<string | null>(null);
@@ -126,6 +128,10 @@ export default function SparePartsPage() {
             </div>
           </div>
           <div className="flex items-center gap-2">
+            <button onClick={() => setCalcOpen(true)}
+              className="flex items-center gap-1.5 text-xs px-3 py-1.5 rounded-lg bg-indigo-600 text-white hover:bg-indigo-700 transition font-medium">
+              <Calculator size={13} /> Price Calculator
+            </button>
             <button onClick={() => router.push("/")}
               className="flex items-center gap-1.5 text-xs px-3 py-1.5 rounded-lg bg-slate-100 text-slate-600 hover:bg-indigo-50 hover:text-indigo-600 transition">
               <LayoutDashboard size={13} /> Dashboard
@@ -135,6 +141,7 @@ export default function SparePartsPage() {
               <LogOut size={13} /> Sign Out
             </button>
           </div>
+          <PriceCalculator open={calcOpen} onClose={() => setCalcOpen(false)} />
         </div>
       </header>
 
