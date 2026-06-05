@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useMemo } from "react";
 import { useRouter } from "next/navigation";
-import { RefreshCw, AlertCircle, LogOut } from "lucide-react";
+import { RefreshCw, AlertCircle, LogOut, Package } from "lucide-react";
 import type { ComplaintRow, ApiResponse } from "@/lib/types";
 import HeroStats from "./HeroStats";
 import KPICard from "./KPICard";
@@ -229,6 +229,12 @@ export default function Dashboard() {
                 Updated {new Date(lastUpdated).toLocaleTimeString()}
               </span>
             )}
+            <button
+              onClick={() => router.push("/spareparts")}
+              className="flex items-center gap-1.5 text-xs px-3 py-1.5 rounded-lg bg-slate-100 text-slate-600 hover:bg-indigo-50 hover:text-indigo-600 transition"
+            >
+              <Package size={13} /> Spare Parts
+            </button>
             <button
               onClick={handleRefresh}
               disabled={refreshing}

@@ -1,0 +1,5318 @@
+﻿[
+    {
+        "Product":  "Tygatec Air Hockey",
+        "OrigEntry":  "Air Hockey",
+        "Description":  "Pucks dispatched",
+        "Cost":  "150"
+    },
+    {
+        "Product":  "Tygatec Air Hockey",
+        "OrigEntry":  "Air Hockey",
+        "Description":  "Pucks dispatched",
+        "Cost":  "150"
+    },
+    {
+        "Product":  "Avigo Hoverboard (non-Uboard)",
+        "OrigEntry":  "Avigo hoverboard",
+        "Description":  "Battery changed",
+        "Cost":  "2500"
+    },
+    {
+        "Product":  "REVIEW: Battery",
+        "OrigEntry":  "Battery",
+        "Description":  "battery and drifter screw",
+        "Cost":  "2000"
+    },
+    {
+        "Product":  "REVIEW: battery changed",
+        "OrigEntry":  "battery changed",
+        "Description":  "battery changed",
+        "Cost":  "2500"
+    },
+    {
+        "Product":  "Uboard Bumper Car",
+        "OrigEntry":  "bumber car",
+        "Description":  "bumber car handle",
+        "Cost":  "200"
+    },
+    {
+        "Product":  "Uboard Bumper Car",
+        "OrigEntry":  "bumber car",
+        "Description":  "One side handle changed",
+        "Cost":  "200"
+    },
+    {
+        "Product":  "Uboard Bumper Car",
+        "OrigEntry":  "Bumper car",
+        "Description":  "Bumper car screw",
+        "Cost":  "20"
+    },
+    {
+        "Product":  "Uboard Bumper Car",
+        "OrigEntry":  "Bumper car",
+        "Description":  "joy stick changed",
+        "Cost":  "1000"
+    },
+    {
+        "Product":  "Uboard Bumper Car",
+        "OrigEntry":  "Bumper car",
+        "Description":  "battery dispached",
+        "Cost":  "1000"
+    },
+    {
+        "Product":  "Uboard Bumper Car",
+        "OrigEntry":  "Bumper car jotsick",
+        "Description":  "Bumper car jotsick",
+        "Cost":  "750"
+    },
+    {
+        "Product":  "REVIEW: Charging slot",
+        "OrigEntry":  "Charging slot",
+        "Description":  "charging slot dispatched",
+        "Cost":  "100"
+    },
+    {
+        "Product":  "Chinese 10 inch (non-Uboard)",
+        "OrigEntry":  "Chinese 10 inch",
+        "Description":  "Motherboard and battery changed",
+        "Cost":  "3000"
+    },
+    {
+        "Product":  "Chinese 6.5 (non-Uboard)",
+        "OrigEntry":  "Chinese 6.5",
+        "Description":  "Battery changed",
+        "Cost":  "2000"
+    },
+    {
+        "Product":  "Chinese 6.5 (non-Uboard)",
+        "OrigEntry":  "Chinese 6.5",
+        "Description":  "Motherboard changed",
+        "Cost":  "1500"
+    },
+    {
+        "Product":  "CXM Hoverboard (non-Uboard)",
+        "OrigEntry":  "CXM Hoverboard",
+        "Description":  "Bluetooth changed",
+        "Cost":  "800"
+    },
+    {
+        "Product":  "CXM Hoverboard (non-Uboard)",
+        "OrigEntry":  "CXM Hoverboard",
+        "Description":  "Charger changed",
+        "Cost":  "1250"
+    },
+    {
+        "Product":  "CXM Hoverboard (non-Uboard)",
+        "OrigEntry":  "CXM Hoverboard",
+        "Description":  "Motor screw changed",
+        "Cost":  "100"
+    },
+    {
+        "Product":  "CXM Hoverboard (non-Uboard)",
+        "OrigEntry":  "Cxm hoverboard",
+        "Description":  "Chessis change",
+        "Cost":  "1000"
+    },
+    {
+        "Product":  "CXM Hoverboard (non-Uboard)",
+        "OrigEntry":  "Cxm hoverboard",
+        "Description":  "1 side motherboard changed",
+        "Cost":  "700"
+    },
+    {
+        "Product":  "CXM Hoverboard (non-Uboard)",
+        "OrigEntry":  "Cxm hoverboard",
+        "Description":  "battery and battery changed",
+        "Cost":  "3000"
+    },
+    {
+        "Product":  "CXM Hoverboard (non-Uboard)",
+        "OrigEntry":  "Cxm Hoverboard",
+        "Description":  "battery changed",
+        "Cost":  "2000"
+    },
+    {
+        "Product":  "CXM Hoverboard (non-Uboard)",
+        "OrigEntry":  "Cxm hoverboard",
+        "Description":  "Battery changed",
+        "Cost":  "2500"
+    },
+    {
+        "Product":  "CXM Hoverboard (non-Uboard)",
+        "OrigEntry":  "Cxm Hoverboard",
+        "Description":  "Motherboard changed",
+        "Cost":  "2000"
+    },
+    {
+        "Product":  "CXM Hoverboard (non-Uboard)",
+        "OrigEntry":  "Cxm Hoverboard",
+        "Description":  "mother board changed",
+        "Cost":  "2500"
+    },
+    {
+        "Product":  "CXM Hoverboard (non-Uboard)",
+        "OrigEntry":  "CXM Hoverboard",
+        "Description":  "A-side sensor changed",
+        "Cost":  "1500"
+    },
+    {
+        "Product":  "CXM Hoverboard (non-Uboard)",
+        "OrigEntry":  "Cxm Hoverboard",
+        "Description":  "battery changed",
+        "Cost":  "2500"
+    },
+    {
+        "Product":  "CXM Hoverboard (non-Uboard)",
+        "OrigEntry":  "Cxm Hoverboard",
+        "Description":  "A-side sensor changed",
+        "Cost":  "1000"
+    },
+    {
+        "Product":  "CXM Hoverboard (non-Uboard)",
+        "OrigEntry":  "cxm Hoverboard",
+        "Description":  "sensor changed",
+        "Cost":  "1500"
+    },
+    {
+        "Product":  "CXM Hoverboard (non-Uboard)",
+        "OrigEntry":  "cxm hoverboard",
+        "Description":  "sensor changed",
+        "Cost":  "1500"
+    },
+    {
+        "Product":  "CXM Hoverboard (non-Uboard)",
+        "OrigEntry":  "cxm hoverboard",
+        "Description":  "motherboard changed",
+        "Cost":  "2500"
+    },
+    {
+        "Product":  "CXM Hoverboard (non-Uboard)",
+        "OrigEntry":  "Cxm hoverboard",
+        "Description":  "battery dispatched",
+        "Cost":  "2900"
+    },
+    {
+        "Product":  "CXM Hoverboard (non-Uboard)",
+        "OrigEntry":  "Cxm hoverboard",
+        "Description":  "A-side sensor changed",
+        "Cost":  "1500"
+    },
+    {
+        "Product":  "CXM Hoverboard (non-Uboard)",
+        "OrigEntry":  "Cxm hoverboard charger",
+        "Description":  "charger replaced",
+        "Cost":  "1200"
+    },
+    {
+        "Product":  "CXM Hoverboard (non-Uboard)",
+        "OrigEntry":  "Cxm Hoverboiard",
+        "Description":  "a-side sensor changed",
+        "Cost":  "1000"
+    },
+    {
+        "Product":  "CXM Hoverboard (non-Uboard)",
+        "OrigEntry":  "Cxm Hoverboiard",
+        "Description":  "charger dispatched",
+        "Cost":  "1500"
+    },
+    {
+        "Product":  "CXM Hoverboard (non-Uboard)",
+        "OrigEntry":  "Cxm Hoverboiard",
+        "Description":  "a-side sensor changed",
+        "Cost":  "1000"
+    },
+    {
+        "Product":  "CXM Hoverboard (non-Uboard)",
+        "OrigEntry":  "Cxm Hoverboiard",
+        "Description":  "battery changed",
+        "Cost":  "2500"
+    },
+    {
+        "Product":  "CXM Hoverboard (non-Uboard)",
+        "OrigEntry":  "CXM Sonic",
+        "Description":  "Charger dispatched",
+        "Cost":  "2500"
+    },
+    {
+        "Product":  "Uboard Drifter",
+        "OrigEntry":  "Drifter charging Slot",
+        "Description":  "Drifter charging Slot",
+        "Cost":  "300"
+    },
+    {
+        "Product":  "Uboard Drifter",
+        "OrigEntry":  "Drifter charging Slot",
+        "Description":  "Drifter charging Slot",
+        "Cost":  "300"
+    },
+    {
+        "Product":  "Uboard Drifter",
+        "OrigEntry":  "Drifter charging Slot",
+        "Description":  "Charging slot",
+        "Cost":  "300"
+    },
+    {
+        "Product":  "Uboard Drifter",
+        "OrigEntry":  "drifter charging slot",
+        "Description":  "charging slot sale",
+        "Cost":  "150"
+    },
+    {
+        "Product":  "Uboard Drifter",
+        "OrigEntry":  "Drifter Throttle sale",
+        "Description":  "Drifter throttle",
+        "Cost":  "2000"
+    },
+    {
+        "Product":  "REVIEW: Em Bike",
+        "OrigEntry":  "Em Bike",
+        "Description":  "Battery changed",
+        "Cost":  "2500"
+    },
+    {
+        "Product":  "Uboard Mini Explorer",
+        "OrigEntry":  "Mini 10",
+        "Description":  "Chaging slot changed",
+        "Cost":  "200"
+    },
+    {
+        "Product":  "Uboard Pathfinder",
+        "OrigEntry":  "pathfinder",
+        "Description":  "charger sale",
+        "Cost":  "1500"
+    },
+    {
+        "Product":  "REVIEW: Pu Wheels",
+        "OrigEntry":  "Pu Wheels",
+        "Description":  "Pu Wheels",
+        "Cost":  "1500"
+    },
+    {
+        "Product":  "Tygatec Supersonic RC Car",
+        "OrigEntry":  "rc car shocker",
+        "Description":  "shocker dispatch",
+        "Cost":  "200"
+    },
+    {
+        "Product":  "REVIEW: sent back wheel screw",
+        "OrigEntry":  "sent back wheel screw",
+        "Description":  "sent back wheel screw",
+        "Cost":  "50"
+    },
+    {
+        "Product":  "Tygatec Smoke Car",
+        "OrigEntry":  "Smoke car",
+        "Description":  "Battery changed",
+        "Cost":  "100"
+    },
+    {
+        "Product":  "Tygatec Smoke Car",
+        "OrigEntry":  "Smoke car",
+        "Description":  "Battery changed",
+        "Cost":  "100"
+    },
+    {
+        "Product":  "Uboard Space Bike",
+        "OrigEntry":  "Space bike",
+        "Description":  "Charger sale",
+        "Cost":  "2000"
+    },
+    {
+        "Product":  "Uboard Space Bike",
+        "OrigEntry":  "Space bike",
+        "Description":  "battery changed",
+        "Cost":  "6500"
+    },
+    {
+        "Product":  "Tygatec Supersonic RC Car",
+        "OrigEntry":  "Tyagatec supersonic rc car",
+        "Description":  "gear set dispatched",
+        "Cost":  "1500"
+    },
+    {
+        "Product":  "Tygatec T6",
+        "OrigEntry":  "Tyagatec t6",
+        "Description":  "Charger dispatch",
+        "Cost":  "1000"
+    },
+    {
+        "Product":  "Tygatec T6",
+        "OrigEntry":  "Tyagatec t6",
+        "Description":  "battery cover changed",
+        "Cost":  "100"
+    },
+    {
+        "Product":  "Tygatec T6",
+        "OrigEntry":  "Tyagatec t6",
+        "Description":  "motor changed",
+        "Cost":  "1500"
+    },
+    {
+        "Product":  "Tygatec Eco",
+        "OrigEntry":  "Tyagtec Eco",
+        "Description":  "battery changed",
+        "Cost":  "2500"
+    },
+    {
+        "Product":  "Tygatec Supersonic RC Car",
+        "OrigEntry":  "Tyagtec Supersonic Rc car",
+        "Description":  "Remote changed",
+        "Cost":  "500"
+    },
+    {
+        "Product":  "Tygatec T2",
+        "OrigEntry":  "Tyagtec T2",
+        "Description":  "battery changed",
+        "Cost":  "2000"
+    },
+    {
+        "Product":  "Tygatec T6",
+        "OrigEntry":  "Tyagtec T6",
+        "Description":  "Motherboard and on/off switch changed (Bag sale)",
+        "Cost":  "2500"
+    },
+    {
+        "Product":  "Tygatec T6",
+        "OrigEntry":  "Tyagtec T6",
+        "Description":  "Battery changed",
+        "Cost":  "2500"
+    },
+    {
+        "Product":  "Tygatec Air Hockey",
+        "OrigEntry":  "Tygatec Air hockey",
+        "Description":  "power adpater dispatched",
+        "Cost":  "300"
+    },
+    {
+        "Product":  "REVIEW: Tygatec chager",
+        "OrigEntry":  "Tygatec chager",
+        "Description":  "charger replaced",
+        "Cost":  "1500"
+    },
+    {
+        "Product":  "REVIEW: Tygatec Charger",
+        "OrigEntry":  "Tygatec Charger",
+        "Description":  "Tygatec Charger",
+        "Cost":  "1000"
+    },
+    {
+        "Product":  "Uboard E-Kick Junior",
+        "OrigEntry":  "Tygatec ekick jr",
+        "Description":  "battery changed",
+        "Cost":  "1500"
+    },
+    {
+        "Product":  "Tygatec G281",
+        "OrigEntry":  "Tygatec g281",
+        "Description":  "one side sensor changed",
+        "Cost":  "500"
+    },
+    {
+        "Product":  "Tygatec G281",
+        "OrigEntry":  "Tygatec G281",
+        "Description":  "Sensor cover changed",
+        "Cost":  "100"
+    },
+    {
+        "Product":  "Tygatec G281",
+        "OrigEntry":  "Tygatec g281",
+        "Description":  "Battery changed",
+        "Cost":  "2500"
+    },
+    {
+        "Product":  "Tygatec G281",
+        "OrigEntry":  "Tygatec G281",
+        "Description":  "Battery changed",
+        "Cost":  "2500"
+    },
+    {
+        "Product":  "Tygatec G281",
+        "OrigEntry":  "Tygatec G281",
+        "Description":  "A-side sensor changed",
+        "Cost":  "1500"
+    },
+    {
+        "Product":  "Tygatec G281",
+        "OrigEntry":  "Tygatec G281",
+        "Description":  "battery changed",
+        "Cost":  "2500"
+    },
+    {
+        "Product":  "Tygatec G281",
+        "OrigEntry":  "Tygatec G281",
+        "Description":  "Charger and A-side sensor changed",
+        "Cost":  "1500"
+    },
+    {
+        "Product":  "Tygatec G281",
+        "OrigEntry":  "Tygatec G281",
+        "Description":  "Battery dispatched",
+        "Cost":  "2500"
+    },
+    {
+        "Product":  "Tygatec G281",
+        "OrigEntry":  "Tygatec G281",
+        "Description":  "Battery changed",
+        "Cost":  "2500"
+    },
+    {
+        "Product":  "Tygatec G281",
+        "OrigEntry":  "Tygatec g281",
+        "Description":  "A-side sensor changed",
+        "Cost":  "1500"
+    },
+    {
+        "Product":  "Tygatec Supersonic RC Car",
+        "OrigEntry":  "Tygatec supersonic Rc car",
+        "Description":  "Gear Set sale",
+        "Cost":  "1500"
+    },
+    {
+        "Product":  "Tygatec Supersonic RC Car",
+        "OrigEntry":  "Tygatec supersonic Rc car",
+        "Description":  "Servo changed",
+        "Cost":  "300"
+    },
+    {
+        "Product":  "Tygatec Supersonic RC Car",
+        "OrigEntry":  "Tygatec supersonic rc car",
+        "Description":  "servo and remote changed",
+        "Cost":  "700"
+    },
+    {
+        "Product":  "Tygatec Supersonic RC Car",
+        "OrigEntry":  "Tygatec supersonic rc car",
+        "Description":  "gear set change",
+        "Cost":  "500"
+    },
+    {
+        "Product":  "Tygatec Supersonic RC Car",
+        "OrigEntry":  "Tygatec supersonic rc car",
+        "Description":  "Remote and battery changed",
+        "Cost":  "1000"
+    },
+    {
+        "Product":  "Tygatec Supersonic RC Car",
+        "OrigEntry":  "Tygatec supersonic rc car",
+        "Description":  "Remote dispatched",
+        "Cost":  "1000"
+    },
+    {
+        "Product":  "Tygatec Supersonic RC Car",
+        "OrigEntry":  "Tygatec supersonic rc car",
+        "Description":  "remote changed",
+        "Cost":  "500"
+    },
+    {
+        "Product":  "Tygatec Supersonic RC Car",
+        "OrigEntry":  "Tygatec supersonic rc car",
+        "Description":  "remote changed",
+        "Cost":  "500"
+    },
+    {
+        "Product":  "Tygatec Supersonic RC Car",
+        "OrigEntry":  "Tygatec supersonic rc car",
+        "Description":  "servo and remote changed",
+        "Cost":  "2000"
+    },
+    {
+        "Product":  "Tygatec Supersonic RC Car",
+        "OrigEntry":  "Tygatec supersonic rc car",
+        "Description":  "rewmote changed",
+        "Cost":  "1000"
+    },
+    {
+        "Product":  "Tygatec Supersonic RC Car",
+        "OrigEntry":  "Tygatec supersonic rc car",
+        "Description":  "rewmote changed",
+        "Cost":  "1000"
+    },
+    {
+        "Product":  "Tygatec Supersonic RC Car",
+        "OrigEntry":  "Tygatec supersonic rc car",
+        "Description":  "Servo sale",
+        "Cost":  "500"
+    },
+    {
+        "Product":  "Tygatec Supersonic RC Car",
+        "OrigEntry":  "Tygatec supersonic rc car",
+        "Description":  "remote changed",
+        "Cost":  "1000"
+    },
+    {
+        "Product":  "Tygatec Supersonic RC Car",
+        "OrigEntry":  "Tygatec supersonic rc car",
+        "Description":  "Remote dispatched",
+        "Cost":  "1000"
+    },
+    {
+        "Product":  "Tygatec Supersonic RC Car",
+        "OrigEntry":  "Tygatec supersonic rc car",
+        "Description":  "Remote dispatched",
+        "Cost":  "1000"
+    },
+    {
+        "Product":  "Tygatec Supersonic RC Car",
+        "OrigEntry":  "Tygatec supersonic rc car",
+        "Description":  "Remote dispatched",
+        "Cost":  "1000"
+    },
+    {
+        "Product":  "Tygatec Supersonic RC Car",
+        "OrigEntry":  "Tygatec supersonic rc car",
+        "Description":  "Remote dispatched",
+        "Cost":  "1000"
+    },
+    {
+        "Product":  "Tygatec Supersonic RC Car",
+        "OrigEntry":  "Tygatec supersonic rc car",
+        "Description":  "Remote dispatched",
+        "Cost":  "1000"
+    },
+    {
+        "Product":  "Tygatec Supersonic RC Car",
+        "OrigEntry":  "Tygatec supersonic rc car",
+        "Description":  "remote changed",
+        "Cost":  "1000"
+    },
+    {
+        "Product":  "Tygatec Supersonic RC Car",
+        "OrigEntry":  "Tygatec supersonic rc car",
+        "Description":  "remote changed",
+        "Cost":  "1000"
+    },
+    {
+        "Product":  "Tygatec Supersonic RC Car",
+        "OrigEntry":  "Tygatec supersonic rc car",
+        "Description":  "remote changed",
+        "Cost":  "1000"
+    },
+    {
+        "Product":  "Tygatec Supersonic RC Car",
+        "OrigEntry":  "Tygatec supersonic rc car",
+        "Description":  "remote changed",
+        "Cost":  "1000"
+    },
+    {
+        "Product":  "Tygatec Supersonic RC Car",
+        "OrigEntry":  "Tygatec supersonic rc car",
+        "Description":  "servo changed",
+        "Cost":  "800"
+    },
+    {
+        "Product":  "Tygatec Supersonic RC Car",
+        "OrigEntry":  "Tygatec Supersonic rc car",
+        "Description":  "front axel sale",
+        "Cost":  "300"
+    },
+    {
+        "Product":  "Tygatec Supersonic RC Car",
+        "OrigEntry":  "Tygatec supersonic rc car",
+        "Description":  "remote changed",
+        "Cost":  "1000"
+    },
+    {
+        "Product":  "Tygatec Supersonic RC Car",
+        "OrigEntry":  "Tygatec supersonic rc car",
+        "Description":  "RHS Schocker , servo , and remote",
+        "Cost":  "1500"
+    },
+    {
+        "Product":  "Tygatec Supersonic RC Car",
+        "OrigEntry":  "Tygatec supersonic rc car",
+        "Description":  "remote changed",
+        "Cost":  "1000"
+    },
+    {
+        "Product":  "Tygatec Supersonic RC Car",
+        "OrigEntry":  "Tygatec supersonic rc car",
+        "Description":  "remote changed",
+        "Cost":  "1000"
+    },
+    {
+        "Product":  "Tygatec Supersonic RC Car",
+        "OrigEntry":  "Tygatec supersonic rc car",
+        "Description":  "remote changed",
+        "Cost":  "1000"
+    },
+    {
+        "Product":  "Tygatec Supersonic RC Car",
+        "OrigEntry":  "Tygatec supersonic rc car",
+        "Description":  "Servo and remote changed",
+        "Cost":  "700"
+    },
+    {
+        "Product":  "Tygatec Supersonic RC Car",
+        "OrigEntry":  "Tygatec supersonic rc car",
+        "Description":  "Remote changed",
+        "Cost":  "500"
+    },
+    {
+        "Product":  "Tygatec Supersonic RC Car",
+        "OrigEntry":  "Tygatec supersonic rc car",
+        "Description":  "Gear set dispatch",
+        "Cost":  "300"
+    },
+    {
+        "Product":  "Tygatec Supersonic RC Car",
+        "OrigEntry":  "Tygatec supersonic rc car",
+        "Description":  "remote dispatched",
+        "Cost":  "300"
+    },
+    {
+        "Product":  "Tygatec Supersonic RC Car",
+        "OrigEntry":  "Tygatec supersonic rc car",
+        "Description":  "Gear set sale",
+        "Cost":  "700"
+    },
+    {
+        "Product":  "Tygatec Supersonic RC Car",
+        "OrigEntry":  "Tygatec supersonic rc car",
+        "Description":  "remote dispatched",
+        "Cost":  "700"
+    },
+    {
+        "Product":  "Tygatec Supersonic RC Car",
+        "OrigEntry":  "Tygatec supersonic rc car",
+        "Description":  "remote dispatched",
+        "Cost":  "700"
+    },
+    {
+        "Product":  "Tygatec Supersonic RC Car",
+        "OrigEntry":  "Tygatec supersonic rc car",
+        "Description":  "remote dispatched",
+        "Cost":  "500"
+    },
+    {
+        "Product":  "Tygatec Supersonic RC Car",
+        "OrigEntry":  "Tygatec supersonic rc car",
+        "Description":  "remote dispatched",
+        "Cost":  "500"
+    },
+    {
+        "Product":  "Tygatec Supersonic RC Car",
+        "OrigEntry":  "Tygatec supersonic rc car",
+        "Description":  "Servo and remote changed",
+        "Cost":  "700"
+    },
+    {
+        "Product":  "Tygatec Supersonic RC Car",
+        "OrigEntry":  "Tygatec supersonic rc car",
+        "Description":  "remote changed",
+        "Cost":  "500"
+    },
+    {
+        "Product":  "Tygatec Supersonic RC Car",
+        "OrigEntry":  "Tygatec supersonic rc car",
+        "Description":  "Remote changed",
+        "Cost":  "500"
+    },
+    {
+        "Product":  "Tygatec Supersonic RC Car",
+        "OrigEntry":  "Tygatec supersonic rc car",
+        "Description":  "Remote changed",
+        "Cost":  "500"
+    },
+    {
+        "Product":  "Tygatec Supersonic RC Car",
+        "OrigEntry":  "Tygatec supersonic rc car",
+        "Description":  "remote changed",
+        "Cost":  "500"
+    },
+    {
+        "Product":  "Tygatec Supersonic RC Car",
+        "OrigEntry":  "Tygatec supersonic rc car",
+        "Description":  "remote dispatched",
+        "Cost":  "500"
+    },
+    {
+        "Product":  "Tygatec Supersonic RC Car",
+        "OrigEntry":  "Tygatec supersonic rc car",
+        "Description":  "remote changed",
+        "Cost":  "1000"
+    },
+    {
+        "Product":  "Tygatec Supersonic RC Car",
+        "OrigEntry":  "Tygatec supersonic rc car",
+        "Description":  "remote changed",
+        "Cost":  "1000"
+    },
+    {
+        "Product":  "Tygatec Supersonic RC Car",
+        "OrigEntry":  "Tygatec supersonic rc car",
+        "Description":  "servo changed",
+        "Cost":  "1000"
+    },
+    {
+        "Product":  "Tygatec Supersonic RC Car",
+        "OrigEntry":  "Tygatec supersonic rc car",
+        "Description":  "remote changed",
+        "Cost":  "1800"
+    },
+    {
+        "Product":  "Tygatec Supersonic RC Car",
+        "OrigEntry":  "Tygatec supersonic rc car",
+        "Description":  "remote changed",
+        "Cost":  "1800"
+    },
+    {
+        "Product":  "Tygatec Supersonic RC Car",
+        "OrigEntry":  "Tygatec supersonic rc car",
+        "Description":  "Gear changed",
+        "Cost":  "1500"
+    },
+    {
+        "Product":  "Tygatec Supersonic RC Car",
+        "OrigEntry":  "Tygatec supersonic rc car",
+        "Description":  "remote changed",
+        "Cost":  "1500"
+    },
+    {
+        "Product":  "Tygatec Supersonic RC Car",
+        "OrigEntry":  "Tygatec supersonic rc car",
+        "Description":  "remote changed",
+        "Cost":  "1500"
+    },
+    {
+        "Product":  "Tygatec Supersonic RC Car",
+        "OrigEntry":  "Tygatec supersonic rc car",
+        "Description":  "remote changed",
+        "Cost":  "1500"
+    },
+    {
+        "Product":  "Tygatec Supersonic RC Car",
+        "OrigEntry":  "Tygatec supersonic rc car",
+        "Description":  "remote changed",
+        "Cost":  "1500"
+    },
+    {
+        "Product":  "Tygatec Supersonic RC Car",
+        "OrigEntry":  "Tygatec supersonic rc car",
+        "Description":  "remote changed",
+        "Cost":  "1500"
+    },
+    {
+        "Product":  "Tygatec Supersonic RC Car",
+        "OrigEntry":  "Tygatec supersonic rc car",
+        "Description":  "remote changed",
+        "Cost":  "1500"
+    },
+    {
+        "Product":  "Tygatec Supersonic RC Car",
+        "OrigEntry":  "Tygatec supersonic rc car",
+        "Description":  "remote changed",
+        "Cost":  "1500"
+    },
+    {
+        "Product":  "Tygatec Supersonic RC Car",
+        "OrigEntry":  "Tygatec supersonic rc car",
+        "Description":  "remote changed",
+        "Cost":  "1500"
+    },
+    {
+        "Product":  "Tygatec Supersonic RC Car",
+        "OrigEntry":  "Tygatec supersonic rc car",
+        "Description":  "remote changed",
+        "Cost":  "1500"
+    },
+    {
+        "Product":  "Tygatec Supersonic RC Car",
+        "OrigEntry":  "Tygatec supersonic rc car",
+        "Description":  "remote changed",
+        "Cost":  "1500"
+    },
+    {
+        "Product":  "Tygatec Supersonic RC Car",
+        "OrigEntry":  "Tygatec supersonic rc car",
+        "Description":  "remote and servo changed",
+        "Cost":  "1800"
+    },
+    {
+        "Product":  "Tygatec Supersonic RC Car",
+        "OrigEntry":  "Tygatec supersonic rc car",
+        "Description":  "remote changed",
+        "Cost":  "1500"
+    },
+    {
+        "Product":  "Tygatec Supersonic RC Car",
+        "OrigEntry":  "Tygatec supersonic rc car",
+        "Description":  "remote changed",
+        "Cost":  "1500"
+    },
+    {
+        "Product":  "Tygatec Supersonic RC Car",
+        "OrigEntry":  "Tygatec supersonic rc car",
+        "Description":  "servo dispatched",
+        "Cost":  "700"
+    },
+    {
+        "Product":  "Tygatec Supersonic RC Car",
+        "OrigEntry":  "Tygatec supersonic rc car",
+        "Description":  "remote changed",
+        "Cost":  "1500"
+    },
+    {
+        "Product":  "Tygatec Supersonic RC Car",
+        "OrigEntry":  "Tygatec supersonic rc car",
+        "Description":  "remote sensor changed and front light changed",
+        "Cost":  "500"
+    },
+    {
+        "Product":  "Tygatec Supersonic RC Car",
+        "OrigEntry":  "Tygatec Supersonic rc car",
+        "Description":  "remote changed",
+        "Cost":  "1500"
+    },
+    {
+        "Product":  "Tygatec Supersonic RC Car",
+        "OrigEntry":  "Tygatec Supersonic Rc car",
+        "Description":  "battery changed",
+        "Cost":  "1000"
+    },
+    {
+        "Product":  "Tygatec Supersonic RC Car",
+        "OrigEntry":  "Tygatec Supersonic Rc car",
+        "Description":  "remote dispatched",
+        "Cost":  "1000"
+    },
+    {
+        "Product":  "Tygatec Supersonic RC Car",
+        "OrigEntry":  "Tygatec Supersonic Rc car",
+        "Description":  "remote dispatched",
+        "Cost":  "1000"
+    },
+    {
+        "Product":  "Tygatec Supersonic RC Car",
+        "OrigEntry":  "Tygatec Supersonic Rc car",
+        "Description":  "Remote sensor changed",
+        "Cost":  "500"
+    },
+    {
+        "Product":  "Tygatec Supersonic RC Car",
+        "OrigEntry":  "Tygatec Supersonic Rc car",
+        "Description":  "Servo and  chagrging cable",
+        "Cost":  "1200"
+    },
+    {
+        "Product":  "Tygatec Supersonic RC Car",
+        "OrigEntry":  "Tygatec Supersonic Rc car",
+        "Description":  "Servo and remote sensor changed",
+        "Cost":  "350"
+    },
+    {
+        "Product":  "Tygatec Supersonic RC Car",
+        "OrigEntry":  "Tygatec Supersonic Rc car",
+        "Description":  "Remote sensor changed and 1 battery sale",
+        "Cost":  "1000"
+    },
+    {
+        "Product":  "Tygatec Supersonic RC Car",
+        "OrigEntry":  "Tygatec Supersonic Rc car",
+        "Description":  "front light sale",
+        "Cost":  "200"
+    },
+    {
+        "Product":  "Tygatec Supersonic RC Car",
+        "OrigEntry":  "Tygatec Supersonic Rc car",
+        "Description":  "Charging cable",
+        "Cost":  "200"
+    },
+    {
+        "Product":  "Tygatec Supersonic RC Car",
+        "OrigEntry":  "Tygatec Supersonic Rc car",
+        "Description":  "remote sensor changed",
+        "Cost":  "500"
+    },
+    {
+        "Product":  "Tygatec Supersonic RC Car",
+        "OrigEntry":  "Tygatec supersonic rc car",
+        "Description":  "Remote changed",
+        "Cost":  "1500"
+    },
+    {
+        "Product":  "Tygatec Supersonic RC Car",
+        "OrigEntry":  "Tygatec supersonic rc car",
+        "Description":  "Servo dispatched",
+        "Cost":  "500"
+    },
+    {
+        "Product":  "Tygatec Supersonic RC Car",
+        "OrigEntry":  "Tygatec supersonic rc car",
+        "Description":  "Remote dispatched",
+        "Cost":  "1000"
+    },
+    {
+        "Product":  "Tygatec Supersonic RC Car",
+        "OrigEntry":  "Tygatec supersonic rc car",
+        "Description":  "Remote dispatched",
+        "Cost":  "1000"
+    },
+    {
+        "Product":  "Tygatec Supersonic RC Car",
+        "OrigEntry":  "Tygatec supersonic rc car",
+        "Description":  "Remote changed",
+        "Cost":  "1500"
+    },
+    {
+        "Product":  "Tygatec Supersonic RC Car",
+        "OrigEntry":  "Tygatec Supersonic rc car",
+        "Description":  "Remote Changed",
+        "Cost":  "1500"
+    },
+    {
+        "Product":  "Tygatec Supersonic RC Car",
+        "OrigEntry":  "Tygatec Supersonic rc car",
+        "Description":  "Remote Changed",
+        "Cost":  "1500"
+    },
+    {
+        "Product":  "Tygatec Supersonic RC Car",
+        "OrigEntry":  "Tygatec Supersonic rc car",
+        "Description":  "Servo changed",
+        "Cost":  "600"
+    },
+    {
+        "Product":  "Tygatec Supersonic RC Car",
+        "OrigEntry":  "Tygatec Supersonic rc car",
+        "Description":  "Remote Changed",
+        "Cost":  "1500"
+    },
+    {
+        "Product":  "Tygatec Supersonic RC Car",
+        "OrigEntry":  "Tygatec Supersonic rc car",
+        "Description":  "Servo dispatched",
+        "Cost":  "600"
+    },
+    {
+        "Product":  "Tygatec Supersonic RC Car",
+        "OrigEntry":  "Tygatec Supersonic rc car",
+        "Description":  "Esc changed",
+        "Cost":  "600"
+    },
+    {
+        "Product":  "Tygatec Supersonic RC Car",
+        "OrigEntry":  "Tygatec supersonic rc car",
+        "Description":  "wheel joint changed",
+        "Cost":  "200"
+    },
+    {
+        "Product":  "Tygatec Supersonic RC Car",
+        "OrigEntry":  "Tygatec supersonic rc car",
+        "Description":  "servo changed",
+        "Cost":  "500"
+    },
+    {
+        "Product":  "Tygatec Supersonic RC Car",
+        "OrigEntry":  "Tygatec supersonic rc car",
+        "Description":  "remote sensor change",
+        "Cost":  "200"
+    },
+    {
+        "Product":  "Tygatec Supersonic RC Car",
+        "OrigEntry":  "Tygatec supersonic rc car",
+        "Description":  "battery sale",
+        "Cost":  "700"
+    },
+    {
+        "Product":  "Tygatec Supersonic RC Car",
+        "OrigEntry":  "Tygatec supersonic rc car",
+        "Description":  "charger sale",
+        "Cost":  "200"
+    },
+    {
+        "Product":  "Tygatec Supersonic RC Car",
+        "OrigEntry":  "tygatec supersonic rc car",
+        "Description":  "pinor gear",
+        "Cost":  "100"
+    },
+    {
+        "Product":  "Tygatec Supersonic RC Car",
+        "OrigEntry":  "tygatec supersonic rc car",
+        "Description":  "gear adn tire changed",
+        "Cost":  "1000"
+    },
+    {
+        "Product":  "Tygatec Supersonic RC Car",
+        "OrigEntry":  "tygatec supersonic rc car",
+        "Description":  "servo dispatched",
+        "Cost":  "1500"
+    },
+    {
+        "Product":  "Tygatec Supersonic RC Car",
+        "OrigEntry":  "tygatec supersonic rc car",
+        "Description":  "gear changed",
+        "Cost":  "500"
+    },
+    {
+        "Product":  "Tygatec Supersonic RC Car",
+        "OrigEntry":  "tygatec supersonic rc car",
+        "Description":  "gear changed",
+        "Cost":  "500"
+    },
+    {
+        "Product":  "Tygatec Supersonic RC Car",
+        "OrigEntry":  "tygatec supersonic rc car",
+        "Description":  "gear set , servo , nakal joint changed",
+        "Cost":  "1000"
+    },
+    {
+        "Product":  "Tygatec Supersonic RC Car",
+        "OrigEntry":  "tygatec supersonic rc car",
+        "Description":  "servo changed",
+        "Cost":  "500"
+    },
+    {
+        "Product":  "Tygatec Supersonic RC Car",
+        "OrigEntry":  "Tygatec Supersonic rc car",
+        "Description":  "tire dispatched",
+        "Cost":  "200"
+    },
+    {
+        "Product":  "Tygatec Supersonic RC Car",
+        "OrigEntry":  "Tygatec Supersonic rc car",
+        "Description":  "servo dispatched",
+        "Cost":  "1000"
+    },
+    {
+        "Product":  "Tygatec Supersonic RC Car",
+        "OrigEntry":  "Tygatec Supersonic rc car",
+        "Description":  "axel sale",
+        "Cost":  "100"
+    },
+    {
+        "Product":  "Tygatec Supersonic RC Car",
+        "OrigEntry":  "Tygatec Supersonic rc car",
+        "Description":  "remote sensor changed",
+        "Cost":  "600"
+    },
+    {
+        "Product":  "Tygatec Supersonic RC Car",
+        "OrigEntry":  "Tygatec Supersonic rc car",
+        "Description":  "servo changed",
+        "Cost":  "500"
+    },
+    {
+        "Product":  "Tygatec Supersonic RC Car",
+        "OrigEntry":  "Tygatec Supersonic rc car",
+        "Description":  "remote sensor changed",
+        "Cost":  "500"
+    },
+    {
+        "Product":  "Tygatec Supersonic RC Car",
+        "OrigEntry":  "Tygatec Supersonic rc car",
+        "Description":  "axel remote sensor change",
+        "Cost":  "600"
+    },
+    {
+        "Product":  "Tygatec T1",
+        "OrigEntry":  "Tygatec T1",
+        "Description":  "Battery side sensor change",
+        "Cost":  "1000"
+    },
+    {
+        "Product":  "Tygatec T1",
+        "OrigEntry":  "Tygatec T1",
+        "Description":  "Both side Uper boady change",
+        "Cost":  "500"
+    },
+    {
+        "Product":  "Tygatec T1",
+        "OrigEntry":  "Tygatec T1",
+        "Description":  "Bluetooth Dispatch only",
+        "Cost":  "700"
+    },
+    {
+        "Product":  "Tygatec T1",
+        "OrigEntry":  "Tygatec T1",
+        "Description":  "Battery and uper and down body Changed Battery side",
+        "Cost":  "4000"
+    },
+    {
+        "Product":  "Tygatec T1",
+        "OrigEntry":  "tygatec t1",
+        "Description":  "Battery and charger changed",
+        "Cost":  "5000"
+    },
+    {
+        "Product":  "Tygatec T1",
+        "OrigEntry":  "tygatec T1",
+        "Description":  "1 Side sensor change",
+        "Cost":  "1200"
+    },
+    {
+        "Product":  "Tygatec T1",
+        "OrigEntry":  "Tygatec t1",
+        "Description":  "Battery changed",
+        "Cost":  "2500"
+    },
+    {
+        "Product":  "Tygatec T1",
+        "OrigEntry":  "Tygatec t1",
+        "Description":  "Battery changed",
+        "Cost":  "2500"
+    },
+    {
+        "Product":  "Tygatec T1",
+        "OrigEntry":  "tygatec t1",
+        "Description":  "1 side sensor changed",
+        "Cost":  "600"
+    },
+    {
+        "Product":  "Tygatec T1",
+        "OrigEntry":  "Tygatec t1",
+        "Description":  "Battery and 1 side motor changed",
+        "Cost":  "3500"
+    },
+    {
+        "Product":  "Tygatec T1",
+        "OrigEntry":  "Tygatec t1",
+        "Description":  "bluetooth changed",
+        "Cost":  "500"
+    },
+    {
+        "Product":  "Tygatec T1",
+        "OrigEntry":  "Tygatec T1",
+        "Description":  "motherboard changed",
+        "Cost":  "1500"
+    },
+    {
+        "Product":  "Tygatec T1",
+        "OrigEntry":  "Tygatec T1",
+        "Description":  "body changed",
+        "Cost":  "1000"
+    },
+    {
+        "Product":  "Tygatec T1",
+        "OrigEntry":  "Tygatec T1",
+        "Description":  "Charging slot changed",
+        "Cost":  "200"
+    },
+    {
+        "Product":  "Tygatec T1",
+        "OrigEntry":  "Tygatec t1",
+        "Description":  "battery changed",
+        "Cost":  "2500"
+    },
+    {
+        "Product":  "Tygatec T1",
+        "OrigEntry":  "Tygatec t1",
+        "Description":  "battery changed",
+        "Cost":  "2500"
+    },
+    {
+        "Product":  "Tygatec T1",
+        "OrigEntry":  "Tygatec t1",
+        "Description":  "body changed",
+        "Cost":  "1000"
+    },
+    {
+        "Product":  "Tygatec T1",
+        "OrigEntry":  "Tygatec T1",
+        "Description":  "on / off switch changed",
+        "Cost":  "200"
+    },
+    {
+        "Product":  "Tygatec T1",
+        "OrigEntry":  "Tygatec t1",
+        "Description":  "Motor changed",
+        "Cost":  "1500"
+    },
+    {
+        "Product":  "Tygatec T1",
+        "OrigEntry":  "Tygatec t1",
+        "Description":  "Charger sale and battery changed",
+        "Cost":  "3500"
+    },
+    {
+        "Product":  "Tygatec T1",
+        "OrigEntry":  "Tygatec t1",
+        "Description":  "Motor connector changed",
+        "Cost":  "100"
+    },
+    {
+        "Product":  "Tygatec T1",
+        "OrigEntry":  "Tygatec t1",
+        "Description":  "charger changed",
+        "Cost":  "1500"
+    },
+    {
+        "Product":  "Tygatec T1",
+        "OrigEntry":  "Tygatec t1",
+        "Description":  "hoverboard bag (Foc)",
+        "Cost":  "500"
+    },
+    {
+        "Product":  "Tygatec T1",
+        "OrigEntry":  "Tygatec T1",
+        "Description":  "motor repair/Motherboard changed",
+        "Cost":  "2500"
+    },
+    {
+        "Product":  "Tygatec T2",
+        "OrigEntry":  "Tygatec t2",
+        "Description":  "motherboard changed",
+        "Cost":  "2000"
+    },
+    {
+        "Product":  "Tygatec T2",
+        "OrigEntry":  "tygatec t2",
+        "Description":  "1 pcs motor changed",
+        "Cost":  "1000"
+    },
+    {
+        "Product":  "Tygatec T2",
+        "OrigEntry":  "Tygatec T2",
+        "Description":  "battery changed",
+        "Cost":  "2000"
+    },
+    {
+        "Product":  "Tygatec T2",
+        "OrigEntry":  "Tygatec t2",
+        "Description":  "Charger dispatched",
+        "Cost":  "1000"
+    },
+    {
+        "Product":  "Tygatec T2",
+        "OrigEntry":  "Tygatec t2",
+        "Description":  "motor changed",
+        "Cost":  "1000"
+    },
+    {
+        "Product":  "Tygatec T2",
+        "OrigEntry":  "Tygatec t2",
+        "Description":  "Battery changed",
+        "Cost":  "2000"
+    },
+    {
+        "Product":  "Tygatec T2",
+        "OrigEntry":  "Tygatec T2",
+        "Description":  "2 pcs motor changed",
+        "Cost":  "2500"
+    },
+    {
+        "Product":  "Tygatec T2",
+        "OrigEntry":  "Tygatec t2",
+        "Description":  "motor changed",
+        "Cost":  "1500"
+    },
+    {
+        "Product":  "Tygatec T2",
+        "OrigEntry":  "Tygatec T2",
+        "Description":  "Battery changed",
+        "Cost":  "2500"
+    },
+    {
+        "Product":  "Tygatec T2",
+        "OrigEntry":  "Tygatec t2",
+        "Description":  "Motor changed",
+        "Cost":  "1500"
+    },
+    {
+        "Product":  "Tygatec T2",
+        "OrigEntry":  "Tygatec T2",
+        "Description":  "Charging slot changed",
+        "Cost":  "100"
+    },
+    {
+        "Product":  "Tygatec T2",
+        "OrigEntry":  "Tygatec T2",
+        "Description":  "Battery changed",
+        "Cost":  "2500"
+    },
+    {
+        "Product":  "Tygatec T2",
+        "OrigEntry":  "Tygatec T2",
+        "Description":  "on/off switch changed",
+        "Cost":  "200"
+    },
+    {
+        "Product":  "Tygatec T2",
+        "OrigEntry":  "Tygatec T2",
+        "Description":  "battery changed",
+        "Cost":  "2500"
+    },
+    {
+        "Product":  "Tygatec T2",
+        "OrigEntry":  "Tygatec t2",
+        "Description":  "battery changed",
+        "Cost":  "1000"
+    },
+    {
+        "Product":  "Tygatec T2",
+        "OrigEntry":  "Tygatec t2",
+        "Description":  "battery changed",
+        "Cost":  "2500"
+    },
+    {
+        "Product":  "Tygatec T2",
+        "OrigEntry":  "Tygatec T2",
+        "Description":  "battery changed",
+        "Cost":  "2000"
+    },
+    {
+        "Product":  "Tygatec T2",
+        "OrigEntry":  "Tygatec T2",
+        "Description":  "Motor changed",
+        "Cost":  "1500"
+    },
+    {
+        "Product":  "Tygatec T2",
+        "OrigEntry":  "Tygatec t2",
+        "Description":  "Battery changed",
+        "Cost":  "2500"
+    },
+    {
+        "Product":  "Tygatec T2",
+        "OrigEntry":  "Tygatec T2",
+        "Description":  "battery changed",
+        "Cost":  "2500"
+    },
+    {
+        "Product":  "Tygatec T2",
+        "OrigEntry":  "Tygatec T2",
+        "Description":  "a-side sensor changed",
+        "Cost":  "500"
+    },
+    {
+        "Product":  "Tygatec T2",
+        "OrigEntry":  "Tygatec t2",
+        "Description":  "battery changed",
+        "Cost":  "2500"
+    },
+    {
+        "Product":  "Tygatec T2",
+        "OrigEntry":  "Tygatec t2",
+        "Description":  "On/off switch changed",
+        "Cost":  "200"
+    },
+    {
+        "Product":  "Tygatec T2",
+        "OrigEntry":  "Tygatec t2",
+        "Description":  "a-side sensor changed",
+        "Cost":  "1000"
+    },
+    {
+        "Product":  "Tygatec T2",
+        "OrigEntry":  "Tygatec T2",
+        "Description":  "Charger dispatched",
+        "Cost":  "1000"
+    },
+    {
+        "Product":  "Tygatec T2",
+        "OrigEntry":  "Tygatec T2",
+        "Description":  "no fault found, hoverboard bag sale",
+        "Cost":  "250"
+    },
+    {
+        "Product":  "Tygatec T2",
+        "OrigEntry":  "Tygatec t2",
+        "Description":  "battery changed",
+        "Cost":  "2500"
+    },
+    {
+        "Product":  "Tygatec T2",
+        "OrigEntry":  "tygatec t2 charger",
+        "Description":  "charger replaced",
+        "Cost":  "800"
+    },
+    {
+        "Product":  "Tygatec T5",
+        "OrigEntry":  "Tygatec t5",
+        "Description":  "A-Side Sensor changed",
+        "Cost":  "1500"
+    },
+    {
+        "Product":  "Tygatec T6",
+        "OrigEntry":  "Tygatec T6",
+        "Description":  "1 pcs motor changed ,uper side body change",
+        "Cost":  "2000"
+    },
+    {
+        "Product":  "Tygatec T6",
+        "OrigEntry":  "Tygatec T6",
+        "Description":  "Battery changed",
+        "Cost":  "2500"
+    },
+    {
+        "Product":  "Tygatec T6",
+        "OrigEntry":  "Tygatec T6",
+        "Description":  "Motor and sensor changed",
+        "Cost":  "3000"
+    },
+    {
+        "Product":  "Tygatec T6",
+        "OrigEntry":  "Tygatec t6",
+        "Description":  "Chessis changed",
+        "Cost":  "1500"
+    },
+    {
+        "Product":  "Tygatec T6",
+        "OrigEntry":  "Tygatec T6",
+        "Description":  "A-side sensor changed",
+        "Cost":  "1500"
+    },
+    {
+        "Product":  "Tygatec T6",
+        "OrigEntry":  "Tygatec T6",
+        "Description":  "A-side sensor changed",
+        "Cost":  "1500"
+    },
+    {
+        "Product":  "Tygatec T6",
+        "OrigEntry":  "Tygatec t6",
+        "Description":  "battery changed",
+        "Cost":  "2500"
+    },
+    {
+        "Product":  "Tygatec T6",
+        "OrigEntry":  "Tygatec t6",
+        "Description":  "battery changed",
+        "Cost":  "2500"
+    },
+    {
+        "Product":  "Tygatec T6",
+        "OrigEntry":  "Tygatec T6",
+        "Description":  "motherboard and battery changed",
+        "Cost":  "5000"
+    },
+    {
+        "Product":  "Tygatec T6",
+        "OrigEntry":  "Tygatec T6",
+        "Description":  "motherboard and charger changed",
+        "Cost":  "3500"
+    },
+    {
+        "Product":  "Tygatec T6",
+        "OrigEntry":  "Tygatec T6",
+        "Description":  "on/off switch changed",
+        "Cost":  "200"
+    },
+    {
+        "Product":  "Tygatec T9",
+        "OrigEntry":  "Tygatec T9",
+        "Description":  "Battery changed",
+        "Cost":  "2000"
+    },
+    {
+        "Product":  "Tygatec T9",
+        "OrigEntry":  "Tygatec T9",
+        "Description":  "Light and battery changed",
+        "Cost":  "2500"
+    },
+    {
+        "Product":  "Tygatec T9",
+        "OrigEntry":  "Tygatec T9",
+        "Description":  "Charging slot changed",
+        "Cost":  "200"
+    },
+    {
+        "Product":  "Tygatec Turbo Car",
+        "OrigEntry":  "Tygatec Turbo car",
+        "Description":  "battery dispatched",
+        "Cost":  "500"
+    },
+    {
+        "Product":  "Tygatec T2",
+        "OrigEntry":  "Tygayec t2",
+        "Description":  "battery changed",
+        "Cost":  "2500"
+    },
+    {
+        "Product":  "Tygatec Supersonic RC Car",
+        "OrigEntry":  "Tytgatec Supersonic rc car",
+        "Description":  "servo changed",
+        "Cost":  "1000"
+    },
+    {
+        "Product":  "Uboard X7",
+        "OrigEntry":  "Ubaord x7",
+        "Description":  "Display changed",
+        "Cost":  "2000"
+    },
+    {
+        "Product":  "Uboard X7",
+        "OrigEntry":  "Ubaord x7",
+        "Description":  "Display changed",
+        "Cost":  "2000"
+    },
+    {
+        "Product":  "Uboard Drifter",
+        "OrigEntry":  "Uboar drifter",
+        "Description":  "pu wheels sales",
+        "Cost":  "500"
+    },
+    {
+        "Product":  "REVIEW: Uboard",
+        "OrigEntry":  "Uboard",
+        "Description":  "display changed",
+        "Cost":  "1500"
+    },
+    {
+        "Product":  "REVIEW: Uboard",
+        "OrigEntry":  "Uboard",
+        "Description":  "display changed",
+        "Cost":  "1500"
+    },
+    {
+        "Product":  "Uboard Mini Explorer",
+        "OrigEntry":  "Uboard A1",
+        "Description":  "mechnizim change",
+        "Cost":  "1000"
+    },
+    {
+        "Product":  "REVIEW: Uboard battery",
+        "OrigEntry":  "Uboard battery",
+        "Description":  "Uboard battery",
+        "Cost":  "2500"
+    },
+    {
+        "Product":  "REVIEW: Uboard battery and charger",
+        "OrigEntry":  "Uboard battery and charger",
+        "Description":  "Uboard battery and charger",
+        "Cost":  "3500"
+    },
+    {
+        "Product":  "REVIEW: Uboard battery sale and pu wheels",
+        "OrigEntry":  "Uboard battery sale and pu wheels",
+        "Description":  "battery and pu wheels dispatched",
+        "Cost":  "3000"
+    },
+    {
+        "Product":  "Uboard Bumper Car",
+        "OrigEntry":  "Uboard Bumper car",
+        "Description":  "on /off changed",
+        "Cost":  "200"
+    },
+    {
+        "Product":  "REVIEW: Uboard charger",
+        "OrigEntry":  "Uboard charger",
+        "Description":  "Uboard charger dispatched",
+        "Cost":  "1000"
+    },
+    {
+        "Product":  "REVIEW: Uboard Charger New sale",
+        "OrigEntry":  "Uboard Charger New sale",
+        "Description":  "Uboard Charger New sale",
+        "Cost":  "1200"
+    },
+    {
+        "Product":  "REVIEW: uboard charger new sale",
+        "OrigEntry":  "uboard charger new sale",
+        "Description":  "uboard charger new sale",
+        "Cost":  "1000"
+    },
+    {
+        "Product":  "Uboard Classic 6.5",
+        "OrigEntry":  "uboard claasic 6.5",
+        "Description":  "charger change",
+        "Cost":  "1200"
+    },
+    {
+        "Product":  "Uboard Classic 6.5",
+        "OrigEntry":  "Uboard Classic",
+        "Description":  "Charger dispatched",
+        "Cost":  "1500"
+    },
+    {
+        "Product":  "Uboard Classic 6.5",
+        "OrigEntry":  "Uboard classic",
+        "Description":  "battery changed and charger sale",
+        "Cost":  "3500"
+    },
+    {
+        "Product":  "Uboard Classic 6.5",
+        "OrigEntry":  "Uboard classic",
+        "Description":  "Battery changed",
+        "Cost":  "2500"
+    },
+    {
+        "Product":  "Uboard Classic 6.5",
+        "OrigEntry":  "Uboard classic",
+        "Description":  "Battery changed",
+        "Cost":  "2500"
+    },
+    {
+        "Product":  "Uboard Classic Lite 6.5",
+        "OrigEntry":  "Uboard Classic  lite6.5",
+        "Description":  "Battery and Motherboard changed",
+        "Cost":  "4000"
+    },
+    {
+        "Product":  "Uboard Classic Lite 6.5",
+        "OrigEntry":  "Uboard Classic  lite6.5",
+        "Description":  "Battery  body changed",
+        "Cost":  "3500"
+    },
+    {
+        "Product":  "Uboard Classic Lite 6.5",
+        "OrigEntry":  "Uboard Classic  lite6.5",
+        "Description":  "Battery , Motherboard changed",
+        "Cost":  "4000"
+    },
+    {
+        "Product":  "Uboard Classic Lite 6.5",
+        "OrigEntry":  "Uboard Classic  lite6.5",
+        "Description":  "Battery",
+        "Cost":  "2500"
+    },
+    {
+        "Product":  "Uboard Classic Lite 6.5",
+        "OrigEntry":  "Uboard Classic  lite6.5",
+        "Description":  "Motherboard changed",
+        "Cost":  "2000"
+    },
+    {
+        "Product":  "Uboard Classic 6.5",
+        "OrigEntry":  "Uboard Classic 6.5",
+        "Description":  "1 Side sensor change",
+        "Cost":  "1200"
+    },
+    {
+        "Product":  "Uboard Classic 6.5",
+        "OrigEntry":  "Uboard Classic 6.5",
+        "Description":  "Battery and 1 side sensor change",
+        "Cost":  "4700"
+    },
+    {
+        "Product":  "Uboard Classic 6.5",
+        "OrigEntry":  "Uboard Classic 6.5",
+        "Description":  "Charger changed",
+        "Cost":  "1250"
+    },
+    {
+        "Product":  "Uboard Classic 6.5",
+        "OrigEntry":  "Uboard Classic 6.5",
+        "Description":  "battery changed",
+        "Cost":  "3500"
+    },
+    {
+        "Product":  "Uboard Classic 6.5",
+        "OrigEntry":  "Uboard Classic 6.5",
+        "Description":  "Body changed",
+        "Cost":  "2000"
+    },
+    {
+        "Product":  "Uboard Classic 6.5",
+        "OrigEntry":  "Uboard classic 6.5",
+        "Description":  "body changed",
+        "Cost":  "1800"
+    },
+    {
+        "Product":  "Uboard Classic 6.5",
+        "OrigEntry":  "Uboard classic 6.5",
+        "Description":  "Battery changed",
+        "Cost":  "3500"
+    },
+    {
+        "Product":  "Uboard Classic 6.5",
+        "OrigEntry":  "Uboard Classic 6.5",
+        "Description":  "1 motor changed",
+        "Cost":  "1500"
+    },
+    {
+        "Product":  "Uboard Classic 6.5",
+        "OrigEntry":  "Uboard classic 6.5",
+        "Description":  "Battery changed",
+        "Cost":  "2500"
+    },
+    {
+        "Product":  "Uboard Classic 6.5",
+        "OrigEntry":  "Uboard Classic 6.5",
+        "Description":  "Mother board and battery changed",
+        "Cost":  "7000"
+    },
+    {
+        "Product":  "Uboard Classic 6.5",
+        "OrigEntry":  "Uboard Classic 6.5",
+        "Description":  "Battery changed",
+        "Cost":  "3000"
+    },
+    {
+        "Product":  "Uboard Classic 6.5",
+        "OrigEntry":  "Uboard Classic 6.5",
+        "Description":  "Battery and Body changed",
+        "Cost":  "3500"
+    },
+    {
+        "Product":  "Uboard Classic 6.5",
+        "OrigEntry":  "Uboard Classic 6.5",
+        "Description":  "Mother board changed",
+        "Cost":  "2500"
+    },
+    {
+        "Product":  "Uboard Classic 6.5",
+        "OrigEntry":  "uboard classic 6.5",
+        "Description":  "motherboard and body change",
+        "Cost":  "3500"
+    },
+    {
+        "Product":  "Uboard Classic 6.5",
+        "OrigEntry":  "uboard classic 6.5",
+        "Description":  "motherboard changed",
+        "Cost":  "2500"
+    },
+    {
+        "Product":  "Uboard Classic 6.5",
+        "OrigEntry":  "Uboard Classic 6.5",
+        "Description":  "Mother board , 1pcs motor and battery changed",
+        "Cost":  "7000"
+    },
+    {
+        "Product":  "Uboard Classic 6.5",
+        "OrigEntry":  "Uboard Classic 6.5",
+        "Description":  "Battery changed",
+        "Cost":  "2500"
+    },
+    {
+        "Product":  "Uboard Classic 6.5",
+        "OrigEntry":  "Uboard classic 6.5",
+        "Description":  "Uboard charger and battery changed",
+        "Cost":  "3500"
+    },
+    {
+        "Product":  "Uboard Classic 6.5",
+        "OrigEntry":  "Uboard classic 6.5",
+        "Description":  "1 side sensor change",
+        "Cost":  "500"
+    },
+    {
+        "Product":  "Uboard Classic 6.5",
+        "OrigEntry":  "Uboard classic 6.5",
+        "Description":  "body and one side motor change",
+        "Cost":  "1800"
+    },
+    {
+        "Product":  "Uboard Classic 6.5",
+        "OrigEntry":  "Uboard classic 6.5",
+        "Description":  "Charging slot change",
+        "Cost":  "200"
+    },
+    {
+        "Product":  "Uboard Classic 6.5",
+        "OrigEntry":  "Uboard classic 6.5",
+        "Description":  "Battery changed",
+        "Cost":  "2000"
+    },
+    {
+        "Product":  "Uboard Classic 6.5",
+        "OrigEntry":  "Uboard classic 6.5",
+        "Description":  "1 side sensor change",
+        "Cost":  "700"
+    },
+    {
+        "Product":  "Uboard Classic 6.5",
+        "OrigEntry":  "Uboard classic 6.5",
+        "Description":  "1 side motor repair",
+        "Cost":  "100"
+    },
+    {
+        "Product":  "Uboard Classic 6.5",
+        "OrigEntry":  "Uboard classic 6.5",
+        "Description":  "1 side motor changed",
+        "Cost":  "1500"
+    },
+    {
+        "Product":  "Uboard Classic 6.5",
+        "OrigEntry":  "Uboard classic 6.5",
+        "Description":  "body changed",
+        "Cost":  "1000"
+    },
+    {
+        "Product":  "Uboard Classic 6.5",
+        "OrigEntry":  "Uboard Classic 6.5",
+        "Description":  "battery changed",
+        "Cost":  "2000"
+    },
+    {
+        "Product":  "Uboard Classic 6.5",
+        "OrigEntry":  "Uboard Classic 6.5",
+        "Description":  "one side sensor and on/off switch changed",
+        "Cost":  "1000"
+    },
+    {
+        "Product":  "Uboard Classic 6.5",
+        "OrigEntry":  "Uboard classic 6.5",
+        "Description":  "body , battery and charger changed",
+        "Cost":  "3500"
+    },
+    {
+        "Product":  "Uboard Classic 6.5",
+        "OrigEntry":  "Uboard Classic 6.5",
+        "Description":  "body and battery changed",
+        "Cost":  "3000"
+    },
+    {
+        "Product":  "Uboard Classic 6.5",
+        "OrigEntry":  "Uboard Classic 6.5",
+        "Description":  "Battery and 1 pcs Motor changed",
+        "Cost":  "3500"
+    },
+    {
+        "Product":  "Uboard Classic 6.5",
+        "OrigEntry":  "Uboard Classic 6.5",
+        "Description":  "motherboard changed",
+        "Cost":  "2500"
+    },
+    {
+        "Product":  "Uboard Classic 6.5",
+        "OrigEntry":  "Uboard Classic 6.5",
+        "Description":  "battery changed",
+        "Cost":  "2000"
+    },
+    {
+        "Product":  "Uboard Classic 6.5",
+        "OrigEntry":  "Uboard Classic 6.5",
+        "Description":  "battery changed",
+        "Cost":  "2000"
+    },
+    {
+        "Product":  "Uboard Classic 6.5",
+        "OrigEntry":  "Uboard Classic 6.5",
+        "Description":  "Charging slot and motor changed",
+        "Cost":  "1500"
+    },
+    {
+        "Product":  "Uboard Classic 6.5",
+        "OrigEntry":  "Uboard Classic 6.5",
+        "Description":  "Battery changed",
+        "Cost":  "2000"
+    },
+    {
+        "Product":  "Uboard Classic 6.5",
+        "OrigEntry":  "Uboard classic 6.5",
+        "Description":  "battery changed",
+        "Cost":  "2000"
+    },
+    {
+        "Product":  "Uboard Classic 6.5",
+        "OrigEntry":  "Uboard Classic 6.5",
+        "Description":  "battery changed",
+        "Cost":  "3000"
+    },
+    {
+        "Product":  "Uboard Classic 6.5",
+        "OrigEntry":  "Uboard classic 6.5",
+        "Description":  "battery changed",
+        "Cost":  "3000"
+    },
+    {
+        "Product":  "Uboard Classic 6.5",
+        "OrigEntry":  "Uboard Classic 6.5",
+        "Description":  "Sensor changed",
+        "Cost":  "1000"
+    },
+    {
+        "Product":  "Uboard Classic 6.5",
+        "OrigEntry":  "Uboard Classic 6.5",
+        "Description":  "Battery and charger changed",
+        "Cost":  "2000"
+    },
+    {
+        "Product":  "Uboard Classic 6.5",
+        "OrigEntry":  "Uboard Classic 6.5",
+        "Description":  "Battery changed",
+        "Cost":  "2500"
+    },
+    {
+        "Product":  "Uboard Classic 6.5",
+        "OrigEntry":  "Uboard Classic 6.5",
+        "Description":  "Battery changed",
+        "Cost":  "2500"
+    },
+    {
+        "Product":  "Uboard Classic 6.5",
+        "OrigEntry":  "Uboard Classic 6.5",
+        "Description":  "Battery changed",
+        "Cost":  "2500"
+    },
+    {
+        "Product":  "Uboard Classic 6.5",
+        "OrigEntry":  "Uboard Classic 6.5",
+        "Description":  "Battery and motor changed",
+        "Cost":  "5000"
+    },
+    {
+        "Product":  "Uboard Classic 6.5",
+        "OrigEntry":  "Uboard Classic 6.5",
+        "Description":  "Charging slot changed",
+        "Cost":  "150"
+    },
+    {
+        "Product":  "Uboard Classic 6.5",
+        "OrigEntry":  "Uboard Classic 6.5",
+        "Description":  "Battery changed",
+        "Cost":  "2500"
+    },
+    {
+        "Product":  "Uboard Classic 6.5",
+        "OrigEntry":  "Uboard classic 6.5",
+        "Description":  "Sensor changed",
+        "Cost":  "1500"
+    },
+    {
+        "Product":  "Uboard Classic 6.5",
+        "OrigEntry":  "Uboard classic 6.5",
+        "Description":  "1 pcs motor changed",
+        "Cost":  "1500"
+    },
+    {
+        "Product":  "Uboard Classic 6.5",
+        "OrigEntry":  "Uboard Classic 6.5",
+        "Description":  "A-side sensor changed",
+        "Cost":  "1500"
+    },
+    {
+        "Product":  "Uboard Classic 6.5",
+        "OrigEntry":  "Uboard Classic 6.5",
+        "Description":  "batter Changed",
+        "Cost":  "2500"
+    },
+    {
+        "Product":  "Uboard Classic 6.5",
+        "OrigEntry":  "Uboard classic 6.5",
+        "Description":  "battery changed",
+        "Cost":  "2500"
+    },
+    {
+        "Product":  "Uboard Classic 6.5",
+        "OrigEntry":  "Uboard Classic 6.5",
+        "Description":  "battery changed",
+        "Cost":  "2000"
+    },
+    {
+        "Product":  "Uboard Classic 6.5",
+        "OrigEntry":  "Uboard classic 6.5",
+        "Description":  "battery changed",
+        "Cost":  "2500"
+    },
+    {
+        "Product":  "Uboard Classic 6.5",
+        "OrigEntry":  "Uboard Classic 6.5",
+        "Description":  "A-side sensor changed",
+        "Cost":  "1500"
+    },
+    {
+        "Product":  "Uboard Classic 6.5",
+        "OrigEntry":  "Uboard Classic 6.5",
+        "Description":  "On/off changed",
+        "Cost":  "200"
+    },
+    {
+        "Product":  "Uboard Classic 6.5",
+        "OrigEntry":  "Uboard Classic 6.5",
+        "Description":  "A-side sensor changed",
+        "Cost":  "1500"
+    },
+    {
+        "Product":  "Uboard Classic 6.5",
+        "OrigEntry":  "Uboard Classic 6.5",
+        "Description":  "Battery changed",
+        "Cost":  "2500"
+    },
+    {
+        "Product":  "Uboard Classic 6.5",
+        "OrigEntry":  "Uboard Classic 6.5",
+        "Description":  "battery changed",
+        "Cost":  "2500"
+    },
+    {
+        "Product":  "Uboard Classic 6.5",
+        "OrigEntry":  "Uboard Classic 6.5",
+        "Description":  "Battery and charging slot changed",
+        "Cost":  "2300"
+    },
+    {
+        "Product":  "Uboard Classic 6.5",
+        "OrigEntry":  "Uboard classic 6.5",
+        "Description":  "body changed",
+        "Cost":  "1500"
+    },
+    {
+        "Product":  "Uboard Classic 6.5",
+        "OrigEntry":  "Uboard Classic 6.5",
+        "Description":  "Motor changed",
+        "Cost":  "1500"
+    },
+    {
+        "Product":  "Uboard Classic 6.5",
+        "OrigEntry":  "Uboard Classic 6.5",
+        "Description":  "battery changed",
+        "Cost":  "2500"
+    },
+    {
+        "Product":  "Uboard Classic 6.5",
+        "OrigEntry":  "Uboard classic 6.5",
+        "Description":  "battery changed",
+        "Cost":  "2500"
+    },
+    {
+        "Product":  "Uboard Classic 6.5",
+        "OrigEntry":  "Uboard Classic 6.5",
+        "Description":  "sensor changed",
+        "Cost":  "1500"
+    },
+    {
+        "Product":  "Uboard Classic 6.5",
+        "OrigEntry":  "Uboard classic 6.5",
+        "Description":  "motherboard changed",
+        "Cost":  "2500"
+    },
+    {
+        "Product":  "Uboard Classic 6.5",
+        "OrigEntry":  "Uboard classic 6.5",
+        "Description":  "Uboard battery dispatched",
+        "Cost":  "2500"
+    },
+    {
+        "Product":  "Uboard Classic 6.5",
+        "OrigEntry":  "Uboard classic 6.5",
+        "Description":  "battery changed",
+        "Cost":  "2500"
+    },
+    {
+        "Product":  "Uboard Classic 6.5",
+        "OrigEntry":  "Uboard classic 6.5",
+        "Description":  "speaker changed",
+        "Cost":  "100"
+    },
+    {
+        "Product":  "Uboard Classic 6.5",
+        "OrigEntry":  "Uboard classic 6.5",
+        "Description":  "bside sensor changed",
+        "Cost":  "1500"
+    },
+    {
+        "Product":  "Uboard Classic 6.5",
+        "OrigEntry":  "Uboard classic 6.5",
+        "Description":  "battery changed",
+        "Cost":  "2500"
+    },
+    {
+        "Product":  "Uboard Classic 6.5",
+        "OrigEntry":  "Uboard classic 6.5",
+        "Description":  "motherboard changed",
+        "Cost":  "2500"
+    },
+    {
+        "Product":  "Uboard Classic 6.5",
+        "OrigEntry":  "Uboard classic 6.5",
+        "Description":  "battery changed",
+        "Cost":  "2500"
+    },
+    {
+        "Product":  "Uboard Classic 6.5",
+        "OrigEntry":  "Uboard classic 6.5",
+        "Description":  "battery and body changed",
+        "Cost":  "3500"
+    },
+    {
+        "Product":  "Uboard Classic 6.5",
+        "OrigEntry":  "Uboard classic 6.5",
+        "Description":  "body changed",
+        "Cost":  "1500"
+    },
+    {
+        "Product":  "Uboard Classic 6.5",
+        "OrigEntry":  "uboard classic 6.5",
+        "Description":  "charging slot changed",
+        "Cost":  "100"
+    },
+    {
+        "Product":  "Uboard Classic 6.5",
+        "OrigEntry":  "Uboard Classic 6.5",
+        "Description":  "battery and charging slot changed",
+        "Cost":  "2700"
+    },
+    {
+        "Product":  "Uboard Classic 6.5",
+        "OrigEntry":  "Uboard Classic 6.5",
+        "Description":  "sensor rubber changed",
+        "Cost":  "100"
+    },
+    {
+        "Product":  "Uboard Classic 6.5",
+        "OrigEntry":  "Uboard classic 6.5",
+        "Description":  "motherboard changed",
+        "Cost":  "2500"
+    },
+    {
+        "Product":  "Uboard Classic 6.5",
+        "OrigEntry":  "Uboard Classic 6.5",
+        "Description":  "Battery changed",
+        "Cost":  "2500"
+    },
+    {
+        "Product":  "Uboard Classic 6.5",
+        "OrigEntry":  "uboard classic 6.5",
+        "Description":  "charger sale",
+        "Cost":  "1000"
+    },
+    {
+        "Product":  "Uboard Classic 6.5",
+        "OrigEntry":  "Uboard Classic 6.5 (Demo)",
+        "Description":  "Body changed",
+        "Cost":  "1000"
+    },
+    {
+        "Product":  "Uboard Classic 6.5",
+        "OrigEntry":  "Uboard Classic 6.5 (Demo)",
+        "Description":  "Body and 1 side motor changed",
+        "Cost":  "1500"
+    },
+    {
+        "Product":  "Uboard Classic 6.5",
+        "OrigEntry":  "uboard classic 6.5 (Demo)",
+        "Description":  "Body and charger changed",
+        "Cost":  "2500"
+    },
+    {
+        "Product":  "Uboard Classic 6.5",
+        "OrigEntry":  "Uboard classic 6.5 (demo)",
+        "Description":  "body changed",
+        "Cost":  "700"
+    },
+    {
+        "Product":  "Uboard Classic 6.5",
+        "OrigEntry":  "Uboard Classic 6.5 (Demo)",
+        "Description":  "body changed",
+        "Cost":  "1500"
+    },
+    {
+        "Product":  "Uboard Classic 6.5",
+        "OrigEntry":  "Uboard Classic 6.5 (Demo)",
+        "Description":  "body changed",
+        "Cost":  "1500"
+    },
+    {
+        "Product":  "Uboard Classic 6.5",
+        "OrigEntry":  "Uboard Classic 6.5 (Demo)",
+        "Description":  "Battery changed",
+        "Cost":  "1500"
+    },
+    {
+        "Product":  "Uboard Classic 6.5",
+        "OrigEntry":  "Uboard Classic 6.5 (Demo)",
+        "Description":  "body changed",
+        "Cost":  "1500"
+    },
+    {
+        "Product":  "Uboard Classic 6.5",
+        "OrigEntry":  "Uboard classic 6.5 (Demo)",
+        "Description":  "body changed",
+        "Cost":  "1000"
+    },
+    {
+        "Product":  "Uboard Classic 6.5",
+        "OrigEntry":  "Uboard classic 6.5 (Demo)",
+        "Description":  "Battery and body changed",
+        "Cost":  "3500"
+    },
+    {
+        "Product":  "Uboard Classic 6.5",
+        "OrigEntry":  "Uboard Classic 6.5 (Demo)",
+        "Description":  "battery and aside sensor changed",
+        "Cost":  "3000"
+    },
+    {
+        "Product":  "Uboard Classic 6.5",
+        "OrigEntry":  "Uboard classic 6.5 (demo)",
+        "Description":  "Sensor rubber changed",
+        "Cost":  "100"
+    },
+    {
+        "Product":  "Uboard Classic 6.5",
+        "OrigEntry":  "Uboard Classic 6.5 Demo",
+        "Description":  "body changed",
+        "Cost":  "1500"
+    },
+    {
+        "Product":  "Uboard Classic 6.5",
+        "OrigEntry":  "Uboard classic 6.5 demo",
+        "Description":  "body changed",
+        "Cost":  "700"
+    },
+    {
+        "Product":  "Uboard Classic 6.5",
+        "OrigEntry":  "Uboard Classic 6.5 demo",
+        "Description":  "body changed",
+        "Cost":  "1500"
+    },
+    {
+        "Product":  "Uboard Classic 6.5",
+        "OrigEntry":  "Uboard Classic Demo",
+        "Description":  "battery changed",
+        "Cost":  "2500"
+    },
+    {
+        "Product":  "Uboard Classic 6.5",
+        "OrigEntry":  "uboard classic Demo",
+        "Description":  "body changed",
+        "Cost":  "1500"
+    },
+    {
+        "Product":  "Uboard Classic Lite 6.5",
+        "OrigEntry":  "Uboard Classic lite",
+        "Description":  "Battery changed",
+        "Cost":  "2500"
+    },
+    {
+        "Product":  "Uboard Classic Lite 6.5",
+        "OrigEntry":  "Uboard Classic lite",
+        "Description":  "battery changed",
+        "Cost":  "2000"
+    },
+    {
+        "Product":  "Uboard Classic Lite 6.5",
+        "OrigEntry":  "Uboard classic lite",
+        "Description":  "1 pcs motor changed",
+        "Cost":  "1000"
+    },
+    {
+        "Product":  "Uboard Classic Lite 6.5",
+        "OrigEntry":  "Uboard Classic lite",
+        "Description":  "Boady changed",
+        "Cost":  "1000"
+    },
+    {
+        "Product":  "Uboard Classic Lite 6.5",
+        "OrigEntry":  "Uboard Classic Lite 6.5",
+        "Description":  "on/off switch changed",
+        "Cost":  "100"
+    },
+    {
+        "Product":  "Uboard Classic Lite 6.5",
+        "OrigEntry":  "Uboard classic lite 6.5",
+        "Description":  "Sensor changed",
+        "Cost":  "1200"
+    },
+    {
+        "Product":  "Uboard Classic Lite 6.5",
+        "OrigEntry":  "Uboard classic lite 6.5",
+        "Description":  "Battery changed",
+        "Cost":  "3500"
+    },
+    {
+        "Product":  "Uboard Classic Lite 6.5",
+        "OrigEntry":  "Uboard Classic Lite 6.5",
+        "Description":  "Motherboard And sensor rubber changed",
+        "Cost":  "2500"
+    },
+    {
+        "Product":  "Uboard Classic Lite 6.5",
+        "OrigEntry":  "Uboard Classic lite 6.5",
+        "Description":  "body changed",
+        "Cost":  "2500"
+    },
+    {
+        "Product":  "Uboard Classic Lite 6.5",
+        "OrigEntry":  "Uboard Classic Lite 6.5",
+        "Description":  "Mother board changed",
+        "Cost":  "3000"
+    },
+    {
+        "Product":  "Uboard Classic Lite 6.5",
+        "OrigEntry":  "Uboard Classic lite 6.5",
+        "Description":  "battery changed",
+        "Cost":  "2000"
+    },
+    {
+        "Product":  "Uboard Classic Lite 6.5",
+        "OrigEntry":  "Uboard Classic lite 6.5",
+        "Description":  "Body changed",
+        "Cost":  "1000"
+    },
+    {
+        "Product":  "Uboard Classic Lite 6.5",
+        "OrigEntry":  "Uboard Classic lite 6.5",
+        "Description":  "mother board changed",
+        "Cost":  "2000"
+    },
+    {
+        "Product":  "Uboard Classic Lite 6.5",
+        "OrigEntry":  "Uboard classic lite 6.5",
+        "Description":  "motor screw tight and body changed",
+        "Cost":  "1000"
+    },
+    {
+        "Product":  "Uboard Classic Lite 6.5",
+        "OrigEntry":  "Uboard Classic lite 6.5",
+        "Description":  "motor changed",
+        "Cost":  "1500"
+    },
+    {
+        "Product":  "Uboard Classic Lite 6.5",
+        "OrigEntry":  "Uboard Classic lite 6.5",
+        "Description":  "Body changed",
+        "Cost":  "1500"
+    },
+    {
+        "Product":  "Uboard Classic Lite 6.5",
+        "OrigEntry":  "Uboard Classic lite 6.5",
+        "Description":  "Chessis changed",
+        "Cost":  "1500"
+    },
+    {
+        "Product":  "Uboard Classic Lite 6.5",
+        "OrigEntry":  "Uboard Classic lite 6.5",
+        "Description":  "motherboard changed",
+        "Cost":  "2500"
+    },
+    {
+        "Product":  "Uboard Classic Lite 6.5",
+        "OrigEntry":  "Uboard Classic lite 6.5",
+        "Description":  "motherboard changed",
+        "Cost":  "2500"
+    },
+    {
+        "Product":  "Uboard Classic Lite 6.5",
+        "OrigEntry":  "Uboard Classic lite 6.5",
+        "Description":  "motherboard changed",
+        "Cost":  "2500"
+    },
+    {
+        "Product":  "Uboard Classic Lite 6.5",
+        "OrigEntry":  "Uboard Classic lite 6.5",
+        "Description":  "1 pcs motor changed",
+        "Cost":  "1500"
+    },
+    {
+        "Product":  "Uboard Classic Lite 6.5",
+        "OrigEntry":  "uboard classic lite 6.5",
+        "Description":  "1 pcs motor changed",
+        "Cost":  "1500"
+    },
+    {
+        "Product":  "Uboard Classic Lite 6.5",
+        "OrigEntry":  "Uboard classic lite 6.5",
+        "Description":  "on/off switch changed",
+        "Cost":  "200"
+    },
+    {
+        "Product":  "Uboard Classic Lite 6.5",
+        "OrigEntry":  "Uboard classic lite 6.5",
+        "Description":  "battery changed",
+        "Cost":  "2500"
+    },
+    {
+        "Product":  "Uboard Classic Lite 6.5",
+        "OrigEntry":  "Uboard Classic lite 6.5",
+        "Description":  "Battery changed",
+        "Cost":  "2500"
+    },
+    {
+        "Product":  "Uboard Classic Lite 6.5",
+        "OrigEntry":  "Uboard Classic lite 6.5",
+        "Description":  "body changed",
+        "Cost":  "1000"
+    },
+    {
+        "Product":  "Uboard Classic Lite 6.5",
+        "OrigEntry":  "Uboard Classic lite 6.5",
+        "Description":  "body changed",
+        "Cost":  "1500"
+    },
+    {
+        "Product":  "Uboard Classic Lite 6.5",
+        "OrigEntry":  "Uboard classic lite 6.5",
+        "Description":  "Battery changed",
+        "Cost":  "2500"
+    },
+    {
+        "Product":  "Uboard Classic Lite 6.5",
+        "OrigEntry":  "Uboard classic lite 6.5",
+        "Description":  "battery changed",
+        "Cost":  "2500"
+    },
+    {
+        "Product":  "Uboard Classic Lite 6.5",
+        "OrigEntry":  "Uboard classic lite 6.5",
+        "Description":  "motherboard changed",
+        "Cost":  "2500"
+    },
+    {
+        "Product":  "Uboard Classic Lite 6.5",
+        "OrigEntry":  "Uboard classic lite 6.5",
+        "Description":  "battery changed",
+        "Cost":  "2500"
+    },
+    {
+        "Product":  "Uboard Classic Lite 6.5",
+        "OrigEntry":  "Uboard Classic lite 6.5",
+        "Description":  "body changed",
+        "Cost":  "1000"
+    },
+    {
+        "Product":  "Uboard Classic Lite 6.5",
+        "OrigEntry":  "Uboard Classic lite 6.5",
+        "Description":  "motor changed",
+        "Cost":  "2500"
+    },
+    {
+        "Product":  "Uboard Classic Lite 6.5",
+        "OrigEntry":  "Uboard classic lite 6.5",
+        "Description":  "Charging slot changed",
+        "Cost":  "200"
+    },
+    {
+        "Product":  "Uboard Classic Lite 6.5",
+        "OrigEntry":  "Uboard classic lite 6.5",
+        "Description":  "Battery changed",
+        "Cost":  "2500"
+    },
+    {
+        "Product":  "Uboard Classic Lite 6.5",
+        "OrigEntry":  "Uboard classic lite 6.5",
+        "Description":  "Battery changed",
+        "Cost":  "2500"
+    },
+    {
+        "Product":  "Uboard Classic Lite 6.5",
+        "OrigEntry":  "Uboard classic lite 6.5",
+        "Description":  "battery changed",
+        "Cost":  "2500"
+    },
+    {
+        "Product":  "Uboard Classic Lite 6.5",
+        "OrigEntry":  "Uboard classic lite 6.5",
+        "Description":  "motor changed",
+        "Cost":  "2000"
+    },
+    {
+        "Product":  "Uboard Classic 6.5",
+        "OrigEntry":  "Uboard Classioc 6.5",
+        "Description":  "Battery changed",
+        "Cost":  "2500"
+    },
+    {
+        "Product":  "Uboard Drifter",
+        "OrigEntry":  "Uboard Difter",
+        "Description":  "screw , wheels",
+        "Cost":  "2000"
+    },
+    {
+        "Product":  "Uboard Discovery",
+        "OrigEntry":  "Uboard Discovery",
+        "Description":  "Battery socket changed",
+        "Cost":  "100"
+    },
+    {
+        "Product":  "Uboard Discovery",
+        "OrigEntry":  "Uboard Discovery",
+        "Description":  "battery and charger changed",
+        "Cost":  "15000"
+    },
+    {
+        "Product":  "Uboard Discovery",
+        "OrigEntry":  "Uboard Discovery",
+        "Description":  "charger repair",
+        "Cost":  "300"
+    },
+    {
+        "Product":  "Uboard Discovery",
+        "OrigEntry":  "Uboard discovery",
+        "Description":  "battery connector and battery cable changed",
+        "Cost":  "300"
+    },
+    {
+        "Product":  "Uboard Discovery",
+        "OrigEntry":  "Uboard discovery",
+        "Description":  "break lever dispatched",
+        "Cost":  "200"
+    },
+    {
+        "Product":  "Uboard Discovery",
+        "OrigEntry":  "Uboard Discovery battery",
+        "Description":  "Uboard Discovery battery",
+        "Cost":  "15000"
+    },
+    {
+        "Product":  "Uboard Discovery",
+        "OrigEntry":  "uboard discovery bike",
+        "Description":  "Covertor ,tail light , front schoker, left indicator flasher rear mudguard connection box",
+        "Cost":  "5000"
+    },
+    {
+        "Product":  "Uboard Discovery",
+        "OrigEntry":  "uboard discovery bike",
+        "Description":  "Front cover and handle scerw dispatched",
+        "Cost":  "2000"
+    },
+    {
+        "Product":  "Uboard Discovery",
+        "OrigEntry":  "Uboard Discovery bike",
+        "Description":  "Throttle and center lock changed",
+        "Cost":  "4000"
+    },
+    {
+        "Product":  "Uboard Discovery",
+        "OrigEntry":  "Uboard discovery bike",
+        "Description":  "disk brake changed",
+        "Cost":  "2000"
+    },
+    {
+        "Product":  "Uboard Discovery",
+        "OrigEntry":  "Uboard Discovery bike",
+        "Description":  "Front 1 schoker , rear  breake assambly changed",
+        "Cost":  "5000"
+    },
+    {
+        "Product":  "Uboard Discovery",
+        "OrigEntry":  "Uboard Discovery bike",
+        "Description":  "battery repair",
+        "Cost":  "50"
+    },
+    {
+        "Product":  "Uboard Drifter",
+        "OrigEntry":  "Uboard Drifter",
+        "Description":  "Wheels change",
+        "Cost":  "300"
+    },
+    {
+        "Product":  "Uboard Drifter",
+        "OrigEntry":  "Uboard Drifter",
+        "Description":  "Break Switch changed",
+        "Cost":  "350"
+    },
+    {
+        "Product":  "Uboard Drifter",
+        "OrigEntry":  "Uboard Drifter",
+        "Description":  "Battery changed",
+        "Cost":  "3500"
+    },
+    {
+        "Product":  "Uboard Drifter",
+        "OrigEntry":  "Uboard Drifter",
+        "Description":  "new charger , charging slot , and wheels change",
+        "Cost":  "4200"
+    },
+    {
+        "Product":  "Uboard Drifter",
+        "OrigEntry":  "Uboard Drifter",
+        "Description":  "Charging Slot changed",
+        "Cost":  "300"
+    },
+    {
+        "Product":  "Uboard Drifter",
+        "OrigEntry":  "Uboard Drifter",
+        "Description":  "charging slot",
+        "Cost":  "200"
+    },
+    {
+        "Product":  "Uboard Drifter",
+        "OrigEntry":  "Uboard Drifter",
+        "Description":  "Both side rear wheel and battery changed",
+        "Cost":  "4100"
+    },
+    {
+        "Product":  "Uboard Drifter",
+        "OrigEntry":  "Uboard Drifter",
+        "Description":  "Throttle Changed",
+        "Cost":  "2500"
+    },
+    {
+        "Product":  "Uboard Drifter",
+        "OrigEntry":  "Uboard Drifter",
+        "Description":  "1side wheel change",
+        "Cost":  "300"
+    },
+    {
+        "Product":  "Uboard Drifter",
+        "OrigEntry":  "Uboard Drifter",
+        "Description":  "Charging Slot changed",
+        "Cost":  "150"
+    },
+    {
+        "Product":  "Uboard Drifter",
+        "OrigEntry":  "Uboard Drifter",
+        "Description":  "Battery changed",
+        "Cost":  "2500"
+    },
+    {
+        "Product":  "Uboard Drifter",
+        "OrigEntry":  "Uboard Drifter",
+        "Description":  "Wheels change",
+        "Cost":  "500"
+    },
+    {
+        "Product":  "Uboard Drifter",
+        "OrigEntry":  "Uboard Drifter",
+        "Description":  "1 screw changed",
+        "Cost":  "10"
+    },
+    {
+        "Product":  "Uboard Drifter",
+        "OrigEntry":  "Uboard Drifter",
+        "Description":  "Charger changed",
+        "Cost":  "1200"
+    },
+    {
+        "Product":  "Uboard Drifter",
+        "OrigEntry":  "Uboard drifter",
+        "Description":  "screw changed",
+        "Cost":  "100"
+    },
+    {
+        "Product":  "Uboard Drifter",
+        "OrigEntry":  "Uboard drifter",
+        "Description":  "Battery changed",
+        "Cost":  "3000"
+    },
+    {
+        "Product":  "Uboard Drifter",
+        "OrigEntry":  "Uboard Drifter",
+        "Description":  "Battery and gear switch changed",
+        "Cost":  "2000"
+    },
+    {
+        "Product":  "Uboard Drifter",
+        "OrigEntry":  "Uboard Drifter",
+        "Description":  "welding work, wheels changed",
+        "Cost":  "500"
+    },
+    {
+        "Product":  "Uboard Drifter",
+        "OrigEntry":  "Uboard Drifter",
+        "Description":  "wheels changed",
+        "Cost":  "500"
+    },
+    {
+        "Product":  "Uboard Drifter",
+        "OrigEntry":  "Uboard Drifter",
+        "Description":  "Wheel set and battery sale",
+        "Cost":  "3500"
+    },
+    {
+        "Product":  "Uboard Drifter",
+        "OrigEntry":  "Uboard Drifter",
+        "Description":  "Throttle changed",
+        "Cost":  "2000"
+    },
+    {
+        "Product":  "Uboard Drifter",
+        "OrigEntry":  "Uboard drifter",
+        "Description":  "Break yok and lever changed",
+        "Cost":  "500"
+    },
+    {
+        "Product":  "Uboard Drifter",
+        "OrigEntry":  "Uboard Drifter",
+        "Description":  "Battery changed",
+        "Cost":  "2500"
+    },
+    {
+        "Product":  "Uboard Drifter",
+        "OrigEntry":  "Uboard drifter",
+        "Description":  "Lights, light cover , and welding works",
+        "Cost":  "500"
+    },
+    {
+        "Product":  "Uboard Drifter",
+        "OrigEntry":  "Uboard Drifter",
+        "Description":  "nut installed",
+        "Cost":  "20"
+    },
+    {
+        "Product":  "Uboard Drifter",
+        "OrigEntry":  "Uboard Drifter",
+        "Description":  "Battery changed",
+        "Cost":  "2500"
+    },
+    {
+        "Product":  "Uboard Drifter",
+        "OrigEntry":  "Uboard Drifter",
+        "Description":  "welding work throttle changed",
+        "Cost":  "1500"
+    },
+    {
+        "Product":  "Uboard Drifter",
+        "OrigEntry":  "Uboard drifter",
+        "Description":  "battery changed",
+        "Cost":  "2500"
+    },
+    {
+        "Product":  "Uboard Drifter",
+        "OrigEntry":  "Uboard drifter",
+        "Description":  "throttle changed",
+        "Cost":  "1500"
+    },
+    {
+        "Product":  "Uboard Drifter",
+        "OrigEntry":  "uboard Drifter",
+        "Description":  "throttle changed",
+        "Cost":  "1000"
+    },
+    {
+        "Product":  "Uboard Drifter",
+        "OrigEntry":  "Uboard Drifter",
+        "Description":  "Charging slot change , battery changed",
+        "Cost":  "2500"
+    },
+    {
+        "Product":  "Uboard Drifter",
+        "OrigEntry":  "Uboard Drifter",
+        "Description":  "Battery changed",
+        "Cost":  "2000"
+    },
+    {
+        "Product":  "Uboard Drifter",
+        "OrigEntry":  "Uboard drifter",
+        "Description":  "charging slot changed",
+        "Cost":  "200"
+    },
+    {
+        "Product":  "Uboard Drifter",
+        "OrigEntry":  "Uboard Drifter",
+        "Description":  "wheels change",
+        "Cost":  "400"
+    },
+    {
+        "Product":  "Uboard Drifter",
+        "OrigEntry":  "Uboard Drifter",
+        "Description":  "battery and wheels changed",
+        "Cost":  "2400"
+    },
+    {
+        "Product":  "Uboard Drifter",
+        "OrigEntry":  "Uboard drifter",
+        "Description":  "breake screw installed",
+        "Cost":  "70"
+    },
+    {
+        "Product":  "Uboard Drifter",
+        "OrigEntry":  "Uboard Drifter",
+        "Description":  "Battery and front light changed",
+        "Cost":  "2200"
+    },
+    {
+        "Product":  "Uboard Drifter",
+        "OrigEntry":  "Uboard Drifter",
+        "Description":  "Charging slot changed",
+        "Cost":  "200"
+    },
+    {
+        "Product":  "Uboard Drifter",
+        "OrigEntry":  "Uboard Drifter",
+        "Description":  "Battery, charger sale and rear wheels changed",
+        "Cost":  "3000"
+    },
+    {
+        "Product":  "Uboard Drifter",
+        "OrigEntry":  "Uboard Drifter",
+        "Description":  "battery and light changed",
+        "Cost":  "3000"
+    },
+    {
+        "Product":  "Uboard Drifter",
+        "OrigEntry":  "Uboard Drifter",
+        "Description":  "Uboard drifter",
+        "Cost":  "100"
+    },
+    {
+        "Product":  "Uboard Drifter",
+        "OrigEntry":  "Uboard drifter",
+        "Description":  "battery changed",
+        "Cost":  "2000"
+    },
+    {
+        "Product":  "Uboard Drifter",
+        "OrigEntry":  "Uboard Drifter",
+        "Description":  "charging slot changed",
+        "Cost":  "200"
+    },
+    {
+        "Product":  "Uboard Drifter",
+        "OrigEntry":  "Uboard Drifter",
+        "Description":  "screw installation",
+        "Cost":  "100"
+    },
+    {
+        "Product":  "Uboard Drifter",
+        "OrigEntry":  "Uboard Drifter",
+        "Description":  "Throttle ad horn switch changed",
+        "Cost":  "3000"
+    },
+    {
+        "Product":  "Uboard Drifter",
+        "OrigEntry":  "Uboard Drifter",
+        "Description":  "battery changed",
+        "Cost":  "3000"
+    },
+    {
+        "Product":  "Uboard Drifter",
+        "OrigEntry":  "Uboard Drifter",
+        "Description":  "throttle changed and horn switch changed",
+        "Cost":  "2500"
+    },
+    {
+        "Product":  "Uboard Drifter",
+        "OrigEntry":  "Uboard drifter",
+        "Description":  "controller changed",
+        "Cost":  "2500"
+    },
+    {
+        "Product":  "Uboard Drifter",
+        "OrigEntry":  "Uboard drifter",
+        "Description":  "horn switch chnaged",
+        "Cost":  "500"
+    },
+    {
+        "Product":  "Uboard Drifter",
+        "OrigEntry":  "Uboard drifter",
+        "Description":  "battery and charging slot changed",
+        "Cost":  "2200"
+    },
+    {
+        "Product":  "Uboard Drifter",
+        "OrigEntry":  "Uboard drifter",
+        "Description":  "Battery changed",
+        "Cost":  "2000"
+    },
+    {
+        "Product":  "Uboard Drifter",
+        "OrigEntry":  "Uboard drifter",
+        "Description":  "Charging slot changed",
+        "Cost":  "200"
+    },
+    {
+        "Product":  "Uboard Drifter",
+        "OrigEntry":  "Uboard drifter",
+        "Description":  "screw installation done",
+        "Cost":  "100"
+    },
+    {
+        "Product":  "Uboard Drifter",
+        "OrigEntry":  "Uboard drifter",
+        "Description":  "Throttle and chager changed",
+        "Cost":  "2500"
+    },
+    {
+        "Product":  "Uboard Drifter",
+        "OrigEntry":  "Uboard drifter",
+        "Description":  "Motor hub changed",
+        "Cost":  "1500"
+    },
+    {
+        "Product":  "Uboard Drifter",
+        "OrigEntry":  "Uboard drifter",
+        "Description":  "Motor hub changed",
+        "Cost":  "1500"
+    },
+    {
+        "Product":  "Uboard Drifter",
+        "OrigEntry":  "Uboard drifter",
+        "Description":  "horn switch chnaged",
+        "Cost":  "300"
+    },
+    {
+        "Product":  "Uboard Drifter",
+        "OrigEntry":  "Uboard drifter",
+        "Description":  "Breake lever changed",
+        "Cost":  "500"
+    },
+    {
+        "Product":  "Uboard Drifter",
+        "OrigEntry":  "Uboard drifter",
+        "Description":  "tire and tire cover changed",
+        "Cost":  "500"
+    },
+    {
+        "Product":  "Uboard Drifter",
+        "OrigEntry":  "Uboard drifter",
+        "Description":  "Throttle changed",
+        "Cost":  "1500"
+    },
+    {
+        "Product":  "Uboard Drifter",
+        "OrigEntry":  "Uboard drifter",
+        "Description":  "screw installation done",
+        "Cost":  "100"
+    },
+    {
+        "Product":  "Uboard Drifter",
+        "OrigEntry":  "Uboard drifter",
+        "Description":  "throttle changed",
+        "Cost":  "2500"
+    },
+    {
+        "Product":  "Uboard Drifter",
+        "OrigEntry":  "Uboard drifter",
+        "Description":  "Battery changed",
+        "Cost":  "2500"
+    },
+    {
+        "Product":  "Uboard Drifter",
+        "OrigEntry":  "Uboard drifter",
+        "Description":  "Battery changed",
+        "Cost":  "2500"
+    },
+    {
+        "Product":  "Uboard Drifter",
+        "OrigEntry":  "Uboard drifter",
+        "Description":  "light repair and charger changed",
+        "Cost":  "1000"
+    },
+    {
+        "Product":  "Uboard Drifter",
+        "OrigEntry":  "Uboard drifter",
+        "Description":  "throttle changed",
+        "Cost":  "1500"
+    },
+    {
+        "Product":  "Uboard Drifter",
+        "OrigEntry":  "Uboard Drifter",
+        "Description":  "Horn switch and breake lever changed",
+        "Cost":  "2000"
+    },
+    {
+        "Product":  "Uboard Drifter",
+        "OrigEntry":  "Uboard Drifter",
+        "Description":  "Horn switch and breake lever changed",
+        "Cost":  "2000"
+    },
+    {
+        "Product":  "Uboard Drifter",
+        "OrigEntry":  "Uboard Drifter",
+        "Description":  "throttle and horn switch chaanged",
+        "Cost":  "3000"
+    },
+    {
+        "Product":  "Uboard Drifter",
+        "OrigEntry":  "Uboard Drifter",
+        "Description":  "throttle changed",
+        "Cost":  "2000"
+    },
+    {
+        "Product":  "Uboard Drifter",
+        "OrigEntry":  "Uboard Drifter",
+        "Description":  "rear frame and tire changed",
+        "Cost":  "2000"
+    },
+    {
+        "Product":  "Uboard Drifter",
+        "OrigEntry":  "Uboard Drifter",
+        "Description":  "PU Wheels foc",
+        "Cost":  "200"
+    },
+    {
+        "Product":  "Uboard Drifter",
+        "OrigEntry":  "Uboard Drifter",
+        "Description":  "tool kits dispatched",
+        "Cost":  "300"
+    },
+    {
+        "Product":  "Uboard Drifter",
+        "OrigEntry":  "Uboard drifter",
+        "Description":  "charging slot dispatched",
+        "Cost":  "200"
+    },
+    {
+        "Product":  "Uboard Drifter",
+        "OrigEntry":  "Uboard Drifter",
+        "Description":  "Throttle changed and baring changed",
+        "Cost":  "2600"
+    },
+    {
+        "Product":  "Uboard Drifter",
+        "OrigEntry":  "Uboard drifter",
+        "Description":  "battery and tires changed changed",
+        "Cost":  "3000"
+    },
+    {
+        "Product":  "Uboard Drifter",
+        "OrigEntry":  "Uboard drifter",
+        "Description":  "Break switch changed",
+        "Cost":  "200"
+    },
+    {
+        "Product":  "Uboard Drifter",
+        "OrigEntry":  "Uboard drifter",
+        "Description":  "Charger , bluetooth and speaker changed",
+        "Cost":  "2000"
+    },
+    {
+        "Product":  "Uboard Drifter",
+        "OrigEntry":  "Uboard drifter",
+        "Description":  "breake screw installed",
+        "Cost":  "20"
+    },
+    {
+        "Product":  "Uboard Drifter",
+        "OrigEntry":  "Uboard Drifter",
+        "Description":  "charging slot dispatched",
+        "Cost":  "200"
+    },
+    {
+        "Product":  "Uboard Drifter",
+        "OrigEntry":  "Uboard Drifter",
+        "Description":  "Battery changed",
+        "Cost":  "2500"
+    },
+    {
+        "Product":  "Uboard Drifter",
+        "OrigEntry":  "Uboard Drifter",
+        "Description":  "charging slot and seat installed",
+        "Cost":  "300"
+    },
+    {
+        "Product":  "Uboard Drifter",
+        "OrigEntry":  "Uboard Drifter",
+        "Description":  "battery and charging slot Changed",
+        "Cost":  "1900"
+    },
+    {
+        "Product":  "Uboard Drifter",
+        "OrigEntry":  "Uboard Drifter",
+        "Description":  "Batteryc changed",
+        "Cost":  "4000"
+    },
+    {
+        "Product":  "Uboard Drifter",
+        "OrigEntry":  "Uboard Drifter",
+        "Description":  "Charging slot changed",
+        "Cost":  "300"
+    },
+    {
+        "Product":  "Uboard Drifter",
+        "OrigEntry":  "Uboard Drifter",
+        "Description":  "Uboard Drifter breake sale",
+        "Cost":  "300"
+    },
+    {
+        "Product":  "Uboard Drifter",
+        "OrigEntry":  "Uboard Drifter",
+        "Description":  "Throttle changed",
+        "Cost":  "1500"
+    },
+    {
+        "Product":  "Uboard Drifter",
+        "OrigEntry":  "Uboard Drifter",
+        "Description":  "Battery and horn switch changed",
+        "Cost":  "3000"
+    },
+    {
+        "Product":  "Uboard Drifter",
+        "OrigEntry":  "Uboard Drifter",
+        "Description":  "Controller changed",
+        "Cost":  "2500"
+    },
+    {
+        "Product":  "Uboard Drifter",
+        "OrigEntry":  "Uboard Drifter",
+        "Description":  "Throttle changed",
+        "Cost":  "2000"
+    },
+    {
+        "Product":  "Uboard Drifter",
+        "OrigEntry":  "Uboard Drifter",
+        "Description":  "Drifter screw set",
+        "Cost":  "200"
+    },
+    {
+        "Product":  "Uboard Drifter",
+        "OrigEntry":  "Uboard Drifter",
+        "Description":  "battery and bluetooth changed",
+        "Cost":  "3000"
+    },
+    {
+        "Product":  "Uboard Drifter",
+        "OrigEntry":  "Uboard Drifter",
+        "Description":  "battery dispached",
+        "Cost":  "2500"
+    },
+    {
+        "Product":  "Uboard Drifter",
+        "OrigEntry":  "Uboard Drifter",
+        "Description":  "charging slot dispatched",
+        "Cost":  "300"
+    },
+    {
+        "Product":  "Uboard Drifter",
+        "OrigEntry":  "Uboard Drifter",
+        "Description":  "Throttle and battery changed",
+        "Cost":  "3500"
+    },
+    {
+        "Product":  "Uboard Drifter",
+        "OrigEntry":  "Uboard drifter",
+        "Description":  "Charging slot changed and charger sale",
+        "Cost":  "1300"
+    },
+    {
+        "Product":  "Uboard Drifter",
+        "OrigEntry":  "Uboard drifter",
+        "Description":  "Charging slot and brearging changed",
+        "Cost":  "500"
+    },
+    {
+        "Product":  "Uboard Drifter",
+        "OrigEntry":  "Uboard Drifter",
+        "Description":  "Charging slot changed",
+        "Cost":  "300"
+    },
+    {
+        "Product":  "Uboard Drifter",
+        "OrigEntry":  "Uboard Drifter",
+        "Description":  "charging slot changed",
+        "Cost":  "300"
+    },
+    {
+        "Product":  "Uboard Drifter",
+        "OrigEntry":  "Uboard Drifter",
+        "Description":  "Seat nut and charging slot",
+        "Cost":  "300"
+    },
+    {
+        "Product":  "Uboard Drifter",
+        "OrigEntry":  "Uboard Drifter",
+        "Description":  "Throttle changed",
+        "Cost":  "1500"
+    },
+    {
+        "Product":  "Uboard Drifter",
+        "OrigEntry":  "Uboard drifter",
+        "Description":  "Throttle changed",
+        "Cost":  "1500"
+    },
+    {
+        "Product":  "Uboard Drifter",
+        "OrigEntry":  "Uboard drifter",
+        "Description":  "Charging slot changed",
+        "Cost":  "300"
+    },
+    {
+        "Product":  "Uboard Drifter",
+        "OrigEntry":  "Uboard drifter",
+        "Description":  "Charging slot changed",
+        "Cost":  "300"
+    },
+    {
+        "Product":  "Uboard Drifter",
+        "OrigEntry":  "Uboard Drifter",
+        "Description":  "pu wheels changed",
+        "Cost":  "300"
+    },
+    {
+        "Product":  "Uboard Drifter",
+        "OrigEntry":  "Uboard drifter",
+        "Description":  "charging slot changed",
+        "Cost":  "300"
+    },
+    {
+        "Product":  "Uboard Drifter",
+        "OrigEntry":  "Uboard drifter",
+        "Description":  "throttle, break lever , horn switch changed",
+        "Cost":  "3000"
+    },
+    {
+        "Product":  "Uboard Drifter",
+        "OrigEntry":  "Uboard drifter",
+        "Description":  "Battery changed",
+        "Cost":  "2500"
+    },
+    {
+        "Product":  "Uboard Drifter",
+        "OrigEntry":  "Uboard drifter",
+        "Description":  "Break lever changed",
+        "Cost":  "500"
+    },
+    {
+        "Product":  "Uboard Drifter",
+        "OrigEntry":  "Uboard drifter",
+        "Description":  "throttle and pu wheel change",
+        "Cost":  "2500"
+    },
+    {
+        "Product":  "Uboard Drifter",
+        "OrigEntry":  "Uboard drifter",
+        "Description":  "charging slot changed",
+        "Cost":  "200"
+    },
+    {
+        "Product":  "Uboard Drifter",
+        "OrigEntry":  "Uboard drifter",
+        "Description":  "tool kit dispatched",
+        "Cost":  "100"
+    },
+    {
+        "Product":  "Uboard Drifter",
+        "OrigEntry":  "Uboard drifter",
+        "Description":  "rear frame changed",
+        "Cost":  "1500"
+    },
+    {
+        "Product":  "Uboard Drifter",
+        "OrigEntry":  "uboard drifter",
+        "Description":  "pu wheels dispatch",
+        "Cost":  "300"
+    },
+    {
+        "Product":  "Uboard Drifter",
+        "OrigEntry":  "uboard drifter",
+        "Description":  "battery changed",
+        "Cost":  "2500"
+    },
+    {
+        "Product":  "Uboard Drifter",
+        "OrigEntry":  "uboard drifter",
+        "Description":  "battery changed",
+        "Cost":  "2500"
+    },
+    {
+        "Product":  "Uboard Drifter",
+        "OrigEntry":  "uboard drifter",
+        "Description":  "charging slot changed",
+        "Cost":  "200"
+    },
+    {
+        "Product":  "Uboard Drifter",
+        "OrigEntry":  "Uboard drifter",
+        "Description":  "battery,charger and charging slot changed",
+        "Cost":  "4000"
+    },
+    {
+        "Product":  "Uboard Drifter",
+        "OrigEntry":  "uboard drifter",
+        "Description":  "motor ,throttle , rear tire changed",
+        "Cost":  "4000"
+    },
+    {
+        "Product":  "Uboard Drifter",
+        "OrigEntry":  "uboard drifter",
+        "Description":  "battery changed",
+        "Cost":  "2500"
+    },
+    {
+        "Product":  "Uboard Drifter",
+        "OrigEntry":  "Uboard drifter",
+        "Description":  "pu wheel dispatched foc",
+        "Cost":  "500"
+    },
+    {
+        "Product":  "Uboard Drifter",
+        "OrigEntry":  "Uboard drifter",
+        "Description":  "tool kit dispatched foc aproval by lalit ji",
+        "Cost":  "100"
+    },
+    {
+        "Product":  "Uboard Drifter",
+        "OrigEntry":  "Uboard drifter",
+        "Description":  "battery changed",
+        "Cost":  "2500"
+    },
+    {
+        "Product":  "Uboard Drifter",
+        "OrigEntry":  "Uboard drifter",
+        "Description":  "throttle changed",
+        "Cost":  "1500"
+    },
+    {
+        "Product":  "Uboard Drifter",
+        "OrigEntry":  "Uboard drifter",
+        "Description":  "charging slot and throttle changed",
+        "Cost":  "2000"
+    },
+    {
+        "Product":  "Uboard Drifter",
+        "OrigEntry":  "Uboard drifter",
+        "Description":  "throttle and controller sale",
+        "Cost":  "3000"
+    },
+    {
+        "Product":  "Uboard Drifter",
+        "OrigEntry":  "Uboard drifter",
+        "Description":  "pu wheels,front tire and throttle changed",
+        "Cost":  "3500"
+    },
+    {
+        "Product":  "Uboard Drifter",
+        "OrigEntry":  "Uboard drifter",
+        "Description":  "charging slot changed",
+        "Cost":  "100"
+    },
+    {
+        "Product":  "Uboard Drifter",
+        "OrigEntry":  "Uboard drifter",
+        "Description":  "Throttle changed",
+        "Cost":  "1500"
+    },
+    {
+        "Product":  "Uboard Drifter",
+        "OrigEntry":  "Uboard Drifter",
+        "Description":  "Motor and break adjustment",
+        "Cost":  "2500"
+    },
+    {
+        "Product":  "Uboard Drifter",
+        "OrigEntry":  "Uboard Drifter",
+        "Description":  "Throttle changed",
+        "Cost":  "2000"
+    },
+    {
+        "Product":  "Uboard Drifter",
+        "OrigEntry":  "Uboard Drifter",
+        "Description":  "Charging slot changed",
+        "Cost":  "200"
+    },
+    {
+        "Product":  "Uboard Drifter",
+        "OrigEntry":  "Uboard Drifter",
+        "Description":  "Breake Assamble sale",
+        "Cost":  "300"
+    },
+    {
+        "Product":  "Uboard Drifter",
+        "OrigEntry":  "Uboard Drifter",
+        "Description":  "Battery changed",
+        "Cost":  "2500"
+    },
+    {
+        "Product":  "Uboard Drifter",
+        "OrigEntry":  "Uboard Drifter",
+        "Description":  "Charging slot changed",
+        "Cost":  "200"
+    },
+    {
+        "Product":  "Uboard Drifter",
+        "OrigEntry":  "Uboard Drifter",
+        "Description":  "1 pu wheel changed",
+        "Cost":  "300"
+    },
+    {
+        "Product":  "Uboard Drifter",
+        "OrigEntry":  "Uboard Drifter",
+        "Description":  "battery dispatched",
+        "Cost":  "2900"
+    },
+    {
+        "Product":  "Uboard Drifter",
+        "OrigEntry":  "Uboard Drifter",
+        "Description":  "pu wheels sale",
+        "Cost":  "600"
+    },
+    {
+        "Product":  "Uboard Drifter",
+        "OrigEntry":  "Uboard Drifter",
+        "Description":  "Pu wheels and charging slot sale",
+        "Cost":  "800"
+    },
+    {
+        "Product":  "Uboard Drifter",
+        "OrigEntry":  "Uboard Drifter",
+        "Description":  "1 pcs Pu wheel sale",
+        "Cost":  "300"
+    },
+    {
+        "Product":  "Uboard Drifter",
+        "OrigEntry":  "Uboard Drifter",
+        "Description":  "battery,pu wheels , wheel cover changed and 2 2 wheels extra sale",
+        "Cost":  "5000"
+    },
+    {
+        "Product":  "Uboard Drifter",
+        "OrigEntry":  "Uboard drifter",
+        "Description":  "middle screw sale",
+        "Cost":  "20"
+    },
+    {
+        "Product":  "Uboard Drifter",
+        "OrigEntry":  "Uboard drifter",
+        "Description":  "Pu wheels changed",
+        "Cost":  "500"
+    },
+    {
+        "Product":  "Uboard Drifter",
+        "OrigEntry":  "Uboard drifter",
+        "Description":  "battery and horn switch changed",
+        "Cost":  "3000"
+    },
+    {
+        "Product":  "Uboard Drifter",
+        "OrigEntry":  "Uboard Drifter ( Demo)",
+        "Description":  "Battery,wheels and light changed",
+        "Cost":  "3500"
+    },
+    {
+        "Product":  "Uboard Drifter",
+        "OrigEntry":  "Uboard Drifter throttle sale",
+        "Description":  "throttle sale",
+        "Cost":  "2000"
+    },
+    {
+        "Product":  "Uboard Drifter",
+        "OrigEntry":  "Uboard Drifter throttle sale",
+        "Description":  "throttle sale",
+        "Cost":  "2000"
+    },
+    {
+        "Product":  "Uboard Drifter",
+        "OrigEntry":  "Uboard drifter wheels",
+        "Description":  "wheels with assmably",
+        "Cost":  "1000"
+    },
+    {
+        "Product":  "Uboard E-Kart Small",
+        "OrigEntry":  "Uboard E-kart small",
+        "Description":  "Chessic changed",
+        "Cost":  "2500"
+    },
+    {
+        "Product":  "Uboard E-Kick Junior",
+        "OrigEntry":  "Uboard E-kick jr.",
+        "Description":  "Lock changed",
+        "Cost":  "200"
+    },
+    {
+        "Product":  "Uboard E-Kart Small",
+        "OrigEntry":  "Uboard ekart small demo",
+        "Description":  "battery changed",
+        "Cost":  "2000"
+    },
+    {
+        "Product":  "Uboard E-Kick Junior",
+        "OrigEntry":  "Uboard Ekick Junior",
+        "Description":  "Chessis changed",
+        "Cost":  "4000"
+    },
+    {
+        "Product":  "Uboard E-Kick Junior",
+        "OrigEntry":  "Uboard ekick junior",
+        "Description":  "Charger sale",
+        "Cost":  "1000"
+    },
+    {
+        "Product":  "Uboard EVO Scooter",
+        "OrigEntry":  "Uboard Evo",
+        "Description":  "Battery changed",
+        "Cost":  "3500"
+    },
+    {
+        "Product":  "Uboard EVO Scooter",
+        "OrigEntry":  "Uboard Evo",
+        "Description":  "Charger changed",
+        "Cost":  "1500"
+    },
+    {
+        "Product":  "Uboard EVO Scooter",
+        "OrigEntry":  "Uboard Evo",
+        "Description":  "Battery changed",
+        "Cost":  "3500"
+    },
+    {
+        "Product":  "Uboard EVO Scooter",
+        "OrigEntry":  "Uboard EVO",
+        "Description":  "Mudguard changed",
+        "Cost":  "1500"
+    },
+    {
+        "Product":  "Uboard EVO Scooter",
+        "OrigEntry":  "Uboard Evo",
+        "Description":  "Battery changed",
+        "Cost":  "4000"
+    },
+    {
+        "Product":  "Uboard EVO Scooter",
+        "OrigEntry":  "Uboard Evo",
+        "Description":  "Battery changed",
+        "Cost":  "4000"
+    },
+    {
+        "Product":  "Uboard EVO Scooter",
+        "OrigEntry":  "uboard evo",
+        "Description":  "battery and charger changed",
+        "Cost":  "7000"
+    },
+    {
+        "Product":  "Uboard EVO Scooter",
+        "OrigEntry":  "Uboard EVo",
+        "Description":  "Battery changed",
+        "Cost":  "6500"
+    },
+    {
+        "Product":  "Uboard EVO Scooter",
+        "OrigEntry":  "Uboard evo",
+        "Description":  "No part use",
+        "Cost":  "500"
+    },
+    {
+        "Product":  "Uboard EVO Scooter",
+        "OrigEntry":  "Uboard Evo",
+        "Description":  "Stand changed",
+        "Cost":  "300"
+    },
+    {
+        "Product":  "Uboard EVO Scooter",
+        "OrigEntry":  "Uboard Evo",
+        "Description":  "Mudguard changed",
+        "Cost":  "1000"
+    },
+    {
+        "Product":  "Uboard EVO Scooter",
+        "OrigEntry":  "Uboard evo",
+        "Description":  "Uboard Chager give on cod basis by lalit ji approval",
+        "Cost":  "2000"
+    },
+    {
+        "Product":  "Uboard EVO Scooter",
+        "OrigEntry":  "Uboard Evo",
+        "Description":  "Battery and Mudguard changed",
+        "Cost":  "6000"
+    },
+    {
+        "Product":  "Uboard EVO Scooter",
+        "OrigEntry":  "Uboard Evo",
+        "Description":  "battery and head light changed",
+        "Cost":  "5000"
+    },
+    {
+        "Product":  "Uboard EVO Scooter",
+        "OrigEntry":  "Uboard Evo",
+        "Description":  "Mudguard",
+        "Cost":  "1000"
+    },
+    {
+        "Product":  "Uboard EVO Scooter",
+        "OrigEntry":  "Uboard evo",
+        "Description":  "battery changed and charger sale",
+        "Cost":  "8000"
+    },
+    {
+        "Product":  "Uboard EVO Scooter",
+        "OrigEntry":  "Uboard Evo",
+        "Description":  "Rear mudguard",
+        "Cost":  "1000"
+    },
+    {
+        "Product":  "Uboard EVO Scooter",
+        "OrigEntry":  "Uboard evo",
+        "Description":  "Battery changed",
+        "Cost":  "6000"
+    },
+    {
+        "Product":  "Uboard EVO Scooter",
+        "OrigEntry":  "Uboard Evo",
+        "Description":  "Charger changed",
+        "Cost":  "1500"
+    },
+    {
+        "Product":  "Uboard EVO Scooter",
+        "OrigEntry":  "Uboard Evo",
+        "Description":  "Mudguard dispatched",
+        "Cost":  "1000"
+    },
+    {
+        "Product":  "Uboard EVO Scooter",
+        "OrigEntry":  "Uboard Evo",
+        "Description":  "Mudguard dispatched",
+        "Cost":  "1000"
+    },
+    {
+        "Product":  "Uboard EVO Scooter",
+        "OrigEntry":  "Uboard Evo",
+        "Description":  "Mudguard dispatched",
+        "Cost":  "1000"
+    },
+    {
+        "Product":  "Uboard EVO Scooter",
+        "OrigEntry":  "Uboard Evo",
+        "Description":  "battery changed",
+        "Cost":  "5000"
+    },
+    {
+        "Product":  "Uboard EVO Scooter",
+        "OrigEntry":  "Uboard evo",
+        "Description":  "battery changed",
+        "Cost":  "4000"
+    },
+    {
+        "Product":  "Uboard EVO Scooter",
+        "OrigEntry":  "Uboard Evo",
+        "Description":  "Mudguard changed",
+        "Cost":  "1000"
+    },
+    {
+        "Product":  "Uboard EVO Scooter",
+        "OrigEntry":  "Uboard Evo",
+        "Description":  "mudgaurd light ,battery and display changed",
+        "Cost":  "5000"
+    },
+    {
+        "Product":  "Uboard EVO Scooter",
+        "OrigEntry":  "Uboard evo",
+        "Description":  "stand (foc)",
+        "Cost":  "200"
+    },
+    {
+        "Product":  "Uboard EVO Scooter",
+        "OrigEntry":  "Uboard Evo",
+        "Description":  "charger changed",
+        "Cost":  "2500"
+    },
+    {
+        "Product":  "Uboard EVO Scooter",
+        "OrigEntry":  "Uboard Evo",
+        "Description":  "deck changed",
+        "Cost":  "5500"
+    },
+    {
+        "Product":  "Uboard EVO Scooter",
+        "OrigEntry":  "Uboard EVo",
+        "Description":  "Mudguard changed",
+        "Cost":  "1000"
+    },
+    {
+        "Product":  "Uboard EVO Scooter",
+        "OrigEntry":  "Uboard evo",
+        "Description":  "display cover, and mudguard changed",
+        "Cost":  "3500"
+    },
+    {
+        "Product":  "Uboard EVO Scooter",
+        "OrigEntry":  "Uboard Evo",
+        "Description":  "Stand changed and Handle adjument done",
+        "Cost":  "600"
+    },
+    {
+        "Product":  "Uboard EVO Scooter",
+        "OrigEntry":  "Uboard evo",
+        "Description":  "Battery changed",
+        "Cost":  "5000"
+    },
+    {
+        "Product":  "Uboard EVO Scooter",
+        "OrigEntry":  "uboard evo",
+        "Description":  "battery changed",
+        "Cost":  "5000"
+    },
+    {
+        "Product":  "Uboard EVO Scooter",
+        "OrigEntry":  "uboard evo",
+        "Description":  "battery changed foc",
+        "Cost":  "4500"
+    },
+    {
+        "Product":  "Uboard EVO Scooter",
+        "OrigEntry":  "uboard evo",
+        "Description":  "rear mudguard foc and mackrook as a gift",
+        "Cost":  "3000"
+    },
+    {
+        "Product":  "Uboard EVO Scooter",
+        "OrigEntry":  "Uboard evo",
+        "Description":  "side panel  channged",
+        "Cost":  "2000"
+    },
+    {
+        "Product":  "Uboard EVO Scooter",
+        "OrigEntry":  "Uboard evo",
+        "Description":  "mudguard and side panel changed",
+        "Cost":  "3000"
+    },
+    {
+        "Product":  "Uboard EVO Scooter",
+        "OrigEntry":  "Uboard Evo",
+        "Description":  "Battery changed",
+        "Cost":  "7000"
+    },
+    {
+        "Product":  "Uboard EVO Scooter",
+        "OrigEntry":  "Uboard evo",
+        "Description":  "fork changed",
+        "Cost":  "1500"
+    },
+    {
+        "Product":  "Uboard EVO Scooter",
+        "OrigEntry":  "Uboard evo  ( mudguard)",
+        "Description":  "Uboard evo  ( mudguard)",
+        "Cost":  "1000"
+    },
+    {
+        "Product":  "Uboard EVO Scooter",
+        "OrigEntry":  "Uboard Evo demo",
+        "Description":  "breake wire changed",
+        "Cost":  "250"
+    },
+    {
+        "Product":  "Uboard Mini Explorer",
+        "OrigEntry":  "Uboard Exlporer mini",
+        "Description":  "motherboard changed",
+        "Cost":  "2500"
+    },
+    {
+        "Product":  "Uboard Mini Explorer",
+        "OrigEntry":  "Uboard Exlporer mini",
+        "Description":  "motor changed",
+        "Cost":  "1500"
+    },
+    {
+        "Product":  "Uboard Mini Explorer",
+        "OrigEntry":  "uboard explorer A1",
+        "Description":  "motherboard changed",
+        "Cost":  "3000"
+    },
+    {
+        "Product":  "Uboard Mini Explorer",
+        "OrigEntry":  "Uboard Explorer A1 demo",
+        "Description":  "foot pad changed",
+        "Cost":  "300"
+    },
+    {
+        "Product":  "Uboard Mini Explorer",
+        "OrigEntry":  "Uboard Explorer mini",
+        "Description":  "Battery changed",
+        "Cost":  "2500"
+    },
+    {
+        "Product":  "Uboard Mini Explorer",
+        "OrigEntry":  "Uboard explorer mini",
+        "Description":  "1 side motor changed",
+        "Cost":  "4000"
+    },
+    {
+        "Product":  "Uboard Mini Explorer",
+        "OrigEntry":  "Uboard Explorer mini",
+        "Description":  "1 pcs Motor changed",
+        "Cost":  "2000"
+    },
+    {
+        "Product":  "Uboard Mini Explorer",
+        "OrigEntry":  "Uboard explorer mini",
+        "Description":  "charger changed",
+        "Cost":  "1000"
+    },
+    {
+        "Product":  "Uboard Mini Explorer",
+        "OrigEntry":  "Uboard explorer mini",
+        "Description":  "motor changed",
+        "Cost":  "3000"
+    },
+    {
+        "Product":  "Uboard Mini Explorer",
+        "OrigEntry":  "Uboard explorer mini",
+        "Description":  "motor changed",
+        "Cost":  "5000"
+    },
+    {
+        "Product":  "Uboard Mini Explorer",
+        "OrigEntry":  "Uboard explorer mini",
+        "Description":  "motor changed",
+        "Cost":  "2000"
+    },
+    {
+        "Product":  "Uboard Mini Explorer",
+        "OrigEntry":  "Uboard explorer mini",
+        "Description":  "T-handle dispatch",
+        "Cost":  "500"
+    },
+    {
+        "Product":  "Uboard Mini Explorer",
+        "OrigEntry":  "Uboard explorer mini",
+        "Description":  "Motor changed",
+        "Cost":  "5000"
+    },
+    {
+        "Product":  "Uboard Mini Explorer",
+        "OrigEntry":  "Uboard explorer mini",
+        "Description":  "t- handle and screw and nuts dispatached",
+        "Cost":  "700"
+    },
+    {
+        "Product":  "Uboard Mini Explorer",
+        "OrigEntry":  "Uboard explorer mini",
+        "Description":  "wheel back cover and tube",
+        "Cost":  "500"
+    },
+    {
+        "Product":  "Uboard Mini Explorer",
+        "OrigEntry":  "Uboard explorer mini",
+        "Description":  "Motherboard changed motor changed (bumper car joystick )",
+        "Cost":  "3000"
+    },
+    {
+        "Product":  "Uboard Mini Explorer",
+        "OrigEntry":  "Uboard explorer mini",
+        "Description":  "motor changed",
+        "Cost":  "3000"
+    },
+    {
+        "Product":  "Uboard Mini Explorer",
+        "OrigEntry":  "Uboard Explorer Mini",
+        "Description":  "motor change",
+        "Cost":  "3500"
+    },
+    {
+        "Product":  "Uboard Mini Explorer",
+        "OrigEntry":  "Uboard Explorer Mini",
+        "Description":  "Tube changed",
+        "Cost":  "1000"
+    },
+    {
+        "Product":  "Uboard Mini Explorer",
+        "OrigEntry":  "Uboard Explorer Mini",
+        "Description":  "Chessis ,mortherboard ,speaker changed",
+        "Cost":  "6000"
+    },
+    {
+        "Product":  "Uboard Mini Explorer",
+        "OrigEntry":  "Uboard explorer mini",
+        "Description":  "motor changed",
+        "Cost":  "3000"
+    },
+    {
+        "Product":  "Uboard Mini Explorer",
+        "OrigEntry":  "Uboard Explorer mini",
+        "Description":  "turning sensor changed",
+        "Cost":  "600"
+    },
+    {
+        "Product":  "Uboard Mini Explorer",
+        "OrigEntry":  "Uboard explorer mini",
+        "Description":  "motor changed",
+        "Cost":  "3000"
+    },
+    {
+        "Product":  "Uboard Mini Explorer",
+        "OrigEntry":  "Uboard explorer mini",
+        "Description":  "motor changes",
+        "Cost":  "3000"
+    },
+    {
+        "Product":  "Uboard Mini Explorer",
+        "OrigEntry":  "Uboard explorer mini",
+        "Description":  "motherboard changed",
+        "Cost":  "2000"
+    },
+    {
+        "Product":  "Uboard Mini Explorer",
+        "OrigEntry":  "Uboard explorer mini",
+        "Description":  "motor changed",
+        "Cost":  "1500"
+    },
+    {
+        "Product":  "Uboard Mini Explorer",
+        "OrigEntry":  "Uboard explorer mini",
+        "Description":  "Motor changed",
+        "Cost":  "2000"
+    },
+    {
+        "Product":  "Uboard Mini Explorer",
+        "OrigEntry":  "Uboard explorer mini",
+        "Description":  "motor changed",
+        "Cost":  "3000"
+    },
+    {
+        "Product":  "Uboard Mini Explorer",
+        "OrigEntry":  "Uboard explorer mini",
+        "Description":  "battery changed",
+        "Cost":  "2500"
+    },
+    {
+        "Product":  "Uboard Mini Explorer",
+        "OrigEntry":  "Uboard explorer mini",
+        "Description":  "handle sale",
+        "Cost":  "500"
+    },
+    {
+        "Product":  "Uboard Mini Explorer",
+        "OrigEntry":  "Uboard explorer mini",
+        "Description":  "motor changd",
+        "Cost":  "2500"
+    },
+    {
+        "Product":  "Uboard Mini Explorer",
+        "OrigEntry":  "Uboard explorer mini",
+        "Description":  "motor changed",
+        "Cost":  "300"
+    },
+    {
+        "Product":  "Uboard Mini Explorer",
+        "OrigEntry":  "Uboard Explorer mini",
+        "Description":  "tube",
+        "Cost":  "500"
+    },
+    {
+        "Product":  "Uboard Mini Explorer",
+        "OrigEntry":  "Uboard Explorer mini",
+        "Description":  "motherboard and charger changed",
+        "Cost":  "3500"
+    },
+    {
+        "Product":  "Uboard Mini Explorer",
+        "OrigEntry":  "Uboard Explorer mini",
+        "Description":  "motherboard changed",
+        "Cost":  "2500"
+    },
+    {
+        "Product":  "Uboard Mini Explorer",
+        "OrigEntry":  "Uboard Explorer mini",
+        "Description":  "motherboard changed",
+        "Cost":  "2500"
+    },
+    {
+        "Product":  "Uboard Mini Explorer",
+        "OrigEntry":  "Uboard Explorer mini",
+        "Description":  "charging slot ,pads and screw sale",
+        "Cost":  "600"
+    },
+    {
+        "Product":  "Uboard Mini Explorer",
+        "OrigEntry":  "Uboard Explorer mini",
+        "Description":  "motor changed",
+        "Cost":  "2000"
+    },
+    {
+        "Product":  "Uboard Mini Explorer",
+        "OrigEntry":  "Uboard Explorer mini demo",
+        "Description":  "light cover and light changed",
+        "Cost":  "300"
+    },
+    {
+        "Product":  "Uboard Hovershoes",
+        "OrigEntry":  "Uboard hovershoes",
+        "Description":  "Battery changed",
+        "Cost":  "1500"
+    },
+    {
+        "Product":  "Uboard Hybrid 6.5",
+        "OrigEntry":  "Uboard Hybird 6.5",
+        "Description":  "Battery changed",
+        "Cost":  "1800"
+    },
+    {
+        "Product":  "Uboard Hybrid 8.5",
+        "OrigEntry":  "Uboard hybri8 8.5",
+        "Description":  "A-side sensor changed",
+        "Cost":  "1500"
+    },
+    {
+        "Product":  "Uboard Hybrid 6.5",
+        "OrigEntry":  "Uboard Hybrid 6.5",
+        "Description":  "bobdy changed",
+        "Cost":  "1500"
+    },
+    {
+        "Product":  "Uboard Hybrid 6.5",
+        "OrigEntry":  "Uboard Hybrid 6.5",
+        "Description":  "motherboard changed",
+        "Cost":  "2500"
+    },
+    {
+        "Product":  "Uboard Hybrid 6.5",
+        "OrigEntry":  "Uboard hybrid 6.5",
+        "Description":  "charging slot changed",
+        "Cost":  "300"
+    },
+    {
+        "Product":  "Uboard Hybrid 6.5",
+        "OrigEntry":  "Uboard hybrid 6.5",
+        "Description":  "battery changed",
+        "Cost":  "2500"
+    },
+    {
+        "Product":  "Uboard Hybrid 6.5",
+        "OrigEntry":  "Uboard Hybrid 6.5 (demo)",
+        "Description":  "Battery and battery changed",
+        "Cost":  "3500"
+    },
+    {
+        "Product":  "Uboard Hybrid 8.5",
+        "OrigEntry":  "Uboard hybrid 8 plus",
+        "Description":  "Battery changed",
+        "Cost":  "3000"
+    },
+    {
+        "Product":  "Uboard Hybrid 8.5",
+        "OrigEntry":  "Uboard hybrid 8 plus",
+        "Description":  "battery and tire changed",
+        "Cost":  "5500"
+    },
+    {
+        "Product":  "Uboard Hybrid 8.5",
+        "OrigEntry":  "Uboard Hybrid 8 plus",
+        "Description":  "Battery changed",
+        "Cost":  "3000"
+    },
+    {
+        "Product":  "Uboard Hybrid 8.5",
+        "OrigEntry":  "Uboard Hybrid 8.5",
+        "Description":  "Motor and Uper body changed",
+        "Cost":  "3500"
+    },
+    {
+        "Product":  "Uboard Hybrid 8.5",
+        "OrigEntry":  "Uboard Hybrid 8.5",
+        "Description":  "Mother board changed",
+        "Cost":  "2500"
+    },
+    {
+        "Product":  "Uboard Hybrid 8.5",
+        "OrigEntry":  "Uboard Hybrid 8.5",
+        "Description":  "1 sidemotor and body changed",
+        "Cost":  "4500"
+    },
+    {
+        "Product":  "Uboard Hybrid 8.5",
+        "OrigEntry":  "Uboard hybrid 8.5",
+        "Description":  "1 pcs motor changed",
+        "Cost":  "1500"
+    },
+    {
+        "Product":  "Uboard Hybrid 8.5",
+        "OrigEntry":  "Uboard hybrid 8.5",
+        "Description":  "battery and body changed",
+        "Cost":  "3000"
+    },
+    {
+        "Product":  "Uboard Hybrid 8.5",
+        "OrigEntry":  "Uboard Hybrid 8.5",
+        "Description":  "Battery changed",
+        "Cost":  "2000"
+    },
+    {
+        "Product":  "Uboard Hybrid 8.5",
+        "OrigEntry":  "Uboard hybrid 8.5",
+        "Description":  "Battery changed",
+        "Cost":  "2500"
+    },
+    {
+        "Product":  "Uboard Hybrid 8.5",
+        "OrigEntry":  "Uboard Hybrid 8.5",
+        "Description":  "motor changed",
+        "Cost":  "2500"
+    },
+    {
+        "Product":  "Uboard Hybrid 8.5",
+        "OrigEntry":  "Uboard Hybrid 8.5",
+        "Description":  "Battery changed",
+        "Cost":  "2500"
+    },
+    {
+        "Product":  "Uboard Hybrid 8.5",
+        "OrigEntry":  "Uboard Hybrid 8.5",
+        "Description":  "motor changed",
+        "Cost":  "1500"
+    },
+    {
+        "Product":  "Uboard Hybrid 8.5",
+        "OrigEntry":  "Uboard Hybrid 8.5",
+        "Description":  "body changed",
+        "Cost":  "1000"
+    },
+    {
+        "Product":  "Uboard Hybrid 8.5",
+        "OrigEntry":  "Uboard Hybrid 8.5",
+        "Description":  "Battery and chagring slot changed",
+        "Cost":  "2700"
+    },
+    {
+        "Product":  "Uboard Infinity",
+        "OrigEntry":  "Uboard infinity",
+        "Description":  "battery changed",
+        "Cost":  "2500"
+    },
+    {
+        "Product":  "Uboard Infinity",
+        "OrigEntry":  "Uboard Infinity",
+        "Description":  "Motor and battery changed",
+        "Cost":  "4000"
+    },
+    {
+        "Product":  "Uboard Infinity",
+        "OrigEntry":  "Uboard Infinity",
+        "Description":  "charger replaced",
+        "Cost":  "1500"
+    },
+    {
+        "Product":  "Uboard Infinity",
+        "OrigEntry":  "Uboard Infinity",
+        "Description":  "Charger sale",
+        "Cost":  "1500"
+    },
+    {
+        "Product":  "Uboard Infinity",
+        "OrigEntry":  "Uboard Infinity",
+        "Description":  "1 side motherboard changed",
+        "Cost":  "1000"
+    },
+    {
+        "Product":  "Uboard Infinity",
+        "OrigEntry":  "Uboard Infinity",
+        "Description":  "bluetooth changed",
+        "Cost":  "500"
+    },
+    {
+        "Product":  "Uboard Infinity",
+        "OrigEntry":  "Uboard Infinity",
+        "Description":  "motor changed",
+        "Cost":  "2000"
+    },
+    {
+        "Product":  "Uboard Infinity",
+        "OrigEntry":  "Uboard Infinity",
+        "Description":  "motor and changed",
+        "Cost":  "5000"
+    },
+    {
+        "Product":  "Uboard Infinity",
+        "OrigEntry":  "Uboard Infinity",
+        "Description":  "Battery changed",
+        "Cost":  "1500"
+    },
+    {
+        "Product":  "Uboard Infinity",
+        "OrigEntry":  "Uboard Infinity",
+        "Description":  "Body changed",
+        "Cost":  "3000"
+    },
+    {
+        "Product":  "Uboard Infinity",
+        "OrigEntry":  "Uboard infinity",
+        "Description":  "Motherboard changed",
+        "Cost":  "2500"
+    },
+    {
+        "Product":  "Uboard Infinity",
+        "OrigEntry":  "Uboard Infinity",
+        "Description":  "pad plastic change",
+        "Cost":  "200"
+    },
+    {
+        "Product":  "Uboard Infinity",
+        "OrigEntry":  "Uboard Infinity",
+        "Description":  "Motherboard changed",
+        "Cost":  "2500"
+    },
+    {
+        "Product":  "Uboard Infinity",
+        "OrigEntry":  "Uboard Infinity",
+        "Description":  "Motor changed",
+        "Cost":  "2500"
+    },
+    {
+        "Product":  "Uboard Infinity",
+        "OrigEntry":  "Uboard Infinity",
+        "Description":  "motherboard changed",
+        "Cost":  "2500"
+    },
+    {
+        "Product":  "Uboard Infinity",
+        "OrigEntry":  "Uboard Infinity",
+        "Description":  "battery changed",
+        "Cost":  "2500"
+    },
+    {
+        "Product":  "Uboard Infinity",
+        "OrigEntry":  "Uboard Infinity",
+        "Description":  "battery changed",
+        "Cost":  "2500"
+    },
+    {
+        "Product":  "Uboard Infinity",
+        "OrigEntry":  "Uboard Infinity",
+        "Description":  "charger changed",
+        "Cost":  "1500"
+    },
+    {
+        "Product":  "Uboard Infinity",
+        "OrigEntry":  "Uboard Infinity",
+        "Description":  "charger changed",
+        "Cost":  "1500"
+    },
+    {
+        "Product":  "Uboard Infinity",
+        "OrigEntry":  "Uboard infinity",
+        "Description":  "battery changed",
+        "Cost":  "2500"
+    },
+    {
+        "Product":  "Uboard Infinity",
+        "OrigEntry":  "Uboard infinity",
+        "Description":  "A-side sensor changed",
+        "Cost":  "1500"
+    },
+    {
+        "Product":  "Uboard Infinity",
+        "OrigEntry":  "Uboard infinity",
+        "Description":  "1 pcs motor changed",
+        "Cost":  "1500"
+    },
+    {
+        "Product":  "Uboard Infinity",
+        "OrigEntry":  "Uboard infinity",
+        "Description":  "mother board changed",
+        "Cost":  "2000"
+    },
+    {
+        "Product":  "Uboard Infinity",
+        "OrigEntry":  "Uboard infinity",
+        "Description":  "battery changed",
+        "Cost":  "2500"
+    },
+    {
+        "Product":  "Uboard Infinity",
+        "OrigEntry":  "Uboard infinity",
+        "Description":  "motor changed 1 pcs",
+        "Cost":  "1500"
+    },
+    {
+        "Product":  "Uboard Infinity",
+        "OrigEntry":  "Uboard Infinity",
+        "Description":  "motherboard changed",
+        "Cost":  "2500"
+    },
+    {
+        "Product":  "Uboard Infinity",
+        "OrigEntry":  "Uboard Infinity",
+        "Description":  "motherboard changed",
+        "Cost":  "2500"
+    },
+    {
+        "Product":  "Uboard Infinity",
+        "OrigEntry":  "Uboard Infinity",
+        "Description":  "motherboard changed",
+        "Cost":  "2500"
+    },
+    {
+        "Product":  "Uboard Infinity",
+        "OrigEntry":  "Uboard Infinity",
+        "Description":  "1 pcs motor changed",
+        "Cost":  "2000"
+    },
+    {
+        "Product":  "Uboard Infinity",
+        "OrigEntry":  "Uboard Infinity",
+        "Description":  "motor changed",
+        "Cost":  "2000"
+    },
+    {
+        "Product":  "Uboard Infinity",
+        "OrigEntry":  "Uboard Infinity",
+        "Description":  "motherboard changed",
+        "Cost":  "2500"
+    },
+    {
+        "Product":  "Uboard Infinity",
+        "OrigEntry":  "Uboard Infinty",
+        "Description":  "battery changed",
+        "Cost":  "2500"
+    },
+    {
+        "Product":  "Uboard Infinity",
+        "OrigEntry":  "Uboard Infinty",
+        "Description":  "Motherboard changed",
+        "Cost":  "2000"
+    },
+    {
+        "Product":  "Uboard Mini Explorer",
+        "OrigEntry":  "Uboard Mini",
+        "Description":  "tube Changed",
+        "Cost":  "700"
+    },
+    {
+        "Product":  "Uboard Mini Explorer",
+        "OrigEntry":  "Uboard Mini",
+        "Description":  "Motherboard changed",
+        "Cost":  "2500"
+    },
+    {
+        "Product":  "Uboard Mini Explorer",
+        "OrigEntry":  "Uboard Mini",
+        "Description":  "motor changed",
+        "Cost":  "3000"
+    },
+    {
+        "Product":  "Uboard Mini Explorer",
+        "OrigEntry":  "Uboard Mini",
+        "Description":  "1 Side motor changed",
+        "Cost":  "2800"
+    },
+    {
+        "Product":  "Uboard Mini Explorer",
+        "OrigEntry":  "Uboard mini",
+        "Description":  "battery and turning sensor changed",
+        "Cost":  "3800"
+    },
+    {
+        "Product":  "Uboard Mini Explorer",
+        "OrigEntry":  "Uboard Mini",
+        "Description":  "1pcs motor changed",
+        "Cost":  "2000"
+    },
+    {
+        "Product":  "Uboard Mini Explorer",
+        "OrigEntry":  "uboard mini",
+        "Description":  "battery changed",
+        "Cost":  "2500"
+    },
+    {
+        "Product":  "Uboard Pathfinder",
+        "OrigEntry":  "Uboard pathfinder",
+        "Description":  "controller ad stand changed",
+        "Cost":  "5000"
+    },
+    {
+        "Product":  "Uboard Pathfinder",
+        "OrigEntry":  "Uboard pathfinder bike",
+        "Description":  "sear dispatched",
+        "Cost":  "1500"
+    },
+    {
+        "Product":  "Uboard Space Bike",
+        "OrigEntry":  "uboard space bike",
+        "Description":  "battery ,charging pin and charger changed",
+        "Cost":  "7000"
+    },
+    {
+        "Product":  "Uboard Space Bike",
+        "OrigEntry":  "Uboard space bike",
+        "Description":  "throttle changed",
+        "Cost":  "2500"
+    },
+    {
+        "Product":  "Uboard Space Bike",
+        "OrigEntry":  "Uboard Space bike",
+        "Description":  "charging slot  (FOC)",
+        "Cost":  "300"
+    },
+    {
+        "Product":  "Uboard Space Bike",
+        "OrigEntry":  "Uboard Space bike",
+        "Description":  "handle change",
+        "Cost":  "2000"
+    },
+    {
+        "Product":  "Uboard Space Bike",
+        "OrigEntry":  "Uboard space bike",
+        "Description":  "motor dispatch",
+        "Cost":  "400"
+    },
+    {
+        "Product":  "Uboard SUV Hoverboard",
+        "OrigEntry":  "Uboard Suv",
+        "Description":  "1 Side sensor change",
+        "Cost":  "1200"
+    },
+    {
+        "Product":  "Uboard SUV Hoverboard",
+        "OrigEntry":  "Uboard Suv",
+        "Description":  "Battery changed",
+        "Cost":  "3500"
+    },
+    {
+        "Product":  "Uboard SUV Hoverboard",
+        "OrigEntry":  "Uboard Suv",
+        "Description":  "1 Side sensor change",
+        "Cost":  "1200"
+    },
+    {
+        "Product":  "Uboard SUV Hoverboard",
+        "OrigEntry":  "Uboard Suv",
+        "Description":  "Motherboard and battery changed",
+        "Cost":  "6500"
+    },
+    {
+        "Product":  "Uboard SUV Hoverboard",
+        "OrigEntry":  "Uboard Suv",
+        "Description":  "1 Side sensor change",
+        "Cost":  "1200"
+    },
+    {
+        "Product":  "Uboard SUV Hoverboard",
+        "OrigEntry":  "Uboard Suv",
+        "Description":  "charging slot repair and charger sale",
+        "Cost":  "1000"
+    },
+    {
+        "Product":  "Uboard SUV Hoverboard",
+        "OrigEntry":  "Uboard Suv",
+        "Description":  "1 Side sensor change",
+        "Cost":  "1200"
+    },
+    {
+        "Product":  "Uboard SUV Hoverboard",
+        "OrigEntry":  "Uboard Suv",
+        "Description":  "1 side sensor changed",
+        "Cost":  "1200"
+    },
+    {
+        "Product":  "Uboard SUV Hoverboard",
+        "OrigEntry":  "Uboard Suv",
+        "Description":  "1 side sensor changed",
+        "Cost":  "500"
+    },
+    {
+        "Product":  "Uboard SUV Hoverboard",
+        "OrigEntry":  "Uboard Suv",
+        "Description":  "1 side sensor changed",
+        "Cost":  "500"
+    },
+    {
+        "Product":  "Uboard SUV Hoverboard",
+        "OrigEntry":  "Uboard Suv",
+        "Description":  "Chessic changed",
+        "Cost":  "2000"
+    },
+    {
+        "Product":  "Uboard SUV Hoverboard",
+        "OrigEntry":  "Uboard SUV",
+        "Description":  "Chessic changed",
+        "Cost":  "2000"
+    },
+    {
+        "Product":  "Uboard SUV Hoverboard",
+        "OrigEntry":  "Uboard Suv",
+        "Description":  "battery and 1 side sensor changed",
+        "Cost":  "3000"
+    },
+    {
+        "Product":  "Uboard SUV Hoverboard",
+        "OrigEntry":  "Uboard Suv",
+        "Description":  "battery",
+        "Cost":  "2000"
+    },
+    {
+        "Product":  "Uboard SUV Hoverboard",
+        "OrigEntry":  "Uboard Suv",
+        "Description":  "Battery, Sensor light, And charger changed",
+        "Cost":  "3000"
+    },
+    {
+        "Product":  "Uboard SUV Hoverboard",
+        "OrigEntry":  "Uboard Suv",
+        "Description":  "Battery changed",
+        "Cost":  "2000"
+    },
+    {
+        "Product":  "Uboard SUV Hoverboard",
+        "OrigEntry":  "Uboard Suv",
+        "Description":  "Sensor changed",
+        "Cost":  "1000"
+    },
+    {
+        "Product":  "Uboard SUV Hoverboard",
+        "OrigEntry":  "Uboard Suv",
+        "Description":  "battery changed",
+        "Cost":  "2000"
+    },
+    {
+        "Product":  "Uboard SUV Hoverboard",
+        "OrigEntry":  "Uboard Suv",
+        "Description":  "Sensor changed",
+        "Cost":  "1000"
+    },
+    {
+        "Product":  "Uboard SUV Hoverboard",
+        "OrigEntry":  "Uboard suv",
+        "Description":  "a side sensor changed",
+        "Cost":  "1500"
+    },
+    {
+        "Product":  "Uboard SUV Hoverboard",
+        "OrigEntry":  "Uboard suv",
+        "Description":  "a side sensor changed",
+        "Cost":  "1500"
+    },
+    {
+        "Product":  "Uboard SUV Hoverboard",
+        "OrigEntry":  "Uboard suv",
+        "Description":  "a side sensor changed",
+        "Cost":  "1500"
+    },
+    {
+        "Product":  "Uboard SUV Hoverboard",
+        "OrigEntry":  "Uboard Suv",
+        "Description":  "a side sensor changed",
+        "Cost":  "1500"
+    },
+    {
+        "Product":  "Uboard SUV Hoverboard",
+        "OrigEntry":  "Uboard Suv",
+        "Description":  "Chessis changed",
+        "Cost":  "1500"
+    },
+    {
+        "Product":  "Uboard SUV Hoverboard",
+        "OrigEntry":  "Uboard Suv",
+        "Description":  "Motor changed",
+        "Cost":  "1500"
+    },
+    {
+        "Product":  "Uboard SUV Hoverboard",
+        "OrigEntry":  "Uboard suv",
+        "Description":  "charger,charging slot and battery changed",
+        "Cost":  "4000"
+    },
+    {
+        "Product":  "Uboard SUV Hoverboard",
+        "OrigEntry":  "Uboard Suv",
+        "Description":  "Battery changed",
+        "Cost":  "2500"
+    },
+    {
+        "Product":  "Uboard SUV Hoverboard",
+        "OrigEntry":  "Uboard Suv",
+        "Description":  "on/off switch changed",
+        "Cost":  "200"
+    },
+    {
+        "Product":  "Uboard SUV Hoverboard",
+        "OrigEntry":  "Uboard Suv",
+        "Description":  "A-Side Sensor changed",
+        "Cost":  "1500"
+    },
+    {
+        "Product":  "Uboard SUV Hoverboard",
+        "OrigEntry":  "Uboard Suv",
+        "Description":  "Battery and motherboard changed",
+        "Cost":  "4000"
+    },
+    {
+        "Product":  "Uboard SUV Hoverboard",
+        "OrigEntry":  "Uboard Suv",
+        "Description":  "motor change",
+        "Cost":  "1500"
+    },
+    {
+        "Product":  "Uboard SUV Hoverboard",
+        "OrigEntry":  "Uboard Suv",
+        "Description":  "Chessis and body Changed",
+        "Cost":  "1500"
+    },
+    {
+        "Product":  "Uboard SUV Hoverboard",
+        "OrigEntry":  "Uboard Suv",
+        "Description":  "motor change",
+        "Cost":  "2500"
+    },
+    {
+        "Product":  "Uboard SUV Hoverboard",
+        "OrigEntry":  "Uboard Suv",
+        "Description":  "Wiring set and sensor rubber change",
+        "Cost":  "20"
+    },
+    {
+        "Product":  "Uboard SUV Hoverboard",
+        "OrigEntry":  "Uboard Suv",
+        "Description":  "A-side sensor changed",
+        "Cost":  "1500"
+    },
+    {
+        "Product":  "Uboard SUV Hoverboard",
+        "OrigEntry":  "Uboard Suv",
+        "Description":  "Battery changed",
+        "Cost":  "2500"
+    },
+    {
+        "Product":  "Uboard SUV Hoverboard",
+        "OrigEntry":  "Uboard Suv",
+        "Description":  "Sensor rubber changed",
+        "Cost":  "20"
+    },
+    {
+        "Product":  "Uboard SUV Hoverboard",
+        "OrigEntry":  "Uboard Suv",
+        "Description":  "Sensor rubber changed",
+        "Cost":  "30"
+    },
+    {
+        "Product":  "Uboard SUV Hoverboard",
+        "OrigEntry":  "Uboard Suv",
+        "Description":  "A-side sensor changed",
+        "Cost":  "1500"
+    },
+    {
+        "Product":  "Uboard SUV Hoverboard",
+        "OrigEntry":  "Uboard Suv",
+        "Description":  "A-side sensor changed",
+        "Cost":  "1500"
+    },
+    {
+        "Product":  "Uboard SUV Hoverboard",
+        "OrigEntry":  "Uboard Suv",
+        "Description":  "Battery changed",
+        "Cost":  "2500"
+    },
+    {
+        "Product":  "Uboard SUV Hoverboard",
+        "OrigEntry":  "Uboard Suv",
+        "Description":  "A side sensor changed",
+        "Cost":  "1500"
+    },
+    {
+        "Product":  "Uboard SUV Hoverboard",
+        "OrigEntry":  "Uboard Suv",
+        "Description":  "Motor and a-side sensor changed",
+        "Cost":  "3000"
+    },
+    {
+        "Product":  "Uboard SUV Hoverboard",
+        "OrigEntry":  "Uboard Suv",
+        "Description":  "charging slot",
+        "Cost":  "300"
+    },
+    {
+        "Product":  "Uboard SUV Hoverboard",
+        "OrigEntry":  "Uboard Suv",
+        "Description":  "Chessis , and motherboard changed",
+        "Cost":  "3000"
+    },
+    {
+        "Product":  "Uboard SUV Hoverboard",
+        "OrigEntry":  "Uboard Suv",
+        "Description":  "A-side sensor changed",
+        "Cost":  "1500"
+    },
+    {
+        "Product":  "Uboard SUV Hoverboard",
+        "OrigEntry":  "Uboard Suv",
+        "Description":  "battery changed",
+        "Cost":  "2500"
+    },
+    {
+        "Product":  "Uboard SUV Hoverboard",
+        "OrigEntry":  "Uboard Suv",
+        "Description":  "a-side sensor dispatched",
+        "Cost":  "500"
+    },
+    {
+        "Product":  "Uboard SUV Hoverboard",
+        "OrigEntry":  "Uboard suv",
+        "Description":  "battery changed",
+        "Cost":  "2500"
+    },
+    {
+        "Product":  "Uboard SUV Hoverboard",
+        "OrigEntry":  "Uboard suv",
+        "Description":  "charger changed",
+        "Cost":  "1000"
+    },
+    {
+        "Product":  "Uboard SUV Hoverboard",
+        "OrigEntry":  "Uboard Suv",
+        "Description":  "A-side sensor changed",
+        "Cost":  "500"
+    },
+    {
+        "Product":  "Uboard SUV Hoverboard",
+        "OrigEntry":  "Uboard Suv",
+        "Description":  "body and chessis changed",
+        "Cost":  "3000"
+    },
+    {
+        "Product":  "Uboard SUV Hoverboard",
+        "OrigEntry":  "uboard suv",
+        "Description":  "chessy changed",
+        "Cost":  "1500"
+    },
+    {
+        "Product":  "Uboard SUV Hoverboard",
+        "OrigEntry":  "Uboard Suv",
+        "Description":  "1 side fendor changed",
+        "Cost":  "200"
+    },
+    {
+        "Product":  "Uboard SUV Hoverboard",
+        "OrigEntry":  "Uboard suv",
+        "Description":  "1pcs fendor changed",
+        "Cost":  "300"
+    },
+    {
+        "Product":  "Uboard SUV Hoverboard",
+        "OrigEntry":  "Uboard suv",
+        "Description":  "chessy ,body , battery changed",
+        "Cost":  "5000"
+    },
+    {
+        "Product":  "Uboard SUV Hoverboard",
+        "OrigEntry":  "uboard suv",
+        "Description":  "charger dispatched",
+        "Cost":  "1000"
+    },
+    {
+        "Product":  "Uboard SUV Hoverboard",
+        "OrigEntry":  "Uboard suv",
+        "Description":  "motor changed",
+        "Cost":  "2000"
+    },
+    {
+        "Product":  "Uboard SUV Hoverboard",
+        "OrigEntry":  "Uboard suv",
+        "Description":  "chessy changed",
+        "Cost":  "1500"
+    },
+    {
+        "Product":  "Uboard SUV Hoverboard",
+        "OrigEntry":  "Uboard suv",
+        "Description":  "battery changed",
+        "Cost":  "2500"
+    },
+    {
+        "Product":  "Uboard SUV Hoverboard",
+        "OrigEntry":  "Uboard suv",
+        "Description":  "Cheesy changed",
+        "Cost":  "1500"
+    },
+    {
+        "Product":  "Uboard SUV Hoverboard",
+        "OrigEntry":  "Uboard suv",
+        "Description":  "a-side sensor changed",
+        "Cost":  "1500"
+    },
+    {
+        "Product":  "Uboard SUV Hoverboard",
+        "OrigEntry":  "Uboard suv",
+        "Description":  "chessy and body changed",
+        "Cost":  "4000"
+    },
+    {
+        "Product":  "Uboard SUV Hoverboard",
+        "OrigEntry":  "Uboard suv",
+        "Description":  "no fault found,charger send for demo",
+        "Cost":  "1500"
+    },
+    {
+        "Product":  "Uboard SUV Hoverboard",
+        "OrigEntry":  "Uboard Suv",
+        "Description":  "battery dispatched",
+        "Cost":  "3000"
+    },
+    {
+        "Product":  "Uboard SUV Hoverboard",
+        "OrigEntry":  "Uboard Suv",
+        "Description":  "Battery changed",
+        "Cost":  "2500"
+    },
+    {
+        "Product":  "Uboard SUV Hoverboard",
+        "OrigEntry":  "Uboard Suv",
+        "Description":  "battery changed",
+        "Cost":  "2500"
+    },
+    {
+        "Product":  "Uboard SUV Hoverboard",
+        "OrigEntry":  "Uboard Suv",
+        "Description":  "A-side sensor changed",
+        "Cost":  "1500"
+    },
+    {
+        "Product":  "Uboard SUV Hoverboard",
+        "OrigEntry":  "uboard suv Demo",
+        "Description":  "chessy changed",
+        "Cost":  "1500"
+    },
+    {
+        "Product":  "REVIEW: Uboard suv/ drifter",
+        "OrigEntry":  "Uboard suv/ drifter",
+        "Description":  "center screw , break screw , 1 fender for suv (foc)",
+        "Cost":  "750"
+    },
+    {
+        "Product":  "Uboard X7",
+        "OrigEntry":  "Uboard X7",
+        "Description":  "Dislplay changed",
+        "Cost":  "2500"
+    },
+    {
+        "Product":  "Uboard X7",
+        "OrigEntry":  "Uboard X7",
+        "Description":  "main Cable and Pole changed",
+        "Cost":  "3000"
+    },
+    {
+        "Product":  "Uboard X7",
+        "OrigEntry":  "Uboard X7",
+        "Description":  "pole and side stand changed",
+        "Cost":  "3500"
+    },
+    {
+        "Product":  "Uboard X7",
+        "OrigEntry":  "Uboard X7",
+        "Description":  "Dispalay change",
+        "Cost":  "2500"
+    },
+    {
+        "Product":  "Uboard X7",
+        "OrigEntry":  "Uboard X7",
+        "Description":  "Uboard X7 Stand",
+        "Cost":  "500"
+    },
+    {
+        "Product":  "Uboard X7",
+        "OrigEntry":  "Uboard x7",
+        "Description":  "uboard x7 handle",
+        "Cost":  "1000"
+    },
+    {
+        "Product":  "Uboard X7",
+        "OrigEntry":  "Uboard x7",
+        "Description":  "Tire and tube changed",
+        "Cost":  "2000"
+    },
+    {
+        "Product":  "Uboard X7",
+        "OrigEntry":  "Uboard X7",
+        "Description":  "Charger sale",
+        "Cost":  "2000"
+    },
+    {
+        "Product":  "Uboard X7",
+        "OrigEntry":  "Uboard X7",
+        "Description":  "Display and tail light changed",
+        "Cost":  "2500"
+    },
+    {
+        "Product":  "Uboard X7",
+        "OrigEntry":  "Uboard X7",
+        "Description":  "Battery sale",
+        "Cost":  "7000"
+    },
+    {
+        "Product":  "Uboard X7",
+        "OrigEntry":  "Uboard X7",
+        "Description":  "back and front cover changed",
+        "Cost":  "1000"
+    },
+    {
+        "Product":  "Uboard X7",
+        "OrigEntry":  "Uboard X7",
+        "Description":  "Display changed",
+        "Cost":  "2500"
+    },
+    {
+        "Product":  "Uboard X7",
+        "OrigEntry":  "Uboard X7",
+        "Description":  "Display changed",
+        "Cost":  "3000"
+    },
+    {
+        "Product":  "Uboard X7",
+        "OrigEntry":  "Uboard x7",
+        "Description":  "Faurk Cap chaned",
+        "Cost":  "500"
+    },
+    {
+        "Product":  "Uboard X7",
+        "OrigEntry":  "Uboard x7",
+        "Description":  "Uboard X7 charger sale",
+        "Cost":  "2000"
+    },
+    {
+        "Product":  "Uboard X7",
+        "OrigEntry":  "Uboard x7",
+        "Description":  "Display changed",
+        "Cost":  "2000"
+    },
+    {
+        "Product":  "Uboard X7",
+        "OrigEntry":  "Uboard X7",
+        "Description":  "Front frok cap change and front light repair",
+        "Cost":  "500"
+    },
+    {
+        "Product":  "Uboard X7",
+        "OrigEntry":  "Uboard x7",
+        "Description":  "tire and tube",
+        "Cost":  "3000"
+    },
+    {
+        "Product":  "Uboard X7",
+        "OrigEntry":  "Uboard X7",
+        "Description":  "Display changed",
+        "Cost":  "1500"
+    },
+    {
+        "Product":  "Uboard X7",
+        "OrigEntry":  "Uboard X7",
+        "Description":  "front mudguard change , break wire repair",
+        "Cost":  "800"
+    },
+    {
+        "Product":  "Uboard X7",
+        "OrigEntry":  "Uboard x7",
+        "Description":  "Display pcb and tail light changed",
+        "Cost":  "2500"
+    },
+    {
+        "Product":  "Uboard X7",
+        "OrigEntry":  "Uboard x7",
+        "Description":  "Display changed (Disptach only)",
+        "Cost":  "1500"
+    },
+    {
+        "Product":  "Uboard X7",
+        "OrigEntry":  "Uboard X7",
+        "Description":  "Display pcb changed",
+        "Cost":  "1500"
+    },
+    {
+        "Product":  "Uboard X7",
+        "OrigEntry":  "Uboard X7",
+        "Description":  "Display pcb changed",
+        "Cost":  "1500"
+    },
+    {
+        "Product":  "Uboard X7",
+        "OrigEntry":  "Uboard X7",
+        "Description":  "Display pcb changed Dispatch only",
+        "Cost":  "1500"
+    },
+    {
+        "Product":  "Uboard X7",
+        "OrigEntry":  "Uboard X7",
+        "Description":  "Display pcb changed Dispatch only",
+        "Cost":  "1500"
+    },
+    {
+        "Product":  "Uboard X7",
+        "OrigEntry":  "Uboard X7",
+        "Description":  "display pcb changed",
+        "Cost":  "2000"
+    },
+    {
+        "Product":  "Uboard X7",
+        "OrigEntry":  "Uboard x7",
+        "Description":  "breake switch changed",
+        "Cost":  "500"
+    },
+    {
+        "Product":  "Uboard X7",
+        "OrigEntry":  "Uboard X7",
+        "Description":  "display pcb dispatched",
+        "Cost":  "1500"
+    },
+    {
+        "Product":  "Uboard X7",
+        "OrigEntry":  "Uboard X7",
+        "Description":  "display pcb dispatched",
+        "Cost":  "1500"
+    },
+    {
+        "Product":  "Uboard X7",
+        "OrigEntry":  "Uboard X7",
+        "Description":  "Battery changed",
+        "Cost":  "7000"
+    },
+    {
+        "Product":  "Uboard X7",
+        "OrigEntry":  "Uboard X7",
+        "Description":  "Display pcb changed",
+        "Cost":  "2500"
+    },
+    {
+        "Product":  "Uboard X7",
+        "OrigEntry":  "Uboard X7",
+        "Description":  "display pcb dispatched",
+        "Cost":  "2500"
+    },
+    {
+        "Product":  "Uboard X7",
+        "OrigEntry":  "Uboard X7",
+        "Description":  "Software update and Pole sticker changed",
+        "Cost":  "150"
+    },
+    {
+        "Product":  "Uboard X7",
+        "OrigEntry":  "Uboard x7",
+        "Description":  "tube changed",
+        "Cost":  "800"
+    },
+    {
+        "Product":  "Uboard X7",
+        "OrigEntry":  "Uboard x7",
+        "Description":  "tube changed",
+        "Cost":  "800"
+    },
+    {
+        "Product":  "Uboard X7",
+        "OrigEntry":  "Uboard x7",
+        "Description":  "tire and tube changed",
+        "Cost":  "1600"
+    },
+    {
+        "Product":  "Uboard X7",
+        "OrigEntry":  "Uboard x7",
+        "Description":  "Charger dispatched",
+        "Cost":  "1000"
+    },
+    {
+        "Product":  "Uboard X7",
+        "OrigEntry":  "Uboard x7",
+        "Description":  "Charger dispatched",
+        "Cost":  "750"
+    },
+    {
+        "Product":  "Uboard X7",
+        "OrigEntry":  "Uboard x7",
+        "Description":  "Handle bar changed",
+        "Cost":  "1000"
+    },
+    {
+        "Product":  "Uboard X7",
+        "OrigEntry":  "Uboard x7",
+        "Description":  "tire and tube changed",
+        "Cost":  "1200"
+    },
+    {
+        "Product":  "Uboard X7",
+        "OrigEntry":  "Uboard x7",
+        "Description":  "tube changed",
+        "Cost":  "500"
+    },
+    {
+        "Product":  "Uboard X7",
+        "OrigEntry":  "Uboard x7",
+        "Description":  "tire and tube changed",
+        "Cost":  "2000"
+    },
+    {
+        "Product":  "Uboard X7",
+        "OrigEntry":  "Uboard X7",
+        "Description":  "breake wire dispatched",
+        "Cost":  "150"
+    },
+    {
+        "Product":  "Uboard X7",
+        "OrigEntry":  "Uboard x7",
+        "Description":  "Display changed",
+        "Cost":  "2000"
+    },
+    {
+        "Product":  "Uboard X7",
+        "OrigEntry":  "Uboard x7",
+        "Description":  "pole changed",
+        "Cost":  "2000"
+    },
+    {
+        "Product":  "Uboard X7",
+        "OrigEntry":  "Uboard x7",
+        "Description":  "pole changed",
+        "Cost":  "2000"
+    },
+    {
+        "Product":  "Uboard X7",
+        "OrigEntry":  "Uboard x7",
+        "Description":  "Tire and tube changed",
+        "Cost":  "2000"
+    },
+    {
+        "Product":  "Uboard X7",
+        "OrigEntry":  "Uboard x7",
+        "Description":  "Tire and tube changed",
+        "Cost":  "2000"
+    },
+    {
+        "Product":  "Uboard X7",
+        "OrigEntry":  "Uboard X7",
+        "Description":  "Battery changed",
+        "Cost":  "6000"
+    },
+    {
+        "Product":  "Uboard X7",
+        "OrigEntry":  "Uboard X7",
+        "Description":  "one side handle and side coverr changed",
+        "Cost":  "600"
+    },
+    {
+        "Product":  "Uboard X7",
+        "OrigEntry":  "Uboard x7",
+        "Description":  "tire tube changed",
+        "Cost":  "2000"
+    },
+    {
+        "Product":  "Uboard X7",
+        "OrigEntry":  "Uboard X7",
+        "Description":  "Both side tire tube changed",
+        "Cost":  "2000"
+    },
+    {
+        "Product":  "Uboard X7",
+        "OrigEntry":  "Uboard X7",
+        "Description":  "Display changed",
+        "Cost":  "2000"
+    },
+    {
+        "Product":  "Uboard X7",
+        "OrigEntry":  "Uboard X7",
+        "Description":  "Tire tube dispatched",
+        "Cost":  "2000"
+    },
+    {
+        "Product":  "Uboard X7",
+        "OrigEntry":  "Uboard X7",
+        "Description":  "Display changed",
+        "Cost":  "2500"
+    },
+    {
+        "Product":  "Uboard X7",
+        "OrigEntry":  "Uboard x7",
+        "Description":  "tire and tube changed",
+        "Cost":  "2000"
+    },
+    {
+        "Product":  "Uboard X7",
+        "OrigEntry":  "Uboard x7",
+        "Description":  "Charger sale",
+        "Cost":  "2000"
+    },
+    {
+        "Product":  "Uboard X7",
+        "OrigEntry":  "Uboard x7",
+        "Description":  "Breake switch changed",
+        "Cost":  "1500"
+    },
+    {
+        "Product":  "Uboard X7",
+        "OrigEntry":  "Uboard X7",
+        "Description":  "tire and tube changed",
+        "Cost":  "2000"
+    },
+    {
+        "Product":  "Uboard X7",
+        "OrigEntry":  "Uboard x7",
+        "Description":  "tire and tube changed",
+        "Cost":  "2000"
+    },
+    {
+        "Product":  "Uboard X7",
+        "OrigEntry":  "Uboard X7",
+        "Description":  "Display Dispatched",
+        "Cost":  "2500"
+    },
+    {
+        "Product":  "Uboard X7",
+        "OrigEntry":  "Uboard x7",
+        "Description":  "Mudguard ,display cover ,chessis breake caliper,",
+        "Cost":  "6000"
+    },
+    {
+        "Product":  "Uboard X7",
+        "OrigEntry":  "Uboard X7",
+        "Description":  "tire and tube changed",
+        "Cost":  "1500"
+    },
+    {
+        "Product":  "Uboard X7",
+        "OrigEntry":  "Uboard X7",
+        "Description":  "tube changed and air nozel sale",
+        "Cost":  "1000"
+    },
+    {
+        "Product":  "Uboard X7",
+        "OrigEntry":  "Uboard x7",
+        "Description":  "tire tube changed",
+        "Cost":  "2000"
+    },
+    {
+        "Product":  "Uboard X7",
+        "OrigEntry":  "Uboard x7",
+        "Description":  "Charger dispatched",
+        "Cost":  "1000"
+    },
+    {
+        "Product":  "Uboard X7",
+        "OrigEntry":  "Uboard x7",
+        "Description":  "Controller and display changed",
+        "Cost":  "6000"
+    },
+    {
+        "Product":  "Uboard X7",
+        "OrigEntry":  "Uboard x7",
+        "Description":  "Front mudguard,front tire and tube changed",
+        "Cost":  "3000"
+    },
+    {
+        "Product":  "Uboard X7",
+        "OrigEntry":  "Uboard x7",
+        "Description":  "tire and tube changed",
+        "Cost":  "2000"
+    },
+    {
+        "Product":  "Uboard X7",
+        "OrigEntry":  "Uboard x7",
+        "Description":  "both tire and tube changed",
+        "Cost":  "3000"
+    },
+    {
+        "Product":  "Uboard X7",
+        "OrigEntry":  "Uboard x7",
+        "Description":  "tire,tube and side stand changed",
+        "Cost":  "2000"
+    },
+    {
+        "Product":  "Uboard X7",
+        "OrigEntry":  "Uboard x7",
+        "Description":  "tire and tube changed",
+        "Cost":  "2000"
+    },
+    {
+        "Product":  "Uboard X7",
+        "OrigEntry":  "Uboard x7",
+        "Description":  "tire and tube changed",
+        "Cost":  "2000"
+    },
+    {
+        "Product":  "Uboard X7",
+        "OrigEntry":  "Uboard x7",
+        "Description":  "Battery replaced",
+        "Cost":  "7000"
+    },
+    {
+        "Product":  "Uboard X7",
+        "OrigEntry":  "Uboard x7",
+        "Description":  "side panel  sale",
+        "Cost":  "500"
+    },
+    {
+        "Product":  "Uboard X7",
+        "OrigEntry":  "Uboard x7",
+        "Description":  "tube changed",
+        "Cost":  "100"
+    },
+    {
+        "Product":  "Uboard X7",
+        "OrigEntry":  "uboard x7 charger",
+        "Description":  "charger replaced",
+        "Cost":  "1200"
+    },
+    {
+        "Product":  "Uboard XL",
+        "OrigEntry":  "Uboard Xl",
+        "Description":  "Battery and Motherboard changed",
+        "Cost":  "20000"
+    },
+    {
+        "Product":  "Unbranded 6.5 (non-Uboard)",
+        "OrigEntry":  "unbranded 6.5",
+        "Description":  "Motherboard changed",
+        "Cost":  "1800"
+    },
+    {
+        "Product":  "Unbranded 6.5 (non-Uboard)",
+        "OrigEntry":  "Unbranded 6.5",
+        "Description":  "battery changed",
+        "Cost":  "1500"
+    },
+    {
+        "Product":  "Unbranded 6.5 (non-Uboard)",
+        "OrigEntry":  "Unbranded 6.5",
+        "Description":  "Bvattery changed",
+        "Cost":  "2500"
+    },
+    {
+        "Product":  "Unbranded 8.5 (non-Uboard)",
+        "OrigEntry":  "unbranded 8.5",
+        "Description":  "Motherboard and battery changed",
+        "Cost":  "4000"
+    },
+    {
+        "Product":  "Unbranded 8.5 (non-Uboard)",
+        "OrigEntry":  "Unbranded 8.5",
+        "Description":  "battery Changed",
+        "Cost":  "2000"
+    },
+    {
+        "Product":  "Unbranded EVO (non-Uboard)",
+        "OrigEntry":  "Unbranded Evo",
+        "Description":  "battery changed",
+        "Cost":  "3000"
+    }
+]
