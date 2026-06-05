@@ -82,8 +82,8 @@ export default function PriceCalculator({ open, onClose }: Props) {
     [allParts, selected, priceType]
   );
 
-  const totalBase  = lineItems.reduce((s, r) => s + (r.base  ?? 0), 0);
   const totalGST   = lineItems.reduce((s, r) => s + r.gstAmount, 0);
+  const totalBase  = lineItems.reduce((s, r) => s + (r.base ?? 0), 0);
   const totalFinal = lineItems.reduce((s, r) => s + (r.final ?? 0), 0);
   const hasItems   = lineItems.length > 0;
 
@@ -93,8 +93,9 @@ export default function PriceCalculator({ open, onClose }: Props) {
       ``,
       `Spare Parts:`,
       ...lineItems.map(r =>
-        r.final != null ? `  • ${r.SparePart}: ₹${r.final.toLocaleString("en-IN")}`
-                        : `  • ${r.SparePart}: Price not available`
+        r.final != null
+          ? `  • ${r.SparePart}: ₹${r.final.toLocaleString("en-IN")}`
+          : `  • ${r.SparePart}: Price not available`
       ),
       `─────────────────────`,
       `Total: ₹${totalFinal.toLocaleString("en-IN")}`,
@@ -109,17 +110,18 @@ export default function PriceCalculator({ open, onClose }: Props) {
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/40 backdrop-blur-sm">
-      <div className="bg-white rounded-2xl shadow-2xl w-full max-w-md flex flex-col" style={{ maxHeight: "88vh" }}>
+      {/* Fixed height modal so parts list never gets pushed away */}
+      <div className="bg-white rounded-2xl shadow-2xl w-full max-w-md flex flex-col" style={{ height: "82vh", maxHeight: 620 }}>
 
         {/* ── Header ── */}
-        <div className="flex items-center justify-between px-4 py-3.5 border-b border-slate-100">
+        <div className="flex items-center justify-between px-4 py-3 border-b border-slate-100 shrink-0">
           <div className="flex items-center gap-2.5">
-            <div className="w-8 h-8 bg-indigo-600 rounded-xl flex items-center justify-center">
+            <div className="w-8 h-8 bg-indigo-600 rounded-xl flex items-center justify-center shrink-0">
               <Calculator size={15} className="text-white" />
             </div>
             <div>
               <p className="text-sm font-bold text-slate-900 leading-tight">Price Calculator</p>
-              <p className="text-[11px] text-slate-400 leading-tight">Select parts → copy quotation</p>
+              <p className="text-[11px] text-slate-400">Select parts → copy quotation</p>
             </div>
           </div>
           <button onClick={onClose} className="text-slate-400 hover:text-slate-600 p-1 rounded-lg hover:bg-slate-100 transition">
@@ -127,9 +129,8 @@ export default function PriceCalculator({ open, onClose }: Props) {
           </button>
         </div>
 
-        {/* ── Scrollable body ── */}
-        <div className="overflow-y-auto flex-1 px-4 py-4 space-y-3">
-
+        {/* ── Top controls (fixed, never scrolls) ── */}
+        <div className="px-4 pt-3 pb-2 space-y-2.5 shrink-0">
           {/* Brand + Product */}
           <div className="grid grid-cols-2 gap-2">
             <Sel label="Brand" value={brand} onChange={setBrand} placeholder="Brand"
@@ -145,9 +146,7 @@ export default function PriceCalculator({ open, onClose }: Props) {
               <button key={t} onClick={() => setPriceType(t)}
                 className={`py-2 rounded-xl text-xs font-semibold border-2 transition leading-tight ${
                   priceType === t
-                    ? t === "B2C"
-                      ? "border-indigo-600 bg-indigo-600 text-white"
-                      : "border-emerald-600 bg-emerald-600 text-white"
+                    ? t === "B2C" ? "border-indigo-600 bg-indigo-600 text-white" : "border-emerald-600 bg-emerald-600 text-white"
                     : "border-slate-200 text-slate-500 bg-white hover:border-slate-300"
                 }`}>
                 {t === "B2C" ? "B2C — Customer" : "B2B — Dealer"}
@@ -158,11 +157,10 @@ export default function PriceCalculator({ open, onClose }: Props) {
             ))}
           </div>
 
-          {/* Parts */}
+          {/* Parts header + search */}
           {product && (
-            <div>
-              {/* Label + count + clear */}
-              <div className="flex items-center justify-between mb-1.5">
+            <>
+              <div className="flex items-center justify-between">
                 <div className="flex items-center gap-1.5">
                   <span className="text-xs font-medium text-slate-600">Spare Parts</span>
                   {selected.size > 0 && (
@@ -176,13 +174,11 @@ export default function PriceCalculator({ open, onClose }: Props) {
                     className="text-[10px] text-slate-400 hover:text-red-500 transition">Clear</button>
                 )}
               </div>
-
-              {/* Search */}
-              <div className="relative mb-2">
+              <div className="relative">
                 <Search size={12} className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" />
                 <input type="text" placeholder="Search parts…" value={search}
                   onChange={e => setSearch(e.target.value)}
-                  className="w-full pl-8 pr-8 py-2 text-xs border border-slate-200 rounded-lg focus:outline-none focus:border-indigo-400 bg-slate-50" />
+                  className="w-full pl-8 pr-7 py-2 text-xs border border-slate-200 rounded-lg focus:outline-none focus:border-indigo-400 bg-slate-50" />
                 {search && (
                   <button onClick={() => setSearch("")}
                     className="absolute right-2.5 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600">
@@ -190,107 +186,86 @@ export default function PriceCalculator({ open, onClose }: Props) {
                   </button>
                 )}
               </div>
-
-              {/* Parts list */}
-              <div className="rounded-xl border border-slate-200 overflow-hidden divide-y divide-slate-100"
-                style={{ maxHeight: 220, overflowY: "auto" }}>
-                {filteredParts.length === 0 && (
-                  <p className="text-xs text-slate-400 text-center py-4">No parts match</p>
-                )}
-                {filteredParts.map((r, i) => {
-                  const c = calcPrice(r, priceType);
-                  const on = selected.has(r.SparePart);
-                  const svc = r.SparePart.toLowerCase().includes("service");
-                  return (
-                    <button key={i} onClick={() => toggle(r.SparePart)}
-                      className={`w-full flex items-center gap-3 px-3 py-2.5 text-left transition ${
-                        on ? "bg-indigo-50" : "bg-white hover:bg-slate-50"
-                      }`}>
-                      {/* Checkbox */}
-                      <div className={`w-4 h-4 rounded shrink-0 flex items-center justify-center border-2 transition ${
-                        on ? "bg-indigo-600 border-indigo-600" : "border-slate-300"
-                      }`}>
-                        {on && (
-                          <svg width="9" height="7" viewBox="0 0 9 7" fill="none">
-                            <path d="M1 3.5l2 2L8 1" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                          </svg>
-                        )}
-                      </div>
-                      {/* Name */}
-                      <span className={`flex-1 text-xs leading-snug ${
-                        svc ? "italic text-slate-400" : on ? "text-slate-900 font-medium" : "text-slate-700"
-                      }`}>
-                        {r.SparePart}
-                      </span>
-                      {/* Price */}
-                      <div className="text-right shrink-0">
-                        {c.final != null ? (
-                          <>
-                            <p className={`text-xs font-semibold ${on ? "text-indigo-700" : "text-slate-700"}`}>
-                              ₹{c.final.toLocaleString("en-IN")}
-                            </p>
-                            {c.gstPct > 0 && (
-                              <p className="text-[10px] text-slate-400">+{c.gstPct}% GST</p>
-                            )}
-                          </>
-                        ) : (
-                          <p className="text-[10px] text-slate-300">N/A</p>
-                        )}
-                      </div>
-                    </button>
-                  );
-                })}
-              </div>
-            </div>
-          )}
-
-          {/* Selected summary */}
-          {hasItems && (
-            <div className="bg-slate-50 rounded-xl border border-slate-200 divide-y divide-slate-100 overflow-hidden">
-              {lineItems.map((r, i) => (
-                <div key={i} className="flex items-center justify-between px-3 py-2">
-                  <button onClick={() => toggle(r.SparePart)}
-                    className="flex items-center gap-2 min-w-0 group text-left">
-                    <span className="w-3.5 h-3.5 rounded-sm bg-indigo-100 group-hover:bg-red-100 text-indigo-500 group-hover:text-red-500 flex items-center justify-center shrink-0 transition text-[9px] font-bold">✕</span>
-                    <span className="text-xs text-slate-700 truncate">{r.SparePart}</span>
-                  </button>
-                  <span className="text-xs font-semibold text-slate-800 shrink-0 ml-3">
-                    {r.final != null ? `₹${r.final.toLocaleString("en-IN")}` : "N/A"}
-                  </span>
-                </div>
-              ))}
-            </div>
+            </>
           )}
         </div>
 
-        {/* ── Footer: compact total + copy ── */}
-        <div className="px-4 pb-4 pt-2 shrink-0 border-t border-slate-100 space-y-2">
-          {/* Total row */}
-          <div className={`flex items-center justify-between px-4 py-3 rounded-xl ${
+        {/* ── Parts list — fills remaining space, scrolls ── */}
+        <div className="flex-1 overflow-y-auto mx-4 rounded-xl border border-slate-200 divide-y divide-slate-100 min-h-0">
+          {!product ? (
+            <div className="flex items-center justify-center h-full text-slate-300 text-xs">
+              Select a product to see parts
+            </div>
+          ) : filteredParts.length === 0 ? (
+            <div className="flex items-center justify-center h-full text-slate-300 text-xs">
+              No parts match "{search}"
+            </div>
+          ) : (
+            filteredParts.map((r, i) => {
+              const c = calcPrice(r, priceType);
+              const on = selected.has(r.SparePart);
+              const svc = r.SparePart.toLowerCase().includes("service");
+              return (
+                <button key={i} onClick={() => toggle(r.SparePart)}
+                  className={`w-full flex items-center gap-3 px-3 py-2.5 text-left transition ${
+                    on ? "bg-indigo-50" : "bg-white hover:bg-slate-50"
+                  }`}>
+                  {/* Checkbox */}
+                  <div className={`w-4 h-4 rounded shrink-0 flex items-center justify-center border-2 transition ${
+                    on ? "bg-indigo-600 border-indigo-600" : "border-slate-300"
+                  }`}>
+                    {on && (
+                      <svg width="9" height="7" viewBox="0 0 9 7" fill="none">
+                        <path d="M1 3.5l2 2L8 1" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                      </svg>
+                    )}
+                  </div>
+                  {/* Name */}
+                  <span className={`flex-1 text-xs ${svc ? "italic text-slate-400" : on ? "text-slate-900 font-medium" : "text-slate-700"}`}>
+                    {r.SparePart}
+                  </span>
+                  {/* Price */}
+                  {c.final != null ? (
+                    <div className="text-right shrink-0">
+                      <p className={`text-xs font-semibold ${on ? "text-indigo-700" : "text-slate-600"}`}>
+                        ₹{c.final.toLocaleString("en-IN")}
+                      </p>
+                      {c.gstPct > 0 && <p className="text-[10px] text-slate-400">+{c.gstPct}%</p>}
+                    </div>
+                  ) : (
+                    <span className="text-[10px] text-slate-300 shrink-0">—</span>
+                  )}
+                </button>
+              );
+            })
+          )}
+        </div>
+
+        {/* ── Footer: slim total bar + copy button ── */}
+        <div className="px-4 py-3 shrink-0 border-t border-slate-100 space-y-2">
+          {/* Total strip */}
+          <div className={`flex items-center justify-between px-3 py-2.5 rounded-xl ${
             hasItems
               ? priceType === "B2C" ? "bg-indigo-600" : "bg-emerald-600"
               : "bg-slate-100"
           }`}>
-            {!product ? (
-              <p className="text-xs text-slate-400 w-full text-center py-0.5">Select brand and product to start</p>
-            ) : !hasItems ? (
-              <p className="text-xs text-slate-400 w-full text-center py-0.5">Tap parts above to add</p>
+            {!hasItems ? (
+              <p className="text-xs text-slate-400 w-full text-center">Tap parts to add</p>
             ) : (
               <>
-                <div>
-                  <p className="text-[11px] text-white/70 leading-none mb-1">
-                    {priceType === "B2C" ? "Customer Total" : "Dealer Total"} · {lineItems.length} part{lineItems.length !== 1 ? "s" : ""}
-                  </p>
-                  <p className="text-2xl font-extrabold text-white leading-none">
+                <div className="flex items-baseline gap-2">
+                  <span className="text-xl font-extrabold text-white">
                     ₹{totalFinal.toLocaleString("en-IN")}
-                  </p>
+                  </span>
                   {totalGST > 0 && (
-                    <p className="text-[10px] text-white/60 mt-1">
-                      ₹{totalBase.toLocaleString("en-IN")} + ₹{totalGST.toLocaleString("en-IN")} GST
-                    </p>
+                    <span className="text-[11px] text-white/60">
+                      ₹{totalBase.toLocaleString("en-IN")} +₹{totalGST.toLocaleString("en-IN")} GST
+                    </span>
                   )}
                 </div>
-                <p className="text-[11px] text-white/40 text-right max-w-[120px] truncate">{product}</p>
+                <span className="text-[11px] text-white/60">
+                  {lineItems.length} part{lineItems.length !== 1 ? "s" : ""}
+                </span>
               </>
             )}
           </div>
@@ -298,7 +273,7 @@ export default function PriceCalculator({ open, onClose }: Props) {
           {/* Copy button */}
           {hasItems && (
             <button onClick={copyQuotation}
-              className={`w-full flex items-center justify-center gap-2 py-2.5 rounded-xl text-sm font-semibold border-2 transition ${
+              className={`w-full flex items-center justify-center gap-2 py-2 rounded-xl text-sm font-semibold border-2 transition ${
                 copied
                   ? "border-emerald-500 bg-emerald-50 text-emerald-700"
                   : "border-slate-200 bg-white text-slate-700 hover:border-indigo-300 hover:text-indigo-700"
