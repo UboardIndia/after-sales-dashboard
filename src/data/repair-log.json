@@ -18,7 +18,7 @@
         "Cost":  "2500"
     },
     {
-        "Product":  "REVIEW: Battery",
+        "Product":  "Uboard Drifter",
         "OrigEntry":  "Battery",
         "Description":  "battery and drifter screw",
         "Cost":  "2000"
@@ -282,7 +282,7 @@
         "Cost":  "1500"
     },
     {
-        "Product":  "REVIEW: Pu Wheels",
+        "Product":  "Uboard Drifter",
         "OrigEntry":  "Pu Wheels",
         "Description":  "Pu Wheels",
         "Cost":  "1500"
@@ -294,7 +294,7 @@
         "Cost":  "200"
     },
     {
-        "Product":  "REVIEW: sent back wheel screw",
+        "Product":  "Uboard Drifter",
         "OrigEntry":  "sent back wheel screw",
         "Description":  "sent back wheel screw",
         "Cost":  "50"
@@ -384,13 +384,13 @@
         "Cost":  "300"
     },
     {
-        "Product":  "REVIEW: Tygatec chager",
+        "Product":  "Tygatec T1 / T2",
         "OrigEntry":  "Tygatec chager",
         "Description":  "charger replaced",
         "Cost":  "1500"
     },
     {
-        "Product":  "REVIEW: Tygatec Charger",
+        "Product":  "Tygatec T1 / T2",
         "OrigEntry":  "Tygatec Charger",
         "Description":  "Tygatec Charger",
         "Cost":  "1000"
@@ -1560,7 +1560,7 @@
         "Cost":  "1000"
     },
     {
-        "Product":  "REVIEW: Uboard battery",
+        "Product":  "Uboard Classic 6.5",
         "OrigEntry":  "Uboard battery",
         "Description":  "Uboard battery",
         "Cost":  "2500"
@@ -1572,7 +1572,7 @@
         "Cost":  "3500"
     },
     {
-        "Product":  "REVIEW: Uboard battery sale and pu wheels",
+        "Product":  "Uboard Drifter",
         "OrigEntry":  "Uboard battery sale and pu wheels",
         "Description":  "battery and pu wheels dispatched",
         "Cost":  "3000"
@@ -4800,7 +4800,7 @@
         "Cost":  "1500"
     },
     {
-        "Product":  "REVIEW: Uboard suv/ drifter",
+        "Product":  "Uboard SUV Hoverboard",
         "OrigEntry":  "Uboard suv/ drifter",
         "Description":  "center screw , break screw , 1 fender for suv (foc)",
         "Cost":  "750"
