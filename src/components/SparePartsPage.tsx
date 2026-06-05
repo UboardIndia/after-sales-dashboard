@@ -324,14 +324,11 @@ export default function SparePartsPage() {
               <div className="border-t border-amber-100 px-5 pb-4">
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2 mt-3">
                   {unpricedProducts.map((p) => (
-                    <div key={p.Product} className="flex items-center justify-between px-3 py-2 bg-amber-50 rounded-lg border border-amber-100">
-                      <div>
-                        <p className="text-xs font-medium text-slate-700">{p.Product}</p>
+                    <div key={p.Product} className="flex items-center gap-2 px-3 py-2 bg-amber-50 rounded-lg border border-amber-100">
+                      <div className="min-w-0">
+                        <p className="text-xs font-medium text-slate-700 truncate">{p.Product}</p>
                         <p className="text-[10px] text-slate-400">{p.Brand}</p>
                       </div>
-                      <span className="text-xs bg-amber-100 text-amber-700 px-2 py-0.5 rounded-full font-medium">
-                        {p.repairs} repairs
-                      </span>
                     </div>
                   ))}
                 </div>
