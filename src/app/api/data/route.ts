@@ -2,6 +2,10 @@ import { NextResponse } from "next/server";
 import Papa from "papaparse";
 import type { ComplaintRow } from "@/lib/types";
 
+// Run per-request so Supabase overlay updates appear instantly.
+// (Sheet fetches below still cache for 5 min via `next.revalidate`.)
+export const dynamic = "force-dynamic";
+
 type DateOrder = "DMY" | "MDY";
 
 interface SheetConfig {
@@ -193,6 +197,48 @@ export async function GET() {
     });
 
     if (rows.length === 0) throw new Error("All sheets failed to load");
+
+    // Overlay dashboard-made updates from Supabase (latest value per complaint+field).
+    // Sheets stay read-only; this is the write layer. Failure here must not break the dashboard.
+    try {
+      const { supabaseAdmin } = await import("@/lib/supabase");
+      const { data: updates, error } = await supabaseAdmin()
+        .from("complaint_updates")
+        .select("complaint_id, field, value, updated_by, created_at")
+        .order("created_at", { ascending: true }); // later rows win when reduced below
+      if (error) throw error;
+
+      if (updates && updates.length > 0) {
+        const latest = new Map<string, { value: string; by: string; at: string }>();
+        for (const u of updates) {
+          latest.set(`${u.complaint_id}::${u.field}`, {
+            value: u.value ?? "",
+            by: u.updated_by,
+            at: u.created_at,
+          });
+        }
+        for (const row of rows) {
+          const status = latest.get(`${row.id}::status`);
+          const assigned = latest.get(`${row.id}::assigned_to`);
+          const remark = latest.get(`${row.id}::remark`);
+          if (status && status.value) {
+            row.actionTaken = status.value;
+            row.isOpen = status.value !== "Close Ticket";
+          }
+          if (assigned && assigned.value) row.assignedTo = assigned.value;
+          if (remark && remark.value) row.dashboardRemark = remark.value;
+          const newest = [status, assigned, remark]
+            .filter(Boolean)
+            .sort((a, b) => (a!.at < b!.at ? 1 : -1))[0];
+          if (newest) {
+            row.overlayUpdatedBy = newest.by;
+            row.overlayUpdatedAt = newest.at;
+          }
+        }
+      }
+    } catch (overlayErr) {
+      console.error("Supabase overlay failed (continuing with sheet data):", overlayErr);
+    }
 
     return NextResponse.json({
       rows,

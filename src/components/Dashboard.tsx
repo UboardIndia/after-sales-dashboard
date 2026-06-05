@@ -2,7 +2,8 @@
 
 import { useState, useEffect, useMemo } from "react";
 import { useRouter } from "next/navigation";
-import { RefreshCw, AlertCircle, LogOut, Package } from "lucide-react";
+import Link from "next/link";
+import { RefreshCw, AlertCircle, LogOut, Table2, Bot, Factory, Package } from "lucide-react";
 import type { ComplaintRow, ApiResponse } from "@/lib/types";
 import HeroStats from "./HeroStats";
 import KPICard from "./KPICard";
@@ -28,6 +29,17 @@ export default function Dashboard() {
   const [error, setError] = useState<string | null>(null);
   const [refreshing, setRefreshing] = useState(false);
   const [loggingOut, setLoggingOut] = useState(false);
+  const [botCount, setBotCount] = useState(0);
+  const [drill, setDrill] = useState<{ label: string; rows: ComplaintRow[]; color: string } | null>(null);
+
+  function handleDrillSelect(label: string, rows: ComplaintRow[], color: string) {
+    if (!label) { setDrill(null); return; }
+    setDrill({ label, rows, color });
+  }
+
+  useEffect(() => {
+    fetch("/api/bot").then(r => r.json()).then(j => setBotCount(j.entries?.length ?? 0)).catch(() => {});
+  }, []);
 
   async function handleLogout() {
     setLoggingOut(true);
@@ -36,11 +48,12 @@ export default function Dashboard() {
     router.refresh();
   }
 
-  // Filters
-  const [filterYear, setFilterYear] = useState("All");
+  // Filters — filterYear starts empty and defaults to the LATEST fiscal year once data loads
+  const [filterYear, setFilterYear] = useState("");
   const [filterBrand, setFilterBrand] = useState("All");
   const [filterComplaintType, setFilterComplaintType] = useState("All");
   const [filterMonth, setFilterMonth] = useState("All");
+  const [filterRange, setFilterRange] = useState<"All" | "3m" | "6m" | "12m">("All");
 
   async function fetchData() {
     try {
@@ -51,6 +64,10 @@ export default function Dashboard() {
       setData(json.rows);
       setLastUpdated(json.lastUpdated);
       setError(null);
+      // Default the FY filter to the newest fiscal year (only if user hasn't picked one)
+      const fys = Array.from(new Set(json.rows.map((r) => r.fiscalYear).filter(Boolean))).sort();
+      const latest = fys[fys.length - 1];
+      if (latest) setFilterYear((prev) => prev || latest);
     } catch (e) {
       setError((e as Error).message);
     } finally {
@@ -85,6 +102,23 @@ export default function Dashboard() {
     return ["All", ...sorted];
   }, [data]);
 
+  // Compute cutoff for range filter
+  const rangeCutoff = useMemo(() => {
+    if (filterRange === "All") return 0;
+    const months = filterRange === "3m" ? 3 : filterRange === "6m" ? 6 : 12;
+    const d = new Date();
+    d.setMonth(d.getMonth() - months);
+    return d.getFullYear() * 10000 + (d.getMonth() + 1) * 100 + d.getDate();
+  }, [filterRange]);
+
+  function parseDMYNum(s: string): number {
+    if (!s) return 0;
+    const parts = s.split("/");
+    if (parts.length !== 3) return 0;
+    const [d, m, y] = parts.map(Number);
+    return y * 10000 + m * 100 + d;
+  }
+
   // Filtered data
   const filtered = useMemo(() => {
     return data.filter((r) => {
@@ -92,9 +126,13 @@ export default function Dashboard() {
       if (filterBrand !== "All" && r.brand !== filterBrand) return false;
       if (filterComplaintType !== "All" && r.complaintType !== filterComplaintType) return false;
       if (filterMonth !== "All" && r.monthYear !== filterMonth) return false;
+      if (rangeCutoff > 0) {
+        const cd = parseDMYNum(r.complaintDate);
+        if (cd === 0 || cd < rangeCutoff) return false;
+      }
       return true;
     });
-  }, [data, filterYear, filterBrand, filterComplaintType, filterMonth]);
+  }, [data, filterYear, filterBrand, filterComplaintType, filterMonth, rangeCutoff]);
 
   // KPIs
   const kpis = useMemo(() => {
@@ -203,6 +241,18 @@ export default function Dashboard() {
     [filtered]
   );
 
+  // Date range label for the open complaints chart top-right corner
+  const dateRangeLabel = useMemo(() => {
+    const months = filtered
+      .map((r) => r.monthYear)
+      .filter(Boolean)
+      .sort((a, b) => MONTH_ORDER.indexOf(a) - MONTH_ORDER.indexOf(b));
+    if (months.length === 0) return undefined;
+    const first = months[0];
+    const last = months[months.length - 1];
+    return first === last ? first : `${first} → ${last}`;
+  }, [filtered]);
+
   if (loading) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-slate-50">
@@ -229,6 +279,28 @@ export default function Dashboard() {
                 Updated {new Date(lastUpdated).toLocaleTimeString()}
               </span>
             )}
+            <Link
+              href="/live"
+              className="flex items-center gap-1.5 text-xs px-3 py-1.5 rounded-lg bg-slate-100 text-slate-600 hover:bg-indigo-50 hover:text-indigo-600 transition"
+            >
+              <Table2 size={13} />
+              Live Feed
+            </Link>
+            <Link
+              href="/verify"
+              className="relative flex items-center gap-1.5 text-xs px-3 py-1.5 rounded-lg bg-slate-100 text-slate-600 hover:bg-indigo-50 hover:text-indigo-600 transition"
+            >
+              <Bot size={13} />
+              Verification
+              {botCount > 0 && (
+                <span className="absolute -top-1.5 -right-1.5 flex h-4 min-w-4">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75" />
+                  <span className="relative inline-flex items-center justify-center rounded-full h-4 min-w-4 px-1 bg-red-500 text-white text-[9px] font-bold leading-none">
+                    {botCount}
+                  </span>
+                </span>
+              )}
+            </Link>
             <button
               onClick={() => router.push("/spareparts")}
               className="flex items-center gap-1.5 text-xs px-3 py-1.5 rounded-lg bg-slate-100 text-slate-600 hover:bg-indigo-50 hover:text-indigo-600 transition"
@@ -264,43 +336,50 @@ export default function Dashboard() {
           </div>
         )}
 
-        {/* Filters */}
-        <div className="flex flex-wrap gap-3 bg-white rounded-xl border border-slate-200 px-4 py-3">
-          <span className="text-xs font-medium text-slate-500 self-center">Filters:</span>
-          <FilterSelect
-            label="Year"
-            value={filterYear}
-            options={years}
-            onChange={setFilterYear}
-          />
-          <FilterSelect
-            label="Brand"
-            value={filterBrand}
-            options={brands}
-            onChange={setFilterBrand}
-          />
-          <FilterSelect
-            label="Type"
-            value={filterComplaintType}
-            options={["All", "Customer Complaint", "Store Complaint"]}
-            onChange={setFilterComplaintType}
-          />
-          <FilterSelect
-            label="Month"
-            value={filterMonth}
-            options={months}
-            onChange={setFilterMonth}
-          />
-          {(filterYear !== "All" || filterBrand !== "All" || filterComplaintType !== "All" || filterMonth !== "All") && (
-            <button
-              onClick={() => { setFilterYear("All"); setFilterBrand("All"); setFilterComplaintType("All"); setFilterMonth("All"); }}
-              className="text-xs text-indigo-600 hover:underline self-center ml-1"
-            >
-              Clear all
-            </button>
-          )}
-          <span className="ml-auto text-xs text-slate-400 self-center">
-            Showing {filtered.length.toLocaleString()} of {data.length.toLocaleString()} complaints
+        {/* Prachi bot verification alert */}
+        {botCount > 0 && (
+          <Link href="/verify" className="flex items-center justify-between gap-3 bg-red-50 border border-red-200 text-red-700 rounded-xl px-4 py-3 hover:bg-red-100 transition">
+            <div className="flex items-center gap-2 text-sm font-medium">
+              <Bot size={16} className="shrink-0" />
+              <span><b>Prachi — {botCount} bot complaints pending verification.</b> Review and approve before they are counted.</span>
+            </div>
+            <span className="text-xs font-semibold px-3 py-1.5 bg-red-500 text-white rounded-lg shrink-0">Review now →</span>
+          </Link>
+        )}
+
+        {/* Filters — one row: Period buttons + dropdowns */}
+        <div className="flex flex-wrap items-center gap-3 bg-white rounded-xl border border-slate-200 px-4 py-3">
+          <span className="text-xs font-medium text-slate-500">Period:</span>
+          <div className="flex rounded-lg overflow-hidden border border-slate-200">
+            {(["3m", "6m", "12m", "All"] as const).map((r) => (
+              <button
+                key={r}
+                onClick={() => setFilterRange(r)}
+                className={`text-xs px-3 py-1.5 font-medium transition ${
+                  filterRange === r
+                    ? "bg-indigo-600 text-white"
+                    : "bg-white text-slate-600 hover:bg-slate-50"
+                }`}
+              >
+                {r === "All" ? "All time" : r.toUpperCase()}
+              </button>
+            ))}
+          </div>
+          <FilterSelect label="FY"    value={filterYear}  options={years}  onChange={setFilterYear} />
+          <FilterSelect label="Brand" value={filterBrand} options={brands} onChange={setFilterBrand} />
+          <FilterSelect label="Type"  value={filterComplaintType} options={["All", "Customer Complaint", "Store Complaint"]} onChange={setFilterComplaintType} />
+          <FilterSelect label="Month" value={filterMonth} options={months} onChange={setFilterMonth} />
+          <button
+            onClick={() => {
+              const latest = years[years.length - 1] || "All";
+              setFilterYear(latest); setFilterBrand("All"); setFilterComplaintType("All"); setFilterMonth("All"); setFilterRange("All");
+            }}
+            className="text-xs text-indigo-600 hover:underline self-center"
+          >
+            Reset
+          </button>
+          <span className="ml-auto text-xs text-slate-400">
+            {filtered.length.toLocaleString()} of {data.length.toLocaleString()}
           </span>
         </div>
 
@@ -340,14 +419,84 @@ export default function Dashboard() {
           />
         </div>
 
-        {/* Accountability Board — who owns each open unit */}
-        <AccountabilityBoard openRows={openTickets} />
-
-        {/* Why are complaints open + Monthly trend */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
-          <OpenIssueBreakdown openRows={openTickets} />
-          <MonthlyTrendChart data={monthlyData} />
+        {/* Combined filter panel — one card, cards on top, pills below, no divider */}
+        <div className="bg-white rounded-xl border border-slate-200 p-4">
+          <div className="flex items-center gap-2 mb-3">
+            <Factory size={15} className="text-slate-400" />
+            <span className="text-sm font-semibold text-slate-700">Open Complaints</span>
+            <span className="text-xs text-slate-400">· {openTickets.length} open · click any card or status to filter</span>
+          </div>
+          <AccountabilityBoard
+            openRows={openTickets}
+            onSelect={handleDrillSelect}
+            selectedLabel={drill?.label ?? null}
+          />
+          <div className="mt-4">
+            <OpenIssueBreakdown
+              openRows={openTickets}
+              dateRangeLabel={dateRangeLabel}
+              onSelect={handleDrillSelect}
+              selectedLabel={drill?.label ?? null}
+            />
+          </div>
         </div>
+
+        {/* Drill-down list — immediately below the filter box */}
+        {drill && (
+          <div className="bg-white rounded-xl border-2 overflow-hidden" style={{ borderColor: `${drill.color}50` }}>
+            <div className="flex items-center justify-between px-4 py-2.5" style={{ background: `${drill.color}10` }}>
+              <div className="flex items-center gap-2">
+                <span className="inline-block w-2.5 h-2.5 rounded-full" style={{ background: drill.color }} />
+                <span className="text-sm font-semibold" style={{ color: drill.color }}>{drill.label}</span>
+                <span className="text-xs text-slate-500">— {drill.rows.length} complaints, most-aged first</span>
+              </div>
+              <button onClick={() => setDrill(null)} className="text-slate-400 hover:text-slate-600 text-xs px-2 py-1 rounded hover:bg-slate-100">✕ Close</button>
+            </div>
+            <div className="overflow-x-auto">
+              <table className="w-full text-xs">
+                <thead>
+                  <tr className="border-b border-slate-100 bg-slate-50">
+                    {["Seq", "Date", "Customer", "Product", "Brand", "Platform", "Status", "Days Pending"].map((h) => (
+                      <th key={h} className="text-left px-4 py-2 text-slate-400 font-semibold whitespace-nowrap">{h}</th>
+                    ))}
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-slate-50">
+                  {drill.rows.slice(0, 100).map((r) => {
+                    const blank = !r.actionTaken?.trim();
+                    return (
+                      <tr key={r.id} className={`hover:bg-slate-50 transition ${blank ? "bg-red-50" : ""}`}>
+                        <td className="px-4 py-2 font-mono font-semibold text-indigo-600">#{r.sequenceNo}</td>
+                        <td className="px-4 py-2 text-slate-500 whitespace-nowrap">{r.complaintDate}</td>
+                        <td className="px-4 py-2 text-slate-700 font-medium">{r.customerName || "—"}</td>
+                        <td className="px-4 py-2 text-slate-600 whitespace-nowrap">{r.productName || "—"}</td>
+                        <td className="px-4 py-2"><span className="px-1.5 py-0.5 rounded text-[10px] bg-slate-100 text-slate-600">{r.brand || "—"}</span></td>
+                        <td className="px-4 py-2 text-slate-500">{r.platform || "—"}</td>
+                        <td className="px-4 py-2 whitespace-nowrap">
+                          {blank ? <span className="text-red-500 font-semibold">⚠ No status</span> : <span className="text-slate-500">{r.actionTaken}</span>}
+                        </td>
+                        <td className="px-4 py-2 text-right">
+                          {r.daysPending != null ? (
+                            <span className={`font-bold ${r.daysPending > 30 ? "text-red-500" : r.daysPending > 14 ? "text-amber-500" : "text-slate-600"}`}>
+                              {r.daysPending}d
+                            </span>
+                          ) : "—"}
+                        </td>
+                      </tr>
+                    );
+                  })}
+                  {drill.rows.length === 0 && (
+                    <tr><td colSpan={8} className="px-4 py-8 text-center text-slate-400">No complaints in this group</td></tr>
+                  )}
+                </tbody>
+              </table>
+              {drill.rows.length > 100 && <p className="text-xs text-slate-400 px-4 py-2">Showing top 100 of {drill.rows.length}</p>}
+            </div>
+          </div>
+        )}
+
+        {/* Monthly trend */}
+        <MonthlyTrendChart data={monthlyData} />
 
         {/* Complaint source + Issue types */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
@@ -361,7 +510,7 @@ export default function Dashboard() {
 
         {/* Products */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
-          <ProductChart data={productData} />
+          <ProductChart data={productData} allRows={filtered} />
           <IssueByProductTable rows={filtered} />
         </div>
 
@@ -380,11 +529,13 @@ function FilterSelect({
   value,
   options,
   onChange,
+  display,
 }: {
   label: string;
   value: string;
   options: string[];
   onChange: (v: string) => void;
+  display?: (v: string) => string;
 }) {
   return (
     <div className="flex items-center gap-1.5">
@@ -396,7 +547,7 @@ function FilterSelect({
       >
         {options.map((o) => (
           <option key={o} value={o}>
-            {o}
+            {display ? display(o) : o}
           </option>
         ))}
       </select>

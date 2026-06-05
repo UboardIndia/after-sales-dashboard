@@ -2,13 +2,12 @@ import { NextResponse } from "next/server";
 
 export async function POST(request: Request) {
   try {
-    const { username, password } = await request.json();
+    const { password } = await request.json();
 
-    const validUser = process.env.ADMIN_USERNAME || "admin";
     const validPass = process.env.ADMIN_PASSWORD || "uboard@2025";
     const secret    = process.env.AUTH_SECRET    || "";
 
-    if (username === validUser && password === validPass) {
+    if (password === validPass) {
       const res = NextResponse.json({ success: true });
       res.cookies.set("auth_token", secret, {
         httpOnly: true,

@@ -26,6 +26,11 @@ export interface ComplaintRow {
   daysInFactory: number | null;
   ageingDays: string;
   isOpen: boolean;
+  /** Overlay fields — written from the dashboard, stored in Supabase (never in the sheets). */
+  assignedTo?: string;
+  dashboardRemark?: string;
+  overlayUpdatedBy?: string;
+  overlayUpdatedAt?: string;
 }
 
 export interface ApiResponse {
