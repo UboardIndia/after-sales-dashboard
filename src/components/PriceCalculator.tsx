@@ -96,24 +96,18 @@ export default function PriceCalculator({ open, onClose }: Props) {
   const hasItems   = lineItems.length > 0;
 
   function copyQuotation() {
-    const typeLabel = priceType === "B2C" ? "B2C (Customer)" : "B2B (Dealer/Warranty)";
     const lines: string[] = [
       `Product: ${product}`,
-      `Price Type: ${typeLabel}`,
       ``,
       `Spare Parts:`,
       ...lineItems.map(r =>
         r.final != null
-          ? `  • ${r.SparePart}: ₹${r.final.toLocaleString("en-IN")}${r.gstPct > 0 ? ` (incl. ${r.gstPct}% GST)` : r.gstIncluded ? ` (GST incl.)` : ""}`
+          ? `  • ${r.SparePart}: ₹${r.final.toLocaleString("en-IN")}`
           : `  • ${r.SparePart}: Price not available`
       ),
-      ``,
-      totalGST > 0
-        ? `Subtotal (before GST): ₹${totalBase.toLocaleString("en-IN")}\nTotal GST: ₹${totalGST.toLocaleString("en-IN")}`
-        : "",
       `─────────────────────`,
-      `TOTAL: ₹${totalFinal.toLocaleString("en-IN")}`,
-    ].filter(l => l !== "");
+      `Total: ₹${totalFinal.toLocaleString("en-IN")}`,
+    ];
 
     navigator.clipboard.writeText(lines.join("\n")).then(() => {
       setCopied(true);
