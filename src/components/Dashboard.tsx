@@ -4,6 +4,7 @@ import { useState, useEffect, useMemo } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { RefreshCw, AlertCircle, LogOut, Table2, Bot, Factory, Pencil, Package, User } from "lucide-react";
+import NotificationBell from "./NotificationBell";
 import type { ComplaintRow, ApiResponse } from "@/lib/types";
 import HeroStats from "./HeroStats";
 import KPICard from "./KPICard";
@@ -32,6 +33,7 @@ export default function Dashboard() {
   const [loggingOut, setLoggingOut] = useState(false);
   const [botCount, setBotCount] = useState(0);
   const [drill, setDrill] = useState<{ label: string; rows: ComplaintRow[]; color: string } | null>(null);
+  const [myName, setMyName] = useState("");
   const [drillEditing, setDrillEditing] = useState<ComplaintRow | null>(null);
 
   function handleDrillSelect(label: string, rows: ComplaintRow[], color: string) {
@@ -41,6 +43,7 @@ export default function Dashboard() {
 
   useEffect(() => {
     fetch("/api/bot").then(r => r.json()).then(j => setBotCount(j.entries?.length ?? 0)).catch(() => {});
+    setMyName(localStorage.getItem("team_member") ?? "");
   }, []);
 
   async function handleLogout() {
@@ -316,6 +319,7 @@ export default function Dashboard() {
             >
               <Package size={13} /> Spare Parts
             </button>
+            <NotificationBell me={myName} />
             <button
               onClick={handleRefresh}
               disabled={refreshing}

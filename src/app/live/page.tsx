@@ -5,6 +5,7 @@ import Link from "next/link";
 import { ArrowLeft, RefreshCw } from "lucide-react";
 import type { ComplaintRow, ApiResponse } from "@/lib/types";
 import LiveFeedTable from "@/components/LiveFeedTable";
+import NotificationBell from "@/components/NotificationBell";
 
 const MONTH_NAMES = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
 const MONTH_ORDER: string[] = [];
@@ -16,6 +17,9 @@ export default function LivePage() {
   const [loading, setLoading] = useState(true);
   const [refreshing, setRefreshing] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [myName, setMyName] = useState("");
+
+  useEffect(() => { setMyName(localStorage.getItem("team_member") ?? ""); }, []);
 
   // Filters
   const [filterYear, setFilterYear] = useState("All");
@@ -108,6 +112,7 @@ export default function LivePage() {
                 Updated {new Date(lastUpdated).toLocaleTimeString()}
               </span>
             )}
+            <NotificationBell me={myName} />
             <button
               onClick={() => { setRefreshing(true); fetchData(); }}
               disabled={refreshing}

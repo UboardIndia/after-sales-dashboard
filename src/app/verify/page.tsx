@@ -7,6 +7,7 @@ import {
   Phone, Package, Clock, AlertTriangle,
   Undo2, Loader2, PhoneOff, ChevronDown, ChevronUp, User, Save,
 } from "lucide-react";
+import NotificationBell from "@/components/NotificationBell";
 import type { ComplaintRow, ApiResponse } from "@/lib/types";
 
 interface BotEntry {
@@ -257,9 +258,12 @@ export default function VerifyPage() {
               </p>
             </div>
           </div>
-          <span className="text-xs font-semibold px-2.5 py-1 rounded-full bg-amber-100 text-amber-700">
-            {pending.length} pending
-          </span>
+          <div className="flex items-center gap-2">
+            <NotificationBell me={verifiedBy} />
+            <span className="text-xs font-semibold px-2.5 py-1 rounded-full bg-amber-100 text-amber-700">
+              {pending.length} pending
+            </span>
+          </div>
         </div>
       </header>
 

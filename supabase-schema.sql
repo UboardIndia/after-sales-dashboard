@@ -32,9 +32,24 @@ create table if not exists bot_verifications (
   created_at           timestamptz not null default now()
 );
 
--- 3) Lock both tables down. The dashboard's server (API routes) uses the
+-- 3) notifications — in-app alerts per team member
+create table if not exists notifications (
+  id           bigint generated always as identity primary key,
+  recipient    text not null,          -- team member name (Prachi / Adil / Altab / Asis)
+  type         text not null,          -- 'assigned' | 'bot_pending' | 'critical'
+  complaint_id text,                   -- complaint this relates to (optional)
+  message      text not null,          -- human-readable message shown in the bell
+  read         boolean not null default false,
+  created_at   timestamptz not null default now()
+);
+
+create index if not exists idx_notifications_recipient
+  on notifications (recipient, read, created_at desc);
+
+-- 4) Lock all tables down. The dashboard's server (API routes) uses the
 --    service_role key which bypasses RLS; browsers can never touch these
 --    tables directly.
 alter table complaint_updates  enable row level security;
 alter table bot_verifications  enable row level security;
+alter table notifications      enable row level security;
 -- (no policies on purpose — anon/authenticated get zero access)

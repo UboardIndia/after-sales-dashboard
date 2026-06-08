@@ -39,6 +39,19 @@ export async function POST(req: Request) {
     const { error } = await supabaseAdmin().from("complaint_updates").insert(rows);
     if (error) throw error;
 
+    // Auto-notify the person being assigned
+    const assignRow = body.updates.find(u => u.field === "assigned_to" && u.value);
+    if (assignRow) {
+      const seq = complaintId.split("::")[1] ?? complaintId;
+      await supabaseAdmin().from("notifications").insert({
+        recipient: assignRow.value,
+        type: "assigned",
+        complaint_id: complaintId,
+        message: `#${seq} assigned to you by ${updatedBy}`,
+        read: false,
+      }).then(() => {}); // fire-and-forget, don't fail the update if this errors
+    }
+
     return NextResponse.json({ ok: true });
   } catch (err) {
     console.error("Update insert error:", err);

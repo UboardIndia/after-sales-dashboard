@@ -7,6 +7,7 @@ import type { ComplaintRow, ApiResponse } from "@/lib/types";
 import { deriveBucket } from "@/lib/buckets";
 import { BUCKET_OWNER } from "@/lib/types";
 import UpdateTicketModal from "@/components/UpdateTicketModal";
+import NotificationBell from "@/components/NotificationBell";
 
 const TEAM = ["Prachi", "Adil", "Altab", "Asis"];
 
@@ -143,6 +144,7 @@ export default function MyWorkPage() {
               <option value="">— select —</option>
               {TEAM.map(t => <option key={t} value={t}>{t}</option>)}
             </select>
+            <NotificationBell me={me} />
             <button
               onClick={() => { setRefreshing(true); fetchData(); }}
               disabled={refreshing}
