@@ -5,40 +5,33 @@ import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import {
   LayoutDashboard, Pencil, User, Table2, Bot,
-  Package, LogOut, Bell,
+  Package, LogOut,
 } from "lucide-react";
 import NotificationBell from "./NotificationBell";
 
 export default function NavBar() {
-  const pathname  = usePathname();
-  const router    = useRouter();
-  const [botCount, setBotCount]   = useState(0);
-  const [myName,   setMyName]     = useState("");
+  const pathname    = usePathname();
+  const router      = useRouter();
+  const [botCount,   setBotCount]   = useState(0);
+  const [myName,     setMyName]     = useState("");
   const [loggingOut, setLoggingOut] = useState(false);
 
-  // Hide on login page
-  if (pathname === "/login") return null;
-
-  // eslint-disable-next-line react-hooks/rules-of-hooks
+  // ALL hooks must run before any conditional return
   useEffect(() => {
-    // Read saved name for notification bell
     const saved = localStorage.getItem("prachi_name") || localStorage.getItem("team_member") || "";
     setMyName(saved);
   }, []);
 
-  // eslint-disable-next-line react-hooks/rules-of-hooks
   useEffect(() => {
-    // Fetch bot count for badge
-    fetch("/api/data")
+    if (pathname === "/login") return;
+    fetch("/api/bot")
       .then(r => r.json())
-      .then(json => {
-        const pending = (json.rows ?? []).filter(
-          (r: { id: string }) => r.id?.startsWith("BOT::")
-        ).length;
-        setBotCount(pending);
-      })
+      .then(j => setBotCount(j.entries?.length ?? 0))
       .catch(() => {});
-  }, [pathname]); // refresh count when navigating
+  }, [pathname]);
+
+  // Hide on login page — after all hooks
+  if (pathname === "/login") return null;
 
   async function handleLogout() {
     setLoggingOut(true);
@@ -46,10 +39,11 @@ export default function NavBar() {
     router.push("/login");
   }
 
-  const link = (href: string, label: string, icon: React.ReactNode, badge?: number) => {
+  const navLink = (href: string, label: string, icon: React.ReactNode, badge?: number) => {
     const active = pathname === href;
     return (
       <Link
+        key={href}
         href={href}
         className={`relative flex items-center gap-1.5 text-xs px-3 py-1.5 rounded-lg transition font-medium whitespace-nowrap ${
           active
@@ -75,20 +69,20 @@ export default function NavBar() {
     <header className="bg-white border-b border-slate-200 sticky top-0 z-50">
       <div className="max-w-screen-2xl mx-auto px-4 sm:px-6 h-12 flex items-center justify-between gap-2">
 
-        {/* Left — logo */}
-        <Link href="/" className="flex items-center gap-2 shrink-0">
+        {/* Logo */}
+        <Link href="/" className="shrink-0 flex items-center gap-2">
           <span className="text-sm font-bold text-slate-900 hidden sm:block">After Sales</span>
           <span className="text-xs text-slate-400 hidden md:block">UBOARD · TYGATEC</span>
         </Link>
 
-        {/* Centre / Right — nav links */}
+        {/* Nav */}
         <nav className="flex items-center gap-1 flex-wrap justify-end">
-          {link("/",           "Dashboard",     <LayoutDashboard size={13} />)}
+          {navLink("/",            "Dashboard",    <LayoutDashboard size={13} />)}
 
-          {/* Update Ticket — always highlighted */}
+          {/* Update Ticket — always indigo */}
           <Link
             href="/update"
-            className={`relative flex items-center gap-1.5 text-xs px-3 py-1.5 rounded-lg transition font-medium whitespace-nowrap ${
+            className={`flex items-center gap-1.5 text-xs px-3 py-1.5 rounded-lg transition font-medium whitespace-nowrap ${
               pathname === "/update"
                 ? "bg-indigo-700 text-white"
                 : "bg-indigo-600 text-white hover:bg-indigo-700"
@@ -98,10 +92,10 @@ export default function NavBar() {
             Update Ticket
           </Link>
 
-          {link("/my-work",   "My Work",       <User size={13} />)}
-          {link("/live",      "Live Feed",     <Table2 size={13} />)}
-          {link("/verify",    "Verification",  <Bot size={13} />, botCount)}
-          {link("/spareparts","Spare Parts",   <Package size={13} />)}
+          {navLink("/my-work",    "My Work",      <User size={13} />)}
+          {navLink("/live",       "Live Feed",    <Table2 size={13} />)}
+          {navLink("/verify",     "Verification", <Bot size={13} />, botCount)}
+          {navLink("/spareparts", "Spare Parts",  <Package size={13} />)}
 
           <NotificationBell me={myName} />
 
