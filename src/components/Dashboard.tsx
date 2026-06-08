@@ -17,7 +17,6 @@ import ComplaintTypePie from "./ComplaintTypePie";
 import RequestByTable from "./RequestByTable";
 import OpenTicketsTable from "./OpenTicketsTable";
 import IssueByProductTable from "./IssueByProductTable";
-import UpdateTicketModal from "./UpdateTicketModal";
 
 const MONTH_NAMES = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
 const MONTH_ORDER: string[] = [];
@@ -34,7 +33,6 @@ export default function Dashboard() {
   const [botCount, setBotCount] = useState(0);
   const [drill, setDrill] = useState<{ label: string; rows: ComplaintRow[]; color: string } | null>(null);
   const [myName, setMyName] = useState("");
-  const [drillEditing, setDrillEditing] = useState<ComplaintRow | null>(null);
 
   function handleDrillSelect(label: string, rows: ComplaintRow[], color: string) {
     if (!label) { setDrill(null); return; }
@@ -496,13 +494,13 @@ export default function Dashboard() {
                           ) : "—"}
                         </td>
                         <td className="px-4 py-2">
-                          <button
-                            onClick={() => setDrillEditing(r)}
-                            className="p-1.5 rounded-md text-slate-300 hover:text-indigo-600 hover:bg-indigo-50 transition"
+                          <Link
+                            href={`/update?id=${encodeURIComponent(r.id)}`}
+                            className="inline-flex p-1.5 rounded-md text-slate-300 hover:text-indigo-600 hover:bg-indigo-50 transition"
                             title="Update ticket"
                           >
                             <Pencil size={12} />
-                          </button>
+                          </Link>
                         </td>
                       </tr>
                     );
@@ -543,14 +541,6 @@ export default function Dashboard() {
         <OpenTicketsTable rows={openTickets} onSaved={handleRefresh} />
       </main>
 
-      {/* Drill-down edit modal */}
-      {drillEditing && (
-        <UpdateTicketModal
-          row={drillEditing}
-          onClose={() => setDrillEditing(null)}
-          onSaved={() => { setDrillEditing(null); handleRefresh(); }}
-        />
-      )}
     </div>
   );
 }

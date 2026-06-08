@@ -6,7 +6,6 @@ import { ArrowLeft, Loader2, Pencil, Phone, AlertTriangle, CheckCircle2, Clock, 
 import type { ComplaintRow, ApiResponse } from "@/lib/types";
 import { deriveBucket } from "@/lib/buckets";
 import { BUCKET_OWNER } from "@/lib/types";
-import UpdateTicketModal from "@/components/UpdateTicketModal";
 import NotificationBell from "@/components/NotificationBell";
 
 const TEAM = ["Prachi", "Adil", "Altab", "Asis"];
@@ -46,7 +45,6 @@ export default function MyWorkPage() {
   const [loading, setLoading] = useState(true);
   const [refreshing, setRefreshing] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const [editing, setEditing] = useState<ComplaintRow | null>(null);
 
   useEffect(() => {
     const saved = localStorage.getItem("team_member");
@@ -76,39 +74,29 @@ export default function MyWorkPage() {
     if (name) localStorage.setItem("team_member", name);
   }
 
-  // Rows that belong to this agent:
-  // 1. Explicitly assigned to them via Supabase overlay
-  // 2. Their accountability bucket (deriveBucket matches their owned buckets)
   const myRows = useMemo(() => {
     if (!me) return [];
     const open = data.filter(r => r.isOpen);
-
-    // Buckets owned by this person
     const myBuckets = Object.entries(BUCKET_OWNER)
       .filter(([, owner]) => owner === me)
       .map(([bucket]) => bucket);
-
     return open.filter(r => {
-      // Explicitly assigned
       if (r.assignedTo === me) return true;
-      // Their accountability bucket
       const bucket = deriveBucket(r);
       if (myBuckets.includes(bucket)) return true;
       return false;
     }).sort((a, b) => (b.daysPending ?? 0) - (a.daysPending ?? 0));
   }, [data, me]);
 
-  // Group by urgency
   const critical = myRows.filter(r => urgency(r) === "critical");
   const warning  = myRows.filter(r => urgency(r) === "warning");
   const ok       = myRows.filter(r => urgency(r) === "ok");
 
-  // Stats
   const stats = useMemo(() => ({
-    total: myRows.length,
+    total:    myRows.length,
     critical: critical.length,
-    warning: warning.length,
-    ok: ok.length,
+    warning:  warning.length,
+    ok:       ok.length,
     noStatus: myRows.filter(r => !r.actionTaken?.trim()).length,
   }), [myRows, critical, warning, ok]);
 
@@ -133,7 +121,6 @@ export default function MyWorkPage() {
             </h1>
             <p className="text-xs text-slate-400">Your assigned + accountability-bucket tickets</p>
           </div>
-          {/* Who am I */}
           <div className="flex items-center gap-2">
             <span className="text-xs text-slate-500 font-medium">Viewing as:</span>
             <select
@@ -171,12 +158,11 @@ export default function MyWorkPage() {
           </div>
         ) : (
           <>
-            {/* Stats bar */}
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-              <StatCard label="Total on my plate" value={stats.total} color="indigo" />
-              <StatCard label="Critical (90+ days)" value={stats.critical} color="red" />
-              <StatCard label="Aging (30-90 days)" value={stats.warning} color="amber" />
-              <StatCard label="On track (<30 days)" value={stats.ok} color="emerald" />
+              <StatCard label="Total on my plate" value={stats.total}    color="indigo"  />
+              <StatCard label="Critical (90+ days)" value={stats.critical} color="red"   />
+              <StatCard label="Aging (30-90 days)"  value={stats.warning}  color="amber" />
+              <StatCard label="On track (<30 days)"  value={stats.ok}      color="emerald"/>
             </div>
 
             {stats.noStatus > 0 && (
@@ -193,53 +179,24 @@ export default function MyWorkPage() {
               </div>
             ) : (
               <div className="space-y-4">
-                {critical.length > 0 && (
-                  <WorkGroup
-                    label="🔴 Critical — Over 90 days"
-                    rows={critical}
-                    onEdit={setEditing}
-                    color="red"
-                  />
-                )}
-                {warning.length > 0 && (
-                  <WorkGroup
-                    label="🟡 Aging — 30 to 90 days"
-                    rows={warning}
-                    onEdit={setEditing}
-                    color="amber"
-                  />
-                )}
-                {ok.length > 0 && (
-                  <WorkGroup
-                    label="🟢 On track — Under 30 days"
-                    rows={ok}
-                    onEdit={setEditing}
-                    color="emerald"
-                  />
-                )}
+                {critical.length > 0 && <WorkGroup label="🔴 Critical — Over 90 days"  rows={critical} color="red"     />}
+                {warning.length  > 0 && <WorkGroup label="🟡 Aging — 30 to 90 days"    rows={warning}  color="amber"   />}
+                {ok.length       > 0 && <WorkGroup label="🟢 On track — Under 30 days" rows={ok}       color="emerald" />}
               </div>
             )}
           </>
         )}
       </main>
-
-      {editing && (
-        <UpdateTicketModal
-          row={editing}
-          onClose={() => setEditing(null)}
-          onSaved={() => { setEditing(null); setRefreshing(true); fetchData(); }}
-        />
-      )}
     </div>
   );
 }
 
 function StatCard({ label, value, color }: { label: string; value: number; color: string }) {
   const bg: Record<string, string> = {
-    indigo: "bg-indigo-50 border-indigo-100 text-indigo-700",
-    red:    "bg-red-50 border-red-100 text-red-700",
-    amber:  "bg-amber-50 border-amber-100 text-amber-700",
-    emerald:"bg-emerald-50 border-emerald-100 text-emerald-700",
+    indigo:  "bg-indigo-50 border-indigo-100 text-indigo-700",
+    red:     "bg-red-50 border-red-100 text-red-700",
+    amber:   "bg-amber-50 border-amber-100 text-amber-700",
+    emerald: "bg-emerald-50 border-emerald-100 text-emerald-700",
   };
   return (
     <div className={`rounded-xl border p-4 ${bg[color]}`}>
@@ -249,18 +206,11 @@ function StatCard({ label, value, color }: { label: string; value: number; color
   );
 }
 
-function WorkGroup({
-  label, rows, onEdit, color,
-}: {
-  label: string;
-  rows: ComplaintRow[];
-  onEdit: (r: ComplaintRow) => void;
-  color: string;
-}) {
+function WorkGroup({ label, rows, color }: { label: string; rows: ComplaintRow[]; color: string }) {
   const border: Record<string, string> = {
-    red:    "border-red-200",
-    amber:  "border-amber-200",
-    emerald:"border-slate-200",
+    red:     "border-red-200",
+    amber:   "border-amber-200",
+    emerald: "border-slate-200",
   };
   return (
     <div className={`bg-white rounded-xl border overflow-hidden ${border[color] ?? "border-slate-200"}`}>
@@ -294,10 +244,7 @@ function WorkGroup({
                 <div className="flex items-center gap-3 flex-wrap">
                   <span className="text-sm font-medium text-slate-800 truncate">{r.customerName || "—"}</span>
                   {r.customerMobile && (
-                    <a
-                      href={`tel:${r.customerMobile}`}
-                      className="flex items-center gap-1 text-xs text-indigo-600 hover:underline font-mono"
-                    >
+                    <a href={`tel:${r.customerMobile}`} className="flex items-center gap-1 text-xs text-indigo-600 hover:underline font-mono">
                       <Phone size={11} /> {r.customerMobile}
                     </a>
                   )}
@@ -322,16 +269,17 @@ function WorkGroup({
                     </span>
                   )}
                   {r.dashboardRemark && (
-                    <span className="text-xs text-slate-400 italic">"{r.dashboardRemark}"</span>
+                    <span className="text-xs text-slate-400 italic">&ldquo;{r.dashboardRemark}&rdquo;</span>
                   )}
                 </div>
               </div>
-              <button
-                onClick={() => onEdit(r)}
+              {/* Single consistent Update button → goes to /update page */}
+              <Link
+                href={`/update?id=${encodeURIComponent(r.id)}`}
                 className="shrink-0 flex items-center gap-1.5 text-xs px-3 py-1.5 rounded-lg bg-indigo-50 text-indigo-700 hover:bg-indigo-100 font-medium transition"
               >
                 <Pencil size={12} /> Update
-              </button>
+              </Link>
             </div>
           );
         })}

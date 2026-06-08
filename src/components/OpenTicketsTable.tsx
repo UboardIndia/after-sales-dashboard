@@ -1,9 +1,9 @@
 "use client";
 
 import { useState, useMemo } from "react";
+import Link from "next/link";
 import { Search, X, Pencil, Phone, CheckSquare, Square, Loader2 } from "lucide-react";
 import type { ComplaintRow } from "@/lib/types";
-import UpdateTicketModal from "./UpdateTicketModal";
 
 const STATUS_OPTIONS = [
   "Complaint Register", "Pickup Arranged", "Pickup Delay From Cust.",
@@ -16,7 +16,7 @@ const TEAM = ["Prachi", "Adil", "Altab", "Asis"];
 
 interface Props {
   rows: ComplaintRow[];
-  onSaved?: () => void;
+  onSaved?: () => void; // kept for bulk update callback
 }
 
 const STATUS_BADGE: Record<string, string> = {
@@ -36,7 +36,6 @@ function uniq(arr: string[]) {
 }
 
 export default function OpenTicketsTable({ rows, onSaved }: Props) {
-  const [editing, setEditing]           = useState<ComplaintRow | null>(null);
   const [search, setSearch]             = useState("");
   const [filterRequested, setRequested] = useState("All");
   const [filterProduct, setProduct]     = useState("All");
@@ -276,13 +275,13 @@ export default function OpenTicketsTable({ rows, onSaved }: Props) {
                   ) : "—"}
                 </td>
                 <td className="py-2">
-                  <button
-                    onClick={() => setEditing(r)}
-                    className="p-1.5 rounded-md text-slate-300 hover:text-indigo-600 hover:bg-indigo-50 transition"
+                  <Link
+                    href={`/update?id=${encodeURIComponent(r.id)}`}
+                    className="inline-flex items-center gap-1 p-1.5 rounded-md text-slate-300 hover:text-indigo-600 hover:bg-indigo-50 transition"
                     title="Update this ticket"
                   >
                     <Pencil size={12} />
-                  </button>
+                  </Link>
                 </td>
               </tr>
             ))}
@@ -376,13 +375,6 @@ export default function OpenTicketsTable({ rows, onSaved }: Props) {
         </div>
       )}
 
-      {editing && (
-        <UpdateTicketModal
-          row={editing}
-          onClose={() => setEditing(null)}
-          onSaved={() => { setEditing(null); onSaved?.(); }}
-        />
-      )}
     </div>
   );
 }
