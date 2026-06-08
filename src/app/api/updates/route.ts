@@ -1,5 +1,14 @@
 import { NextResponse } from "next/server";
 import { supabaseAdmin, UPDATABLE_FIELDS, type UpdatableField } from "@/lib/supabase";
+import { writeSheetField } from "@/lib/googleAuth";
+
+// FY 2026-27 sheet config — only sheet with Editor access
+const LIVE_SHEET_ID  = "1sWaG-NnJ0eGltaeBTqXgCY9Ox6Dg661jSxLEEieNGhU";
+const LIVE_SHEET_TAB = "Helpdesk FY 26-27";
+const LIVE_SEQ_COL   = "Complaint No";
+const ACTION_COL     = "Action Taken";
+// Statuses that trigger a customer WhatsApp message via Alok's automation
+const SHEET_WRITE_STATUSES = ["Close Ticket"];
 
 export const dynamic = "force-dynamic";
 
@@ -38,6 +47,31 @@ export async function POST(req: Request) {
 
     const { error } = await supabaseAdmin().from("complaint_updates").insert(rows);
     if (error) throw error;
+
+    // Write back to Google Sheet for statuses that trigger WhatsApp automation
+    // Only for FY 2026-27 (live sheet) — FY 2025-26 is historical, don't touch it
+    if (complaintId.startsWith("FY 2026-27::")) {
+      const statusUpdate = body.updates.find(
+        u => u.field === "status" && SHEET_WRITE_STATUSES.includes(u.value)
+      );
+      if (statusUpdate) {
+        const seqNo = complaintId.replace("FY 2026-27::", "");
+        const result = await writeSheetField(
+          LIVE_SHEET_ID,
+          LIVE_SHEET_TAB,
+          LIVE_SEQ_COL,
+          seqNo,
+          ACTION_COL,
+          statusUpdate.value
+        );
+        if (result !== "ok") {
+          // Log but don't fail — Supabase update already succeeded
+          console.warn(`Sheet write-back failed for ${complaintId}: ${result}`);
+        } else {
+          console.log(`Sheet write-back OK: ${complaintId} → ${statusUpdate.value}`);
+        }
+      }
+    }
 
     // Auto-notify the person being assigned
     const assignRow = body.updates.find(u => u.field === "assigned_to" && u.value);
