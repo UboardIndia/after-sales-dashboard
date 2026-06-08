@@ -210,6 +210,7 @@ export default function VerifyPage() {
           decision: d.decision,
           linkedTo: d.linkedTo,
           verifiedBy,
+          draft: d.draft,
         }),
       });
       if (!res.ok) {
@@ -313,7 +314,7 @@ export default function VerifyPage() {
             >
               {s === "newest" && "Newest first"}
               {s === "oldest" && "Oldest first"}
-              {s === "duplicates" && "⚠ Duplicates first"}
+              {s === "duplicates" && "⚠ Existing Complaints"}
               {s === "no-mobile" && "📵 No mobile first"}
               {s === "completion-low" && "✓ Complete first"}
             </button>

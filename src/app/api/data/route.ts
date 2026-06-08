@@ -240,6 +240,63 @@ export async function GET() {
       console.error("Supabase overlay failed (continuing with sheet data):", overlayErr);
     }
 
+    // Merge approved bot entries as real complaint rows.
+    // bot_verifications.decision='new' = Prachi approved it.
+    // Draft data is stored in the note field as JSON.
+    try {
+      const { supabaseAdmin } = await import("@/lib/supabase");
+      const { data: verifs } = await supabaseAdmin()
+        .from("bot_verifications")
+        .select("bot_id, note, created_at")
+        .eq("decision", "new");
+
+      if (verifs && verifs.length > 0) {
+        const now = new Date();
+        for (const v of verifs) {
+          let draft: Record<string, string> = {};
+          try { draft = JSON.parse(v.note || "{}"); } catch { /* ignore */ }
+
+          const cDate = draft.timestamp ? new Date(draft.timestamp) : new Date(v.created_at);
+          const dp = Math.max(0, Math.floor((now.getTime() - cDate.getTime()) / 86_400_000));
+
+          const botRow: ComplaintRow = {
+            id: `BOT::${v.bot_id}`,
+            fiscalYear: "FY 2026-27",
+            sequenceNo: v.bot_id,
+            complaintDate: toDMY(cDate),
+            monthYear: normalizeMonth(
+              cDate.toLocaleString("en-IN", { month: "short" }) + "-" + cDate.getFullYear()
+            ),
+            requestBy: "WhatsApp Bot",
+            customerName: draft.customerName || "",
+            customerMobile: draft.mobile || "",
+            brand: normalizeBrand(draft.brand || ""),
+            productName: draft.product || "",
+            platform: normalizePlatform(draft.platform || ""),
+            complaintType: "Customer Complaint",
+            warrantyStatus: draft.warranty || "",
+            issueType: draft.issue || "",
+            actionTaken: "Complaint Register",
+            serviceCenter: "",
+            headRemarks: "",
+            uboardRemarks: "",
+            paymentType: "",
+            closeDate: "",
+            returnPickupDate: "",
+            productReceivedDate: "",
+            dispatchTrackingDate: "",
+            daysPending: dp,
+            daysInFactory: null,
+            ageingDays: ageingBucket(dp),
+            isOpen: true,
+          };
+          rows.push(botRow);
+        }
+      }
+    } catch (botErr) {
+      console.error("Bot merge failed (continuing):", botErr);
+    }
+
     return NextResponse.json({
       rows,
       lastUpdated: new Date().toISOString(),

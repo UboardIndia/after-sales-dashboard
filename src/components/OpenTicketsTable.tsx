@@ -1,9 +1,18 @@
 "use client";
 
 import { useState, useMemo } from "react";
-import { Search, X, Pencil, Phone } from "lucide-react";
+import { Search, X, Pencil, Phone, CheckSquare, Square, Loader2 } from "lucide-react";
 import type { ComplaintRow } from "@/lib/types";
 import UpdateTicketModal from "./UpdateTicketModal";
+
+const STATUS_OPTIONS = [
+  "Complaint Register", "Pickup Arranged", "Pickup Delay From Cust.",
+  "Pickup successful", "Received in Okhla", "Pending For Repair",
+  "Repair Done But payment issue", "Dispatch Schduled",
+  "Dispatch But Not Delivered", "Payment due from Customer",
+  "Re-Open Ticket", "Close Ticket",
+];
+const TEAM = ["Prachi", "Adil", "Altab", "Asis"];
 
 interface Props {
   rows: ComplaintRow[];
@@ -35,6 +44,12 @@ export default function OpenTicketsTable({ rows, onSaved }: Props) {
   const [filterIssue, setIssue]         = useState("All");
   const [filterBrand, setBrand]         = useState("All");
   const [page, setPage]                 = useState(1);
+  const [selected, setSelected]         = useState<Set<string>>(new Set());
+  const [showBulk, setShowBulk]         = useState(false);
+  const [bulkStatus, setBulkStatus]     = useState("");
+  const [bulkName, setBulkName]         = useState("");
+  const [bulkSaving, setBulkSaving]     = useState(false);
+  const [bulkError, setBulkError]       = useState("");
   const PER_PAGE = 15;
 
   // Build dropdown options from the incoming rows
@@ -81,8 +96,82 @@ export default function OpenTicketsTable({ rows, onSaved }: Props) {
     search || filterRequested !== "All" || filterProduct !== "All" ||
     filterStatus !== "All" || filterIssue !== "All" || filterBrand !== "All";
 
+  // Bulk helpers
+  const allPageIds = paged.map((r) => r.id);
+  const allPageSelected = allPageIds.length > 0 && allPageIds.every((id) => selected.has(id));
+
+  function toggleRow(id: string) {
+    setSelected((prev) => {
+      const next = new Set(prev);
+      next.has(id) ? next.delete(id) : next.add(id);
+      return next;
+    });
+  }
+
+  function togglePage() {
+    if (allPageSelected) {
+      setSelected((prev) => {
+        const next = new Set(prev);
+        allPageIds.forEach((id) => next.delete(id));
+        return next;
+      });
+    } else {
+      setSelected((prev) => {
+        const next = new Set(prev);
+        allPageIds.forEach((id) => next.add(id));
+        return next;
+      });
+    }
+  }
+
+  async function saveBulk() {
+    if (!bulkStatus) { setBulkError("Please choose a status."); return; }
+    if (!bulkName)   { setBulkError("Please enter your name."); return; }
+    setBulkSaving(true);
+    setBulkError("");
+    try {
+      const ids = Array.from(selected);
+      await Promise.all(
+        ids.map((complaintId) =>
+          fetch("/api/updates", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ complaintId, field: "status", value: bulkStatus, updatedBy: bulkName }),
+          })
+        )
+      );
+      setSelected(new Set());
+      setShowBulk(false);
+      setBulkStatus("");
+      onSaved?.();
+    } catch {
+      setBulkError("Something went wrong. Please try again.");
+    } finally {
+      setBulkSaving(false);
+    }
+  }
+
   return (
     <div className="bg-white rounded-xl border border-slate-200 p-4">
+      {/* Bulk action bar */}
+      {selected.size > 0 && (
+        <div className="mb-3 flex items-center gap-3 bg-indigo-50 border border-indigo-200 rounded-lg px-4 py-2.5">
+          <span className="text-xs font-semibold text-indigo-700">{selected.size} selected</span>
+          <button
+            onClick={() => setShowBulk(true)}
+            className="ml-auto text-xs bg-indigo-600 text-white px-3 py-1.5 rounded-lg hover:bg-indigo-700 transition font-medium"
+          >
+            Update {selected.size} ticket{selected.size > 1 ? "s" : ""}
+          </button>
+          <button
+            onClick={() => setSelected(new Set())}
+            className="text-xs text-slate-400 hover:text-slate-600 transition"
+          >
+            Clear
+          </button>
+        </div>
+      )}
+
       {/* Header */}
       <div className="flex items-center justify-between mb-3 flex-wrap gap-2">
         <div>
@@ -125,6 +214,11 @@ export default function OpenTicketsTable({ rows, onSaved }: Props) {
         <table className="w-full text-xs">
           <thead>
             <tr className="border-b border-slate-100">
+              <th className="pb-2 pr-2 w-8">
+                <button onClick={togglePage} className="text-slate-300 hover:text-indigo-500 transition">
+                  {allPageSelected ? <CheckSquare size={14} className="text-indigo-500" /> : <Square size={14} />}
+                </button>
+              </th>
               {["#", "Date", "Customer", "Mobile", "Product", "Brand", "Issue Type", "Status", "Days Pending", "Ageing", ""].map((h) => (
                 <th key={h} className="text-left font-medium text-slate-400 pb-2 pr-3 whitespace-nowrap">{h}</th>
               ))}
@@ -132,7 +226,12 @@ export default function OpenTicketsTable({ rows, onSaved }: Props) {
           </thead>
           <tbody>
             {paged.map((r) => (
-              <tr key={r.id} className="border-b border-slate-50 hover:bg-slate-50 transition">
+              <tr key={r.id} className={`border-b border-slate-50 hover:bg-slate-50 transition ${selected.has(r.id) ? "bg-indigo-50/40" : ""}`}>
+                <td className="py-2 pr-2">
+                  <button onClick={() => toggleRow(r.id)} className="text-slate-300 hover:text-indigo-500 transition">
+                    {selected.has(r.id) ? <CheckSquare size={13} className="text-indigo-500" /> : <Square size={13} />}
+                  </button>
+                </td>
                 <td className="py-2 pr-3 text-slate-400 font-mono">{r.sequenceNo}</td>
                 <td className="py-2 pr-3 text-slate-600 whitespace-nowrap">{r.complaintDate}</td>
                 <td className="py-2 pr-3 font-medium text-slate-800 whitespace-nowrap">{r.requestBy || "—"}</td>
@@ -189,7 +288,7 @@ export default function OpenTicketsTable({ rows, onSaved }: Props) {
             ))}
             {paged.length === 0 && (
               <tr>
-                <td colSpan={12} className="py-8 text-center text-slate-400">No tickets match the filters</td>
+                <td colSpan={13} className="py-8 text-center text-slate-400">No tickets match the filters</td>
               </tr>
             )}
           </tbody>
@@ -211,6 +310,68 @@ export default function OpenTicketsTable({ rows, onSaved }: Props) {
               disabled={page === totalPages}
               className="text-xs px-2 py-1 rounded border border-slate-200 disabled:opacity-40 hover:bg-slate-50"
             >Next</button>
+          </div>
+        </div>
+      )}
+
+      {/* Bulk Update Modal */}
+      {showBulk && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-sm">
+          <div className="bg-white rounded-2xl shadow-2xl w-full max-w-sm mx-4 p-6">
+            <h3 className="text-sm font-semibold text-slate-800 mb-1">
+              Bulk Update — {selected.size} ticket{selected.size > 1 ? "s" : ""}
+            </h3>
+            <p className="text-xs text-slate-400 mb-5">
+              This will set the same status on all selected tickets.
+            </p>
+
+            <div className="space-y-4">
+              <div>
+                <label className="block text-xs font-medium text-slate-600 mb-1">New Status</label>
+                <select
+                  value={bulkStatus}
+                  onChange={(e) => setBulkStatus(e.target.value)}
+                  className="w-full text-sm border border-slate-200 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-400"
+                >
+                  <option value="">— choose status —</option>
+                  {STATUS_OPTIONS.map((s) => <option key={s} value={s}>{s}</option>)}
+                </select>
+              </div>
+
+              <div>
+                <label className="block text-xs font-medium text-slate-600 mb-1">Your Name</label>
+                <select
+                  value={bulkName}
+                  onChange={(e) => setBulkName(e.target.value)}
+                  className="w-full text-sm border border-slate-200 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-400"
+                >
+                  <option value="">— select name —</option>
+                  {TEAM.map((n) => <option key={n} value={n}>{n}</option>)}
+                </select>
+              </div>
+
+              {bulkError && (
+                <p className="text-xs text-red-500">{bulkError}</p>
+              )}
+            </div>
+
+            <div className="flex gap-2 mt-6">
+              <button
+                onClick={() => { setShowBulk(false); setBulkError(""); }}
+                className="flex-1 text-sm py-2 rounded-lg border border-slate-200 text-slate-600 hover:bg-slate-50 transition"
+                disabled={bulkSaving}
+              >
+                Cancel
+              </button>
+              <button
+                onClick={saveBulk}
+                disabled={bulkSaving}
+                className="flex-1 text-sm py-2 rounded-lg bg-indigo-600 text-white font-medium hover:bg-indigo-700 transition disabled:opacity-60 flex items-center justify-center gap-2"
+              >
+                {bulkSaving && <Loader2 size={13} className="animate-spin" />}
+                {bulkSaving ? "Saving…" : `Update ${selected.size}`}
+              </button>
+            </div>
           </div>
         </div>
       )}
