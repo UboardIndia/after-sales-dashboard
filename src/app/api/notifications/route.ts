@@ -3,7 +3,13 @@ import { supabaseAdmin } from "@/lib/supabase";
 
 export const dynamic = "force-dynamic";
 
-/** GET ?recipient=Prachi — unread notifications for a team member */
+/**
+ * Notifications are derived from the existing complaint_updates table — no new table needed.
+ * A notification = any row where field='assigned_to' and value=recipient.
+ * "Read" state is tracked client-side via localStorage (lastSeenAt timestamp).
+ */
+
+/** GET ?recipient=Prachi — recent assignments for this person */
 export async function GET(req: Request) {
   try {
     const { searchParams } = new URL(req.url);
@@ -11,35 +17,33 @@ export async function GET(req: Request) {
     if (!recipient) return NextResponse.json({ notifications: [] });
 
     const { data, error } = await supabaseAdmin()
-      .from("notifications")
-      .select("id, type, complaint_id, message, read, created_at")
-      .eq("recipient", recipient)
+      .from("complaint_updates")
+      .select("id, complaint_id, updated_by, created_at")
+      .eq("field", "assigned_to")
+      .eq("value", recipient)
       .order("created_at", { ascending: false })
       .limit(30);
 
     if (error) throw error;
-    return NextResponse.json({ notifications: data ?? [] });
+
+    const notifications = (data ?? []).map((row) => {
+      const seq = (row.complaint_id as string).split("::")[1] ?? row.complaint_id;
+      return {
+        id: row.id,
+        complaint_id: row.complaint_id,
+        message: `Ticket #${seq} assigned to you by ${row.updated_by}`,
+        created_at: row.created_at,
+      };
+    });
+
+    return NextResponse.json({ notifications });
   } catch (err) {
     console.error("Notifications fetch error:", err);
     return NextResponse.json({ notifications: [] });
   }
 }
 
-/** POST { ids: number[] } — mark notifications as read */
-export async function POST(req: Request) {
-  try {
-    const { ids } = await req.json() as { ids: number[] };
-    if (!ids?.length) return NextResponse.json({ ok: true });
-
-    const { error } = await supabaseAdmin()
-      .from("notifications")
-      .update({ read: true })
-      .in("id", ids);
-
-    if (error) throw error;
-    return NextResponse.json({ ok: true });
-  } catch (err) {
-    console.error("Notifications mark-read error:", err);
-    return NextResponse.json({ error: "Failed to mark read" }, { status: 500 });
-  }
+/** POST — no-op, read state is handled client-side */
+export async function POST() {
+  return NextResponse.json({ ok: true });
 }
