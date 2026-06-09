@@ -1,8 +1,8 @@
 "use client";
 
-import { useState, useEffect, useMemo } from "react";
+import { useState, useEffect, useMemo, useRef } from "react";
 import { useRouter } from "next/navigation";
-import { Search, LogOut, LayoutDashboard, Package, Calculator } from "lucide-react";
+import { Search, LogOut, LayoutDashboard, Package, Calculator, X } from "lucide-react";
 import PriceCalculator from "./PriceCalculator";
 import type { SparePartsData, PriceListRow } from "@/lib/spareparts-types";
 
@@ -33,8 +33,11 @@ export default function SparePartsPage() {
   const [loading, setLoading] = useState(true);
   const [calcOpen, setCalcOpen] = useState(false);
   const [search, setSearch] = useState("");
+  const [showSuggestions, setShowSuggestions] = useState(false);
   const [brand, setBrand] = useState("All");
   const [selectedProduct, setSelectedProduct] = useState<string | null>(null);
+  const searchRef = useRef<HTMLInputElement>(null);
+  const suggestionsRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     fetch("/api/spareparts")
@@ -155,12 +158,68 @@ export default function SparePartsPage() {
             <div className="relative">
               <Search size={13} className="absolute left-2.5 top-1/2 -translate-y-1/2 text-slate-400" />
               <input
+                ref={searchRef}
                 type="text"
                 placeholder="Search product or part…"
                 value={search}
-                onChange={(e) => setSearch(e.target.value)}
-                className="w-full pl-8 pr-3 py-1.5 text-xs border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-400"
+                onChange={(e) => {
+                  setSearch(e.target.value);
+                  setShowSuggestions(true);
+                }}
+                onFocus={() => setShowSuggestions(true)}
+                onBlur={() => setTimeout(() => setShowSuggestions(false), 150)}
+                className="w-full pl-8 pr-7 py-1.5 text-xs border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-400"
               />
+              {search && (
+                <button onClick={() => { setSearch(""); searchRef.current?.focus(); }}
+                  className="absolute right-2 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600">
+                  <X size={11} />
+                </button>
+              )}
+              {/* Autocomplete dropdown */}
+              {showSuggestions && search.length > 0 && (
+                <div ref={suggestionsRef}
+                  className="absolute top-full left-0 right-0 mt-1 bg-white border border-slate-200 rounded-xl shadow-lg z-20 overflow-hidden max-h-56 overflow-y-auto">
+                  {filtered.length === 0 ? (
+                    <p className="text-xs text-slate-400 px-3 py-2.5">No matches for "{search}"</p>
+                  ) : (
+                    filtered.map((p) => {
+                      // Highlight matching text
+                      const q = search.toLowerCase();
+                      const name = p.name;
+                      const idx = name.toLowerCase().indexOf(q);
+                      const matchingParts = p.rows
+                        .filter(r => r.SparePart.toLowerCase().includes(q))
+                        .slice(0, 2);
+                      return (
+                        <button key={p.name}
+                          onMouseDown={() => {
+                            setSelectedProduct(p.name);
+                            setSearch("");
+                            setShowSuggestions(false);
+                          }}
+                          className="w-full text-left px-3 py-2 hover:bg-indigo-50 border-b border-slate-50 last:border-0 transition">
+                          <p className="text-xs font-medium text-slate-800">
+                            {idx >= 0 ? (
+                              <>
+                                {name.slice(0, idx)}
+                                <span className="bg-indigo-100 text-indigo-700 rounded">{name.slice(idx, idx + q.length)}</span>
+                                {name.slice(idx + q.length)}
+                              </>
+                            ) : name}
+                          </p>
+                          {matchingParts.length > 0 && (
+                            <p className="text-[10px] text-slate-400 mt-0.5 truncate">
+                              Part: {matchingParts.map(r => r.SparePart).join(", ")}
+                            </p>
+                          )}
+                          <p className="text-[10px] text-slate-300">{p.brand} · {p.pricedRows.length} parts</p>
+                        </button>
+                      );
+                    })
+                  )}
+                </div>
+              )}
             </div>
             <div className="flex gap-1">
               {BRANDS.map((b) => (
