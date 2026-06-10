@@ -85,7 +85,7 @@ export async function POST(request: Request) {
     return NextResponse.json({ ok: true });
   } catch (err) {
     const msg = err instanceof Error ? err.message : "Unknown error";
-    if (msg.includes("does not exist")) {
+    if (msg.includes("does not exist") || msg.includes("schema cache") || msg.includes("relation") || msg.includes("42P01")) {
       return NextResponse.json({ error: "TABLES_NOT_SETUP", message: "Run the setup SQL in your Supabase dashboard first." }, { status: 503 });
     }
     return NextResponse.json({ error: msg }, { status: 500 });
