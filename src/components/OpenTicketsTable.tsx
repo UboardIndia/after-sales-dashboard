@@ -214,14 +214,14 @@ export default function OpenTicketsTable({ rows, onSaved }: Props) {
         </div>
       </div>
 
-      {/* Filter row */}
-      <div className="flex flex-wrap gap-2 mb-4 pb-3 border-b border-slate-100">
-        <TinySelect label="By"      value={filterRequested} options={["All", ...opts.requested]} onChange={(v) => { setRequested(v); setPage(1); }} />
-        <TinySelect label="Product" value={filterProduct}   options={["All", ...opts.products]}  onChange={(v) => { setProduct(v);  setPage(1); }} />
-        <TinySelect label="Status"  value={filterStatus}    options={["All", ...opts.statuses]}  onChange={(v) => { setStatus(v);   setPage(1); }} />
-        <TinySelect label="Issue"   value={filterIssue}     options={["All", ...opts.issues]}    onChange={(v) => { setIssue(v);    setPage(1); }} />
-        <TinySelect label="Brand"   value={filterBrand}     options={["All", ...opts.brands]}    onChange={(v) => { setBrand(v);    setPage(1); }} />
-        <TinySelect label="Pending Since" value={filterPending} options={["All", "1 Month", "2 Months", "3 Months", "3+ Months"]} onChange={(v) => { setPending(v); setPage(1); }} />
+      {/* Filter row — all on one line */}
+      <div className="flex items-center flex-wrap gap-x-3 gap-y-2 mb-4 pb-3 border-b border-slate-100">
+        <TinySelect label="By"             value={filterRequested} options={["All", ...opts.requested]} onChange={(v) => { setRequested(v); setPage(1); }} />
+        <TinySelect label="Product"        value={filterProduct}   options={["All", ...opts.products]}  onChange={(v) => { setProduct(v);  setPage(1); }} />
+        <TinySelect label="Status"         value={filterStatus}    options={["All", ...opts.statuses]}  onChange={(v) => { setStatus(v);   setPage(1); }} />
+        <TinySelect label="Issue"          value={filterIssue}     options={["All", ...opts.issues]}    onChange={(v) => { setIssue(v);    setPage(1); }} />
+        <TinySelect label="Brand"          value={filterBrand}     options={["All", ...opts.brands]}    onChange={(v) => { setBrand(v);    setPage(1); }} />
+        <TinySelect label="Pending Since"  value={filterPending}   options={["All", "1 Month", "2 Months", "3 Months", "3+ Months"]} onChange={(v) => { setPending(v); setPage(1); }} />
         {hasFilters && (
           <button
             onClick={reset}
@@ -294,13 +294,16 @@ export default function OpenTicketsTable({ rows, onSaved }: Props) {
                     </span>
                   ) : "—"}
                 </td>
-                <td className="py-2 pr-3">
-                  {(() => {
-                    const d = r.daysPending ?? 0;
-                    const label = d > 90 ? "3+ Months" : d > 60 ? "3 Months" : d > 30 ? "2 Months" : "1 Month";
-                    const cls = d > 90 ? "bg-red-100 text-red-700" : d > 60 ? "bg-orange-100 text-orange-700" : d > 30 ? "bg-yellow-100 text-yellow-700" : "bg-green-100 text-green-700";
-                    return r.daysPending != null ? <span className={`px-1.5 py-0.5 rounded text-xs ${cls}`}>{label}</span> : <span className="text-slate-300">—</span>;
-                  })()}
+                <td className="py-2 pr-3 whitespace-nowrap">
+                  {r.daysPending != null ? (() => {
+                    const d = r.daysPending;
+                    const [label, cls] = d > 90
+                      ? ["3+ Mo", "bg-red-100 text-red-700"]
+                      : d > 60 ? ["3 Mo", "bg-orange-100 text-orange-700"]
+                      : d > 30 ? ["2 Mo", "bg-yellow-100 text-yellow-700"]
+                      : ["1 Mo", "bg-green-100 text-green-700"];
+                    return <span className={`px-1.5 py-0.5 rounded text-xs font-medium whitespace-nowrap ${cls}`}>{label}</span>;
+                  })() : <span className="text-slate-300">—</span>}
                 </td>
                 <td className="py-2 pr-3 text-slate-600 whitespace-nowrap">{r.complaintDate}</td>
                 <td className="py-2">
