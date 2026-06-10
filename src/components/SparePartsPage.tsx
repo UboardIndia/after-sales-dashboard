@@ -416,7 +416,7 @@ export default function SparePartsPage() {
                         <span className="text-indigo-700 bg-indigo-50 px-2 py-1 rounded-md">Max — B2C</span>
                       </th>
                       <th className="text-center px-5 py-3 font-medium text-slate-500 text-xs w-24">GST</th>
-                      <th className="w-10"></th>
+                      <th className="w-20"></th>
                     </tr>
                   </thead>
                   <tbody>
@@ -444,15 +444,17 @@ export default function SparePartsPage() {
                           <td className="px-5 py-3 text-center text-xs text-slate-400">
                             {r.GST || "—"}
                           </td>
-                          <td className="px-2 py-3 text-right">
-                            <div className="flex items-center justify-end gap-1 opacity-0 group-hover:opacity-100 transition">
+                          <td className="px-3 py-3">
+                            <div className="flex items-center gap-1">
                               <button onClick={() => setEditRow(r)}
-                                className="p-1 rounded-md hover:bg-indigo-50 text-slate-400 hover:text-indigo-600 transition">
-                                <Pencil size={13} />
+                                title="Edit"
+                                className="p-1.5 rounded-lg bg-slate-100 hover:bg-indigo-100 text-slate-500 hover:text-indigo-600 transition">
+                                <Pencil size={12} />
                               </button>
                               <button onClick={() => { setDeleteRow(r); setDeleteCode(""); setDeleteError(""); }}
-                                className="p-1 rounded-md hover:bg-red-50 text-slate-400 hover:text-red-500 transition">
-                                <Trash2 size={13} />
+                                title="Delete"
+                                className="p-1.5 rounded-lg bg-slate-100 hover:bg-red-100 text-slate-500 hover:text-red-600 transition">
+                                <Trash2 size={12} />
                               </button>
                             </div>
                           </td>
