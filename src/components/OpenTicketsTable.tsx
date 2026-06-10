@@ -263,7 +263,6 @@ export default function OpenTicketsTable({ rows, onSaved }: Props) {
                   </button>
                 </td>
                 <td className="py-2 pr-3 text-slate-400 font-mono">{r.sequenceNo}</td>
-                <td className="py-2 pr-3 font-medium text-slate-800 whitespace-nowrap">{r.requestBy || "—"}</td>
                 <td className="py-2 pr-3 text-slate-700 whitespace-nowrap">{r.customerName || "—"}</td>
                 <td className="py-2 pr-3 whitespace-nowrap">
                   {r.customerMobile ? (
