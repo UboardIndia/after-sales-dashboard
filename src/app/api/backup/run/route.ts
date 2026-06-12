@@ -67,14 +67,23 @@ export async function GET(req: Request) {
         .from("sheet_backups")
         .insert({ fiscal_year: sheet.fiscalYear, csv, row_count: rowCount });
       if (error) {
-        // Missing table → tell the caller exactly how to create it.
-        if (/schema cache|does not exist|42P01/i.test(error.message)) {
+        // Table genuinely absent → tell the caller exactly how to create it.
+        // (42P01 = undefined_table. Match narrowly — other errors must surface raw.)
+        if (error.code === "42P01" || /relation .* does not exist|find the table/i.test(error.message)) {
           return NextResponse.json(
-            { error: "sheet_backups table missing — run this SQL in Supabase → SQL Editor", sql: SETUP_SQL },
+            {
+              error: "sheet_backups table missing — run this SQL in Supabase → SQL Editor",
+              detail: `${error.code ?? ""} ${error.message}`.trim(),
+              sql: SETUP_SQL,
+            },
             { status: 500 }
           );
         }
-        throw error;
+        // Anything else (wrong column, permissions, size limit…) → show the real error.
+        return NextResponse.json(
+          { error: `Supabase insert failed: ${error.code ?? ""} ${error.message}`.trim() },
+          { status: 500 }
+        );
       }
       results.push({ fiscalYear: sheet.fiscalYear, rows: rowCount });
     } catch (err) {

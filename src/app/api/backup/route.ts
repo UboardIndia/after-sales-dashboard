@@ -39,10 +39,13 @@ export async function GET(req: Request) {
       .order("created_at", { ascending: false })
       .limit(100);
     if (error) {
-      if (/schema cache|does not exist|42P01/i.test(error.message)) {
+      if (error.code === "42P01" || /relation .* does not exist|find the table/i.test(error.message)) {
         return NextResponse.json({ backups: [], needsSetup: true });
       }
-      throw error;
+      return NextResponse.json(
+        { error: `Supabase list failed: ${error.code ?? ""} ${error.message}`.trim(), backups: [] },
+        { status: 500 }
+      );
     }
     return NextResponse.json({ backups: data ?? [] });
   } catch (err) {
