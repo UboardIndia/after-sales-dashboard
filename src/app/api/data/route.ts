@@ -180,26 +180,7 @@ function parseSheet(csv: string, cfg: SheetConfig): ComplaintRow[] {
     .filter((r) => r.sequenceNo !== "");
 }
 
-export async function GET(req: Request) {
-  // Temp diagnostic: /api/data?dbg=<complaintId> dumps raw status rows + total count.
-  const dbgId = new URL(req.url).searchParams.get("dbg");
-  if (dbgId) {
-    try {
-      const { supabaseAdmin } = await import("@/lib/supabase");
-      const sb = supabaseAdmin();
-      const { count } = await sb
-        .from("complaint_updates")
-        .select("*", { count: "exact", head: true });
-      const { data: forId } = await sb
-        .from("complaint_updates")
-        .select("field, value, updated_by, created_at")
-        .eq("complaint_id", dbgId)
-        .order("created_at", { ascending: true });
-      return NextResponse.json({ complaintId: dbgId, totalUpdatesInTable: count, rowsForThisComplaint: forId });
-    } catch (e) {
-      return NextResponse.json({ error: (e as Error).message });
-    }
-  }
+export async function GET() {
   try {
     const results = await Promise.allSettled(
       SHEETS.map(async (cfg) => {
