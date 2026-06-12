@@ -55,9 +55,11 @@ export async function GET() {
     const entries = data
       .filter((r) => (r["Complaint Number"] || "").trim().startsWith("SUP-"))
       .map((r) => {
-        // Prefer a dedicated "registered no" column if the sheet has one;
-        // fall back to the CATEGORY column.
-        const regKey = Object.keys(r).find((k) => /regist/i.test(k));
+        // "Complaint Registered To" = which bot line received the complaint.
+        // Fuzzy header match (case/spacing tolerant); CATEGORY as fallback.
+        const regKey =
+          Object.keys(r).find((k) => /complaint\s*registered\s*to/i.test(k)) ||
+          Object.keys(r).find((k) => /regist/i.test(k));
         const rawCategory = (regKey && r[regKey]?.trim()) || r["CATEGORY"]?.trim() || "";
         return {
         botId:     r["Complaint Number"].trim(),
