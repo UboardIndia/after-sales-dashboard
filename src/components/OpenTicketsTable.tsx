@@ -2,17 +2,9 @@
 
 import { useState, useMemo } from "react";
 import Link from "next/link";
-import { Search, X, Pencil, Phone, CheckSquare, Square, Loader2 } from "lucide-react";
+import { Search, X, Pencil, Phone, CheckSquare, Square, Loader2, ChevronDown } from "lucide-react";
 import type { ComplaintRow } from "@/lib/types";
-
-const STATUS_OPTIONS = [
-  "Complaint Register", "Pickup Arranged", "Pickup Delay From Cust.",
-  "Pickup successful", "Received in Okhla", "Pending For Repair",
-  "Repair Done But payment issue", "Dispatch Schduled",
-  "Dispatch But Not Delivered", "Payment due from Customer",
-  "Re-Open Ticket", "Close Ticket",
-];
-import { TEAM } from "@/lib/ticketOptions";
+import { STATUS_OPTIONS, TEAM } from "@/lib/ticketOptions";
 
 interface Props {
   rows: ComplaintRow[];
@@ -51,7 +43,54 @@ export default function OpenTicketsTable({ rows, onSaved }: Props) {
   const [bulkName, setBulkName]         = useState("");
   const [bulkSaving, setBulkSaving]     = useState(false);
   const [bulkError, setBulkError]       = useState("");
+  // Inline status editing
+  const [quickSaving, setQuickSaving]   = useState<string | null>(null); // row id being saved
+  const [quickDone, setQuickDone]       = useState<Record<string, string>>({}); // optimistic: id → new status
+  const [quickMsg, setQuickMsg]         = useState<{ kind: "ok" | "warn" | "err"; text: string } | null>(null);
+  const [askName, setAskName]           = useState<{ id: string; value: string; mobile: string } | null>(null);
   const PER_PAGE = 15;
+
+  async function doQuickSave(id: string, value: string, mobile: string, name: string) {
+    setQuickSaving(id);
+    setQuickMsg(null);
+    try {
+      const res = await fetch("/api/updates", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          complaintId: id,
+          field: "status",
+          value,
+          updatedBy: name,
+          customerMobile: mobile || undefined,
+        }),
+      });
+      const json = await res.json();
+      if (!res.ok) throw new Error(json.error || "Save failed");
+      setQuickDone((prev) => ({ ...prev, [id]: value }));
+      if (json.warning) {
+        setQuickMsg({ kind: "warn", text: json.warning });
+      } else {
+        setQuickMsg({ kind: "ok", text: `Status updated to "${value}" — sheet updated too.` });
+        setTimeout(() => setQuickMsg((m) => (m?.kind === "ok" ? null : m)), 4000);
+      }
+      onSaved?.();
+    } catch (e) {
+      setQuickMsg({ kind: "err", text: (e as Error).message });
+    } finally {
+      setQuickSaving(null);
+    }
+  }
+
+  function quickStatus(r: ComplaintRow, value: string) {
+    if (!value || value === (quickDone[r.id] ?? r.actionTaken)) return;
+    const name = localStorage.getItem("team_member") || localStorage.getItem("prachi_name") || "";
+    if (!name) {
+      setAskName({ id: r.id, value, mobile: r.customerMobile });
+      return;
+    }
+    doQuickSave(r.id, value, r.customerMobile, name);
+  }
 
   // Build dropdown options from the incoming rows
   const opts = useMemo(() => ({
@@ -238,6 +277,20 @@ export default function OpenTicketsTable({ rows, onSaved }: Props) {
         )}
       </div>
 
+      {/* Inline status save feedback */}
+      {quickMsg && (
+        <div className={`flex items-center justify-between text-xs rounded-lg px-3 py-2 mb-3 border ${
+          quickMsg.kind === "ok"   ? "text-emerald-700 bg-emerald-50 border-emerald-200" :
+          quickMsg.kind === "warn" ? "text-amber-700 bg-amber-50 border-amber-200" :
+                                     "text-red-700 bg-red-50 border-red-200"
+        }`}>
+          <span>{quickMsg.kind === "warn" ? "⚠ " : ""}{quickMsg.text}</span>
+          <button onClick={() => setQuickMsg(null)} className="ml-3 opacity-60 hover:opacity-100">
+            <X size={12} />
+          </button>
+        </div>
+      )}
+
       {/* Table */}
       <div className="overflow-x-auto table-scroll">
         <table className="w-full text-xs">
@@ -284,11 +337,35 @@ export default function OpenTicketsTable({ rows, onSaved }: Props) {
                 </td>
                 <td className="py-2 pr-3 text-slate-600">{r.issueType || "—"}</td>
                 <td className="py-2 pr-3 whitespace-nowrap">
-                  <span className={`px-2 py-0.5 rounded-full text-xs font-medium ${
-                    STATUS_BADGE[r.actionTaken] ?? "bg-slate-100 text-slate-600"
-                  }`}>
-                    {r.actionTaken || "Registered"}
-                  </span>
+                  {quickSaving === r.id ? (
+                    <span className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full text-xs font-medium bg-indigo-50 text-indigo-600">
+                      <Loader2 size={11} className="animate-spin" /> Saving…
+                    </span>
+                  ) : (() => {
+                    const current = quickDone[r.id] ?? r.actionTaken;
+                    return (
+                      <span className="relative inline-flex items-center">
+                        <select
+                          value={current || ""}
+                          onChange={(e) => quickStatus(r, e.target.value)}
+                          title="Change status — saves to dashboard + sheet instantly"
+                          className={`appearance-none cursor-pointer pl-2 pr-6 py-0.5 rounded-full text-xs font-medium border-0 outline-none focus:ring-2 focus:ring-indigo-400 ${
+                            STATUS_BADGE[current] ?? "bg-slate-100 text-slate-600"
+                          }`}
+                        >
+                          {!(STATUS_OPTIONS as readonly string[]).includes(current) && (
+                            <option value={current || ""} disabled>
+                              {current || "Registered"}
+                            </option>
+                          )}
+                          {STATUS_OPTIONS.map((s) => (
+                            <option key={s} value={s}>{s}</option>
+                          ))}
+                        </select>
+                        <ChevronDown size={11} className="absolute right-1.5 pointer-events-none opacity-60" />
+                      </span>
+                    );
+                  })()}
                 </td>
                 <td className="py-2 pr-3 text-right">
                   {r.daysPending != null ? (
@@ -347,6 +424,39 @@ export default function OpenTicketsTable({ rows, onSaved }: Props) {
               disabled={page === totalPages}
               className="text-xs px-2 py-1 rounded border border-slate-200 disabled:opacity-40 hover:bg-slate-50"
             >Next</button>
+          </div>
+        </div>
+      )}
+
+      {/* One-time name picker for inline status changes */}
+      {askName && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-sm" onClick={() => setAskName(null)}>
+          <div className="bg-white rounded-2xl shadow-2xl w-full max-w-sm mx-4 p-6" onClick={(e) => e.stopPropagation()}>
+            <h3 className="text-sm font-semibold text-slate-800 mb-1">Who is making this update?</h3>
+            <p className="text-xs text-slate-400 mb-4">
+              Recorded with the change. We&apos;ll remember it on this device.
+            </p>
+            <div className="flex flex-wrap gap-2 mb-4">
+              {TEAM.map((t) => (
+                <button
+                  key={t}
+                  onClick={() => {
+                    localStorage.setItem("team_member", t);
+                    const p = askName;
+                    setAskName(null);
+                    doQuickSave(p.id, p.value, p.mobile, t);
+                  }}
+                  className="px-4 py-1.5 rounded-full text-xs font-medium border border-slate-200 text-slate-700 hover:bg-indigo-50 hover:border-indigo-300 hover:text-indigo-700 transition"
+                >
+                  {t}
+                </button>
+              ))}
+            </div>
+            <div className="flex justify-end">
+              <button onClick={() => setAskName(null)} className="text-xs px-4 py-2 rounded-lg text-slate-500 hover:bg-slate-100">
+                Cancel
+              </button>
+            </div>
           </div>
         </div>
       )}
