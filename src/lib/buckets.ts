@@ -31,13 +31,21 @@ export function deriveBucket(r: ComplaintRow): Bucket {
 
   if (
     a === "Payment due from Customer" ||
-    a === "Repair Done But payment issue"
+    a === "Repair Done But payment issue" ||
+    a === "Delay Due to Customer" ||
+    a === "Product Video pending from the customer" ||
+    a === "Cunsultant With Customer"
   )
     return "Pending Customer";
 
-  if (a === "Dispatch But Not Delivered") return "Pending Dispatch";
+  if (
+    a === "Dispatch But Not Delivered" ||
+    a === "Dispatch Schduled" ||
+    a === "Repair done Pending For dispatch"
+  )
+    return "Pending Dispatch";
 
-  if (a === "Received in Okhla" || a === "Pending For Repair")
+  if (a === "Received in Okhla" || a === "Received in RN" || a === "Pending For Repair")
     return "Pending Repair";
 
   if (
@@ -45,6 +53,7 @@ export function deriveBucket(r: ComplaintRow): Bucket {
     a === "Pickup Arranged" ||
     a === "Pickup successful" ||
     a === "Pickup Delay From Cust." ||
+    a === "Required for Pickup" ||
     a === ""
   ) {
     // If the unit has physically reached the factory, it's a repair job now.

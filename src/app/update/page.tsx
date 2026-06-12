@@ -8,21 +8,7 @@ import {
   Phone, Calendar, AlertTriangle,
 } from "lucide-react";
 import type { ComplaintRow } from "@/lib/types";
-
-const STATUS_OPTIONS = [
-  "Complaint Register",
-  "Pickup Arranged",
-  "Pickup Delay From Cust.",
-  "Pickup successful",
-  "Received in Okhla",
-  "Pending For Repair",
-  "Repair Done But payment issue",
-  "Dispatch Schduled",
-  "Dispatch But Not Delivered",
-  "Payment due from Customer",
-  "Re-Open Ticket",
-  "Close Ticket",
-];
+import { STATUS_OPTIONS } from "@/lib/ticketOptions";
 
 const STATUS_COLOR: Record<string, string> = {
   "Complaint Register":            "bg-blue-100 text-blue-700",
