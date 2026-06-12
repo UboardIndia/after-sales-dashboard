@@ -1,8 +1,9 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { X, Save, Loader2, Clock, History } from "lucide-react";
+import { X, Save, Loader2, Clock, History, Undo2 } from "lucide-react";
 import type { ComplaintRow } from "@/lib/types";
+import { STATUS_OPTIONS, TEAM } from "@/lib/ticketOptions";
 
 interface HistoryEntry {
   field: string;
@@ -11,24 +12,6 @@ interface HistoryEntry {
   updated_by: string;
   created_at: string;
 }
-
-/** Exact status vocabulary already used in the sheets — keeps bucket logic working. */
-const STATUS_OPTIONS = [
-  "Complaint Register",
-  "Pickup Arranged",
-  "Pickup Delay From Cust.",
-  "Pickup successful",
-  "Received in Okhla",
-  "Pending For Repair",
-  "Repair Done But payment issue",
-  "Dispatch Schduled",
-  "Dispatch But Not Delivered",
-  "Payment due from Customer",
-  "Re-Open Ticket",
-  "Close Ticket",
-];
-
-const TEAM = ["Prachi", "Adil", "Altab", "Asis"];
 
 export default function UpdateTicketModal({
   row,
@@ -48,6 +31,8 @@ export default function UpdateTicketModal({
   const [error, setError] = useState<string | null>(null);
   const [history, setHistory] = useState<HistoryEntry[]>([]);
   const [historyLoading, setHistoryLoading] = useState(false);
+  const [warning, setWarning] = useState<string | null>(null);
+  const [reverting, setReverting] = useState<number | null>(null);
 
   // Remember who's using this browser
   useEffect(() => {
@@ -81,14 +66,57 @@ export default function UpdateTicketModal({
       const res = await fetch("/api/updates", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ complaintId: row.id, updates, updatedBy: me }),
+        body: JSON.stringify({
+          complaintId: row.id,
+          updates,
+          updatedBy: me,
+          customerMobile: row.customerMobile || undefined,
+        }),
       });
-      if (!res.ok) throw new Error((await res.json()).error || "Save failed");
+      const json = await res.json();
+      if (!res.ok) throw new Error(json.error || "Save failed");
       onSaved();
-      onClose();
+      if (json.warning) {
+        // Saved to dashboard but sheet write was blocked/failed — keep the
+        // modal open so the warning is actually seen.
+        setWarning(json.warning);
+        setSaving(false);
+      } else {
+        onClose();
+      }
     } catch (e) {
       setError((e as Error).message);
       setSaving(false);
+    }
+  }
+
+  /** Revert a field to an earlier value from history (posts it as a new update). */
+  async function handleRevert(h: HistoryEntry, idx: number) {
+    if (!me) { setError("Select your name first (Update tab)."); return; }
+    setReverting(idx);
+    try {
+      const res = await fetch("/api/updates", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          complaintId: row.id,
+          updates: [{ field: h.field, value: h.value }],
+          note: "undo — reverted to earlier value",
+          updatedBy: me,
+          customerMobile: row.customerMobile || undefined,
+        }),
+      });
+      const json = await res.json();
+      if (!res.ok) throw new Error(json.error || "Revert failed");
+      onSaved();
+      // Refresh history list
+      const r = await fetch(`/api/updates?complaintId=${encodeURIComponent(row.id)}`);
+      setHistory((await r.json()).history ?? []);
+      if (json.warning) setWarning(json.warning);
+    } catch (e) {
+      setError((e as Error).message);
+    } finally {
+      setReverting(null);
     }
   }
 
@@ -165,6 +193,11 @@ export default function UpdateTicketModal({
               </Field>
 
               {error && <p className="text-xs text-red-600">{error}</p>}
+              {warning && (
+                <p className="text-xs text-amber-700 bg-amber-50 border border-amber-200 rounded-lg px-3 py-2">
+                  ⚠ {warning}
+                </p>
+              )}
             </div>
 
             {/* Footer */}
@@ -193,6 +226,11 @@ export default function UpdateTicketModal({
               <p className="text-xs text-slate-400 text-center py-6">No updates recorded yet.</p>
             ) : (
               <div className="space-y-2">
+                {warning && (
+                  <p className="text-xs text-amber-700 bg-amber-50 border border-amber-200 rounded-lg px-3 py-2 mb-2">
+                    ⚠ {warning}
+                  </p>
+                )}
                 {history.map((h, i) => (
                   <div key={i} className="flex gap-3 text-xs">
                     <div className="mt-0.5 shrink-0">
@@ -204,6 +242,18 @@ export default function UpdateTicketModal({
                         <span className="text-slate-400">→</span>
                         <span className="text-indigo-700 font-medium">{h.value || "—"}</span>
                         <span className="text-slate-400 ml-auto shrink-0">by {h.updated_by}</span>
+                        {/* Revert: only for older entries (i>0) that have a value */}
+                        {i > 0 && h.value && (
+                          <button
+                            onClick={() => handleRevert(h, i)}
+                            disabled={reverting !== null}
+                            title="Revert this field back to this value"
+                            className="flex items-center gap-1 text-[10px] px-1.5 py-0.5 rounded border border-slate-200 text-slate-500 hover:bg-amber-50 hover:text-amber-700 hover:border-amber-300 disabled:opacity-40 shrink-0"
+                          >
+                            {reverting === i ? <Loader2 size={10} className="animate-spin" /> : <Undo2 size={10} />}
+                            Revert
+                          </button>
+                        )}
                       </div>
                       {h.note && <p className="text-slate-500 italic mt-0.5">{h.note}</p>}
                       <p className="text-slate-300 mt-0.5">

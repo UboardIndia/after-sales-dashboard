@@ -4,6 +4,12 @@ import type { NextRequest } from "next/server";
 export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
+  // Vercel Cron must reach the backup runner without a login cookie —
+  // the route does its own auth (CRON_SECRET / cookie check inside).
+  if (pathname === "/api/backup/run") {
+    return NextResponse.next();
+  }
+
   // Always allow login page and auth API
   if (pathname.startsWith("/login") || pathname.startsWith("/api/auth")) {
     // If already logged in, redirect away from login page

@@ -158,7 +158,13 @@ export default function OpenTicketsTable({ rows, onSaved }: Props) {
           fetch("/api/updates", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ complaintId, field: "status", value: bulkStatus, updatedBy: bulkName }),
+            body: JSON.stringify({
+              complaintId,
+              field: "status",
+              value: bulkStatus,
+              updatedBy: bulkName,
+              customerMobile: rows.find((r) => r.id === complaintId)?.customerMobile || undefined,
+            }),
           })
         )
       );

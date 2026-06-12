@@ -5,7 +5,7 @@ import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import {
   LayoutDashboard, Pencil, User, Table2, Bot,
-  Package, LogOut,
+  Package, LogOut, DatabaseBackup,
 } from "lucide-react";
 import NotificationBell from "./NotificationBell";
 
@@ -96,6 +96,7 @@ export default function NavBar() {
           {navLink("/live",       "Live Feed",    <Table2 size={13} />)}
           {navLink("/verify",     "Verification", <Bot size={13} />, botCount)}
           {navLink("/spareparts", "Spare Parts",  <Package size={13} />)}
+          {navLink("/backups",    "Backups",      <DatabaseBackup size={13} />)}
 
           <NotificationBell me={myName} />
 

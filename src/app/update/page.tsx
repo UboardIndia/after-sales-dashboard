@@ -113,7 +113,13 @@ function UpdatePageInner() {
           fetch("/api/updates", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ complaintId: id, field: u.field, value: u.value, updatedBy: myName }),
+            body: JSON.stringify({
+              complaintId: id,
+              field: u.field,
+              value: u.value,
+              updatedBy: myName,
+              customerMobile: complaint?.customerMobile || undefined,
+            }),
           })
         )
       );
