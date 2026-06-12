@@ -117,7 +117,8 @@ export default function OpenTicketsTable({ rows, onSaved }: Props) {
   const opts = useMemo(() => ({
     requested: uniq(rows.map((r) => r.requestBy)),
     products:  uniq(rows.map((r) => r.productName)),
-    statuses:  uniq(rows.map((r) => r.actionTaken || "Registered")),
+    // All official statuses + any extra values present in the data
+    statuses:  uniq([...STATUS_OPTIONS, ...rows.map((r) => r.actionTaken || "Registered")]),
     issues:    uniq(rows.map((r) => r.issueType)),
     brands:    uniq(rows.map((r) => r.brand)),
   }), [rows]);
