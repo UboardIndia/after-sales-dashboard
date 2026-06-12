@@ -10,10 +10,10 @@ const LIVE_SEQ_COL   = "Complaint No";
 const LIVE_FY_PREFIX = "FY 2026-27::";
 
 // Which dashboard fields land in which sheet column.
-// assigned_to is dashboard-only (no sheet column for it).
+// ONLY status writes to the sheet — remark and assigned_to stay
+// dashboard-only (per user decision, 12 Jun 2026).
 const SHEET_COLS: Partial<Record<UpdatableField, string>> = {
   status: "Action Taken",
-  remark: "Uboard Remarks",
 };
 
 export const dynamic = "force-dynamic";
