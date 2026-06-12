@@ -26,20 +26,14 @@ const BOT_NUMBER_MAP: Record<string, string> = {
 const DEFAULT_BOT = "Prachi Bot"; // blank / unknown registered number
 
 /**
- * Map the registered-on number (or legacy category text) to a bot bucket.
- * - phone number → name from BOT_NUMBER_MAP (unknown numbers → default)
- * - blank → default (Prachi Bot)
- * - already a name (e.g. "Adil Bot") → kept as-is
+ * Map the "complaint registered to" number to a reviewer bucket.
+ * Number → name from BOT_NUMBER_MAP; blank or anything else → Prachi Bot.
+ * (NOT the CATEGORY column — that holds product categories in this sheet.)
  */
-function mapCategory(raw: string): string {
-  const v = (raw || "").trim();
-  if (!v) return DEFAULT_BOT;
-  const digits = v.replace(/\D/g, "");
-  // Looks like a phone number → translate it
-  if (digits.length >= 10 && digits.length === v.replace(/[\s\-().+]/g, "").length) {
-    return BOT_NUMBER_MAP[digits.slice(-10)] ?? DEFAULT_BOT;
-  }
-  return v;
+function mapBotPerson(raw: string): string {
+  const digits = (raw || "").replace(/\D/g, "");
+  if (digits.length >= 10) return BOT_NUMBER_MAP[digits.slice(-10)] ?? DEFAULT_BOT;
+  return DEFAULT_BOT;
 }
 
 export async function GET(req: Request) {
@@ -55,18 +49,15 @@ export async function GET(req: Request) {
     const entries = data
       .filter((r) => (r["Complaint Number"] || "").trim().startsWith("SUP-"))
       .map((r) => {
-        // "Complaint Registered To" = which bot line received the complaint.
-        // Fuzzy header match (case/spacing tolerant); CATEGORY as fallback.
-        const regKey =
-          Object.keys(r).find((k) => /complaint\s*registered\s*to/i.test(k)) ||
-          Object.keys(r).find((k) => /regist/i.test(k));
-        const rawCategory = (regKey && r[regKey]?.trim()) || r["CATEGORY"]?.trim() || "";
+        // "complaint registered to" = which bot line received the complaint.
+        const regKey = Object.keys(r).find((k) => /complaint\s*registered\s*to/i.test(k));
+        const rawRegisteredTo = (regKey && r[regKey]?.trim()) || "";
         return {
         botId:     r["Complaint Number"].trim(),
         timestamp: r["Timestamp"]?.trim() || "",
         month:     r["Month"]?.trim() || "",
         brand:     r["BRAND"]?.trim() || "",
-        category:  mapCategory(rawCategory),
+        category:  mapBotPerson(rawRegisteredTo),
         product:   r["PRODUCT"]?.trim() || "",
         issue:     r["ISSUE"]?.trim() || "",
         warranty:  r["WARRENTY STATUS"]?.trim() || "",
