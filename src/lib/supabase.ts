@@ -11,7 +11,16 @@ export function supabaseAdmin(): SupabaseClient {
   const url = process.env.SUPABASE_URL;
   const key = process.env.SUPABASE_SECRET_KEY;
   if (!url || !key) throw new Error("SUPABASE_URL / SUPABASE_SECRET_KEY missing in env");
-  cached = createClient(url, key, { auth: { persistSession: false } });
+  cached = createClient(url, key, {
+    auth: { persistSession: false },
+    // Next.js caches fetch() by default in the App Router, which made
+    // dashboard reads serve a stale snapshot after a status write. Force
+    // every Supabase request to bypass that cache so reads are always live.
+    global: {
+      fetch: (input: RequestInfo | URL, init?: RequestInit) =>
+        fetch(input, { ...init, cache: "no-store" }),
+    },
+  });
   return cached;
 }
 
