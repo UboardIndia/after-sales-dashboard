@@ -16,6 +16,32 @@ function cleanMobile(raw: string): string {
   return "";
 }
 
+// Which WhatsApp bot line a complaint was registered on → reviewer bucket.
+// Keys are the last 10 digits of the bot's number.
+const BOT_NUMBER_MAP: Record<string, string> = {
+  "8800910120": "Prachi Bot", // 918800910120
+  "9599913081": "Adil Bot",   // 919599913081
+  "9599913082": "Neha Bot",   // 919599913082
+};
+const DEFAULT_BOT = "Prachi Bot"; // blank / unknown registered number
+
+/**
+ * Map the registered-on number (or legacy category text) to a bot bucket.
+ * - phone number → name from BOT_NUMBER_MAP (unknown numbers → default)
+ * - blank → default (Prachi Bot)
+ * - already a name (e.g. "Adil Bot") → kept as-is
+ */
+function mapCategory(raw: string): string {
+  const v = (raw || "").trim();
+  if (!v) return DEFAULT_BOT;
+  const digits = v.replace(/\D/g, "");
+  // Looks like a phone number → translate it
+  if (digits.length >= 10 && digits.length === v.replace(/[\s\-().+]/g, "").length) {
+    return BOT_NUMBER_MAP[digits.slice(-10)] ?? DEFAULT_BOT;
+  }
+  return v;
+}
+
 export async function GET() {
   try {
     const rows = await fetchSheetRows(BOT_SHEET_ID);
@@ -28,12 +54,17 @@ export async function GET() {
 
     const entries = data
       .filter((r) => (r["Complaint Number"] || "").trim().startsWith("SUP-"))
-      .map((r) => ({
+      .map((r) => {
+        // Prefer a dedicated "registered no" column if the sheet has one;
+        // fall back to the CATEGORY column.
+        const regKey = Object.keys(r).find((k) => /regist/i.test(k));
+        const rawCategory = (regKey && r[regKey]?.trim()) || r["CATEGORY"]?.trim() || "";
+        return {
         botId:     r["Complaint Number"].trim(),
         timestamp: r["Timestamp"]?.trim() || "",
         month:     r["Month"]?.trim() || "",
         brand:     r["BRAND"]?.trim() || "",
-        category:  r["CATEGORY"]?.trim() || "",
+        category:  mapCategory(rawCategory),
         product:   r["PRODUCT"]?.trim() || "",
         issue:     r["ISSUE"]?.trim() || "",
         warranty:  r["WARRENTY STATUS"]?.trim() || "",
@@ -43,7 +74,8 @@ export async function GET() {
         mobileRaw: (r["CALL BACK NUMBER"] || "").trim(),
         customerName: r["Customer name"]?.trim() || "",
         hasMobile: cleanMobile(r["CALL BACK NUMBER"] || "") !== "",
-      }));
+        };
+      });
 
     return NextResponse.json({ entries, total: entries.length });
   } catch (err) {
