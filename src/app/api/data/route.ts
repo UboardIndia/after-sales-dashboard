@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import Papa from "papaparse";
 import type { ComplaintRow } from "@/lib/types";
+import { normalizeProduct } from "@/lib/normalizeProduct";
 
 // Run per-request so Supabase overlay updates appear instantly.
 // (Sheet fetches below still cache for 5 min via `next.revalidate`.)
@@ -156,7 +157,7 @@ function parseSheet(csv: string, cfg: SheetConfig): ComplaintRow[] {
         customerName: ((row[customerNameKey] || "") + "").trim(),
         customerMobile: (row["Customer Mobile No"] || "").trim(),
         brand: normalizeBrand(row["Brand"] || ""),
-        productName: (row["Product Name"] || "").trim(),
+        productName: normalizeProduct(row["Product Name"] || ""),
         platform: normalizePlatform(row["Platform"] || ""),
         complaintType: (row["Complaint Type"] || "").trim(),
         warrantyStatus: (row["Warranty Status"] || "").trim(),
@@ -271,7 +272,7 @@ export async function GET() {
             customerName: draft.customerName || "",
             customerMobile: draft.mobile || "",
             brand: normalizeBrand(draft.brand || ""),
-            productName: draft.product || "",
+            productName: normalizeProduct(draft.product || ""),
             platform: normalizePlatform(draft.platform || ""),
             complaintType: "Customer Complaint",
             warrantyStatus: draft.warranty || "",
