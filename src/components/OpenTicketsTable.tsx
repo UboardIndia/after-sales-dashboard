@@ -248,16 +248,17 @@ export default function OpenTicketsTable({ rows, onSaved }: Props) {
                   {allPageSelected ? <CheckSquare size={14} className="text-indigo-500" /> : <Square size={14} />}
                 </button>
               </th>
-              {["#", "Customer", "Mobile", "Product", "Brand", "Issue Type", "Status", "Days Pending", "Pending Since", ""].map((h) => (
+              {["#", "Customer", "Mobile", "Product", "Brand", "Issue Type", "Status", "Days Pending", "Pending Since"].map((h) => (
                 <th key={h} className="text-left font-medium text-slate-400 pb-2 pr-3 whitespace-nowrap">{h}</th>
               ))}
               <th className="text-left pb-2 pr-3 whitespace-nowrap">
                 <button onClick={() => setSortDate(s => s === "asc" ? "desc" : "asc")}
                   className="flex items-center gap-1 text-xs font-medium text-slate-400 hover:text-indigo-600 transition group">
-                  Date
+                  Complaint Date
                   <span className="text-[10px] group-hover:text-indigo-600">{sortDate === "asc" ? "↑" : "↓"}</span>
                 </button>
               </th>
+              <th className="text-left font-medium text-slate-400 pb-2 whitespace-nowrap">Action</th>
             </tr>
           </thead>
           <tbody>
