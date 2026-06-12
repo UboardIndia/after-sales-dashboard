@@ -203,11 +203,21 @@ export async function GET() {
     // Sheets stay read-only; this is the write layer. Failure here must not break the dashboard.
     try {
       const { supabaseAdmin } = await import("@/lib/supabase");
-      const { data: updates, error } = await supabaseAdmin()
-        .from("complaint_updates")
-        .select("complaint_id, field, value, updated_by, created_at")
-        .order("created_at", { ascending: true }); // later rows win when reduced below
-      if (error) throw error;
+      // Supabase caps each query at 1000 rows — page through ALL of them,
+      // otherwise updates beyond the first 1000 silently never overlay.
+      const updates: { complaint_id: string; field: string; value: string | null; updated_by: string; created_at: string }[] = [];
+      const PAGE = 1000;
+      for (let from = 0; ; from += PAGE) {
+        const { data: batch, error } = await supabaseAdmin()
+          .from("complaint_updates")
+          .select("complaint_id, field, value, updated_by, created_at")
+          .order("created_at", { ascending: true }) // later rows win when reduced below
+          .range(from, from + PAGE - 1);
+        if (error) throw error;
+        if (!batch || batch.length === 0) break;
+        updates.push(...batch);
+        if (batch.length < PAGE) break;
+      }
 
       if (updates && updates.length > 0) {
         const latest = new Map<string, { value: string; by: string; at: string }>();
